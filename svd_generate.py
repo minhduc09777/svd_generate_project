@@ -69,7 +69,7 @@ class struct_periheral:
         self.peripheral_name = peripheral_name
         self.peripheral = get_peripheral(device, peripheral_name)
         self.registers = [struct_register(device, peripheral_name, r.name) for r in self.peripheral.registers]
-
+        self.registers.sort(key=lambda r: r.address_offset)
     
     def generate_struct(self):
         gen_content = f"// {self.peripheral.name} @ base_addess=0x{self.peripheral.base_address:08X}\n"

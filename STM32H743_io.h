@@ -749,56 +749,6 @@ typedef struct rcc_t {
         };
     } rsr_reg;
 
-    // C1_RSR @ offset=0x00000130
-    typedef struct c1_rsr_reg_t {
-        union {
-            uint32_t c1_rsr_reg;
-
-            // bit fields
-            struct {
-                uint32_t reserved0: 16;
-                uint32_t rmvf_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t cpurstf_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 1;
-                uint32_t d1rstf_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t d2rstf_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t borrstf_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t pinrstf_bit : 1; // bit offset=22  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t porrstf_bit : 1; // bit offset=23  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t sftrstf_bit : 1; // bit offset=24  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 1;
-                uint32_t iwdg1rstf_bit : 1; // bit offset=26  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved3: 1;
-                uint32_t wwdg1rstf_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved4: 1;
-                uint32_t lpwrrstf_bit : 1; // bit offset=30  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved5 : 1;
-            } c1_rsr_bits;
-        };
-    } c1_rsr_reg;
-
-    // C1_AHB3ENR @ offset=0x00000134
-    typedef struct c1_ahb3enr_reg_t {
-        union {
-            uint32_t c1_ahb3enr_reg;
-
-            // bit fields
-            struct {
-                uint32_t mdmaen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved0: 3;
-                uint32_t dma2den_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t jpgdecen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 6;
-                uint32_t fmcen_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 1;
-                uint32_t qspien_bit : 1; // bit offset=14  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved3: 1;
-                uint32_t sdmmc1en_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved4 : 15;
-            } c1_ahb3enr_bits;
-        };
-    } c1_ahb3enr_reg;
-
     // AHB3ENR @ offset=0x000000D4
     typedef struct ahb3enr_reg_t {
         union {
@@ -845,53 +795,6 @@ typedef struct rcc_t {
             } ahb1enr_bits;
         };
     } ahb1enr_reg;
-
-    // C1_AHB1ENR @ offset=0x00000138
-    typedef struct c1_ahb1enr_reg_t {
-        union {
-            uint32_t c1_ahb1enr_reg;
-
-            // bit fields
-            struct {
-                uint32_t dma1en_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t dma2en_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved0: 3;
-                uint32_t adc12en_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 9;
-                uint32_t eth1macen_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t eth1txen_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t eth1rxen_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 7;
-                uint32_t usb1otghsen_bit : 1; // bit offset=25  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usb1otghsulpien_bit : 1; // bit offset=26  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usb2otghsen_bit : 1; // bit offset=27  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usb2otghsulpien_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved3 : 3;
-            } c1_ahb1enr_bits;
-        };
-    } c1_ahb1enr_reg;
-
-    // C1_AHB2ENR @ offset=0x0000013C
-    typedef struct c1_ahb2enr_reg_t {
-        union {
-            uint32_t c1_ahb2enr_reg;
-
-            // bit fields
-            struct {
-                uint32_t dcmien_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved0: 3;
-                uint32_t crypten_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t hashen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t rngen_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 2;
-                uint32_t sdmmc2en_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 19;
-                uint32_t sram1en_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t sram2en_bit : 1; // bit offset=30  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t sram3en_bit : 1; // bit offset=31  bit width=1  access=SVDAccessType.READ_WRITE
-            } c1_ahb2enr_bits;
-        };
-    } c1_ahb2enr_reg;
 
     // AHB2ENR @ offset=0x000000DC
     typedef struct ahb2enr_reg_t {
@@ -947,54 +850,6 @@ typedef struct rcc_t {
         };
     } ahb4enr_reg;
 
-    // C1_AHB4ENR @ offset=0x00000140
-    typedef struct c1_ahb4enr_reg_t {
-        union {
-            uint32_t c1_ahb4enr_reg;
-
-            // bit fields
-            struct {
-                uint32_t gpioaen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpioben_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpiocen_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpioden_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpioeen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpiofen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpiogen_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpiohen_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpioien_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpiojen_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpioken_bit : 1; // bit offset=10  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved0: 8;
-                uint32_t crcen_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 1;
-                uint32_t bdmaen_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 2;
-                uint32_t adc3en_bit : 1; // bit offset=24  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t hsemen_bit : 1; // bit offset=25  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved3: 2;
-                uint32_t bkpramen_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved4 : 3;
-            } c1_ahb4enr_bits;
-        };
-    } c1_ahb4enr_reg;
-
-    // C1_APB3ENR @ offset=0x00000144
-    typedef struct c1_apb3enr_reg_t {
-        union {
-            uint32_t c1_apb3enr_reg;
-
-            // bit fields
-            struct {
-                uint32_t reserved0: 3;
-                uint32_t ltdcen_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 2;
-                uint32_t wwdg1en_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2 : 25;
-            } c1_apb3enr_bits;
-        };
-    } c1_apb3enr_reg;
-
     // APB3ENR @ offset=0x000000E4
     typedef struct apb3enr_reg_t {
         union {
@@ -1049,44 +904,6 @@ typedef struct rcc_t {
         };
     } apb1lenr_reg;
 
-    // C1_APB1LENR @ offset=0x00000148
-    typedef struct c1_apb1lenr_reg_t {
-        union {
-            uint32_t c1_apb1lenr_reg;
-
-            // bit fields
-            struct {
-                uint32_t tim2en_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim3en_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim4en_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim5en_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim6en_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim7en_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim12en_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim13en_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim14en_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t lptim1en_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved0: 4;
-                uint32_t spi2en_bit : 1; // bit offset=14  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t spi3en_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t spdifrxen_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usart2en_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usart3en_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t uart4en_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t uart5en_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t i2c1en_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t i2c2en_bit : 1; // bit offset=22  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t i2c3en_bit : 1; // bit offset=23  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 3;
-                uint32_t hdmicecen_bit : 1; // bit offset=27  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 1;
-                uint32_t dac12en_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usart7en_bit : 1; // bit offset=30  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usart8en_bit : 1; // bit offset=31  bit width=1  access=SVDAccessType.READ_WRITE
-            } c1_apb1lenr_bits;
-        };
-    } c1_apb1lenr_reg;
-
     // APB1HENR @ offset=0x000000EC
     typedef struct apb1henr_reg_t {
         union {
@@ -1106,58 +923,6 @@ typedef struct rcc_t {
             } apb1henr_bits;
         };
     } apb1henr_reg;
-
-    // C1_APB1HENR @ offset=0x0000014C
-    typedef struct c1_apb1henr_reg_t {
-        union {
-            uint32_t c1_apb1henr_reg;
-
-            // bit fields
-            struct {
-                uint32_t reserved0: 1;
-                uint32_t crsen_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t swpen_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 1;
-                uint32_t opampen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t mdiosen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 2;
-                uint32_t fdcanen_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved3 : 23;
-            } c1_apb1henr_bits;
-        };
-    } c1_apb1henr_reg;
-
-    // C1_APB2ENR @ offset=0x00000150
-    typedef struct c1_apb2enr_reg_t {
-        union {
-            uint32_t c1_apb2enr_reg;
-
-            // bit fields
-            struct {
-                uint32_t tim1en_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim8en_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved0: 2;
-                uint32_t usart1en_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usart6en_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 6;
-                uint32_t spi1en_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t spi4en_bit : 1; // bit offset=13  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 3;
-                uint32_t tim16en_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim15en_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim17en_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t spi5en_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved3: 1;
-                uint32_t sai1en_bit : 1; // bit offset=22  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t sai2en_bit : 1; // bit offset=23  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t sai3en_bit : 1; // bit offset=24  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved4: 3;
-                uint32_t dfsdm1en_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t hrtimen_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved5 : 2;
-            } c1_apb2enr_bits;
-        };
-    } c1_apb2enr_reg;
 
     // APB2ENR @ offset=0x000000F0
     typedef struct apb2enr_reg_t {
@@ -1222,6 +987,486 @@ typedef struct rcc_t {
         };
     } apb4enr_reg;
 
+    // AHB3LPENR @ offset=0x000000FC
+    typedef struct ahb3lpenr_reg_t {
+        union {
+            uint32_t ahb3lpenr_reg;
+
+            // bit fields
+            struct {
+                uint32_t mdmalpen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved0: 3;
+                uint32_t dma2dlpen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t jpgdeclpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 2;
+                uint32_t flashlpen_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 3;
+                uint32_t fmclpen_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved3: 1;
+                uint32_t qspilpen_bit : 1; // bit offset=14  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved4: 1;
+                uint32_t sdmmc1lpen_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved5: 11;
+                uint32_t d1dtcm1lpen_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t dtcm2lpen_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t itcmlpen_bit : 1; // bit offset=30  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t axisramlpen_bit : 1; // bit offset=31  bit width=1  access=SVDAccessType.READ_WRITE
+            } ahb3lpenr_bits;
+        };
+    } ahb3lpenr_reg;
+
+    // AHB1LPENR @ offset=0x00000100
+    typedef struct ahb1lpenr_reg_t {
+        union {
+            uint32_t ahb1lpenr_reg;
+
+            // bit fields
+            struct {
+                uint32_t dma1lpen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t dma2lpen_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved0: 3;
+                uint32_t adc12lpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 9;
+                uint32_t eth1maclpen_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t eth1txlpen_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t eth1rxlpen_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 7;
+                uint32_t usb1otghslpen_bit : 1; // bit offset=25  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usb1otghsulpilpen_bit : 1; // bit offset=26  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usb2otghslpen_bit : 1; // bit offset=27  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usb2otghsulpilpen_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved3 : 3;
+            } ahb1lpenr_bits;
+        };
+    } ahb1lpenr_reg;
+
+    // AHB2LPENR @ offset=0x00000104
+    typedef struct ahb2lpenr_reg_t {
+        union {
+            uint32_t ahb2lpenr_reg;
+
+            // bit fields
+            struct {
+                uint32_t camitflpen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved0: 3;
+                uint32_t cryptlpen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t hashlpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 3;
+                uint32_t sdmmc2lpen_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t rnglpen_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 18;
+                uint32_t sram1lpen_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t sram2lpen_bit : 1; // bit offset=30  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t sram3lpen_bit : 1; // bit offset=31  bit width=1  access=SVDAccessType.READ_WRITE
+            } ahb2lpenr_bits;
+        };
+    } ahb2lpenr_reg;
+
+    // AHB4LPENR @ offset=0x00000108
+    typedef struct ahb4lpenr_reg_t {
+        union {
+            uint32_t ahb4lpenr_reg;
+
+            // bit fields
+            struct {
+                uint32_t gpioalpen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpioblpen_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpioclpen_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpiodlpen_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpioelpen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpioflpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpioglpen_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpiohlpen_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpioilpen_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpiojlpen_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpioklpen_bit : 1; // bit offset=10  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved0: 8;
+                uint32_t crclpen_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 1;
+                uint32_t bdmalpen_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 2;
+                uint32_t adc3lpen_bit : 1; // bit offset=24  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved3: 3;
+                uint32_t bkpramlpen_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t sram4lpen_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved4 : 2;
+            } ahb4lpenr_bits;
+        };
+    } ahb4lpenr_reg;
+
+    // APB3LPENR @ offset=0x0000010C
+    typedef struct apb3lpenr_reg_t {
+        union {
+            uint32_t apb3lpenr_reg;
+
+            // bit fields
+            struct {
+                uint32_t reserved0: 3;
+                uint32_t ltdclpen_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 2;
+                uint32_t wwdg1lpen_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2 : 25;
+            } apb3lpenr_bits;
+        };
+    } apb3lpenr_reg;
+
+    // APB1LLPENR @ offset=0x00000110
+    typedef struct apb1llpenr_reg_t {
+        union {
+            uint32_t apb1llpenr_reg;
+
+            // bit fields
+            struct {
+                uint32_t tim2lpen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim3lpen_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim4lpen_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim5lpen_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim6lpen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim7lpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim12lpen_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim13lpen_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim14lpen_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t lptim1lpen_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved0: 4;
+                uint32_t spi2lpen_bit : 1; // bit offset=14  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t spi3lpen_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t spdifrxlpen_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usart2lpen_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usart3lpen_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t uart4lpen_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t uart5lpen_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t i2c1lpen_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t i2c2lpen_bit : 1; // bit offset=22  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t i2c3lpen_bit : 1; // bit offset=23  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 3;
+                uint32_t hdmiceclpen_bit : 1; // bit offset=27  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 1;
+                uint32_t dac12lpen_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usart7lpen_bit : 1; // bit offset=30  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usart8lpen_bit : 1; // bit offset=31  bit width=1  access=SVDAccessType.READ_WRITE
+            } apb1llpenr_bits;
+        };
+    } apb1llpenr_reg;
+
+    // APB1HLPENR @ offset=0x00000114
+    typedef struct apb1hlpenr_reg_t {
+        union {
+            uint32_t apb1hlpenr_reg;
+
+            // bit fields
+            struct {
+                uint32_t reserved0: 1;
+                uint32_t crslpen_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t swplpen_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 1;
+                uint32_t opamplpen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t mdioslpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 2;
+                uint32_t fdcanlpen_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved3 : 23;
+            } apb1hlpenr_bits;
+        };
+    } apb1hlpenr_reg;
+
+    // APB2LPENR @ offset=0x00000118
+    typedef struct apb2lpenr_reg_t {
+        union {
+            uint32_t apb2lpenr_reg;
+
+            // bit fields
+            struct {
+                uint32_t tim1lpen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim8lpen_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved0: 2;
+                uint32_t usart1lpen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usart6lpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 6;
+                uint32_t spi1lpen_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t spi4lpen_bit : 1; // bit offset=13  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 2;
+                uint32_t tim15lpen_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim16lpen_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim17lpen_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved3: 1;
+                uint32_t spi5lpen_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved4: 1;
+                uint32_t sai1lpen_bit : 1; // bit offset=22  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t sai2lpen_bit : 1; // bit offset=23  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t sai3lpen_bit : 1; // bit offset=24  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved5: 3;
+                uint32_t dfsdm1lpen_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t hrtimlpen_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved6 : 2;
+            } apb2lpenr_bits;
+        };
+    } apb2lpenr_reg;
+
+    // APB4LPENR @ offset=0x0000011C
+    typedef struct apb4lpenr_reg_t {
+        union {
+            uint32_t apb4lpenr_reg;
+
+            // bit fields
+            struct {
+                uint32_t reserved0: 1;
+                uint32_t syscfglpen_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 1;
+                uint32_t lpuart1lpen_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 1;
+                uint32_t spi6lpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved3: 1;
+                uint32_t i2c4lpen_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved4: 1;
+                uint32_t lptim2lpen_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t lptim3lpen_bit : 1; // bit offset=10  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t lptim4lpen_bit : 1; // bit offset=11  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t lptim5lpen_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved5: 1;
+                uint32_t comp12lpen_bit : 1; // bit offset=14  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t vreflpen_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t rtcapblpen_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved6: 4;
+                uint32_t sai4lpen_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved7 : 10;
+            } apb4lpenr_bits;
+        };
+    } apb4lpenr_reg;
+
+    // C1_RSR @ offset=0x00000130
+    typedef struct c1_rsr_reg_t {
+        union {
+            uint32_t c1_rsr_reg;
+
+            // bit fields
+            struct {
+                uint32_t reserved0: 16;
+                uint32_t rmvf_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t cpurstf_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 1;
+                uint32_t d1rstf_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t d2rstf_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t borrstf_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t pinrstf_bit : 1; // bit offset=22  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t porrstf_bit : 1; // bit offset=23  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t sftrstf_bit : 1; // bit offset=24  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 1;
+                uint32_t iwdg1rstf_bit : 1; // bit offset=26  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved3: 1;
+                uint32_t wwdg1rstf_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved4: 1;
+                uint32_t lpwrrstf_bit : 1; // bit offset=30  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved5 : 1;
+            } c1_rsr_bits;
+        };
+    } c1_rsr_reg;
+
+    // C1_AHB3ENR @ offset=0x00000134
+    typedef struct c1_ahb3enr_reg_t {
+        union {
+            uint32_t c1_ahb3enr_reg;
+
+            // bit fields
+            struct {
+                uint32_t mdmaen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved0: 3;
+                uint32_t dma2den_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t jpgdecen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 6;
+                uint32_t fmcen_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 1;
+                uint32_t qspien_bit : 1; // bit offset=14  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved3: 1;
+                uint32_t sdmmc1en_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved4 : 15;
+            } c1_ahb3enr_bits;
+        };
+    } c1_ahb3enr_reg;
+
+    // C1_AHB1ENR @ offset=0x00000138
+    typedef struct c1_ahb1enr_reg_t {
+        union {
+            uint32_t c1_ahb1enr_reg;
+
+            // bit fields
+            struct {
+                uint32_t dma1en_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t dma2en_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved0: 3;
+                uint32_t adc12en_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 9;
+                uint32_t eth1macen_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t eth1txen_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t eth1rxen_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 7;
+                uint32_t usb1otghsen_bit : 1; // bit offset=25  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usb1otghsulpien_bit : 1; // bit offset=26  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usb2otghsen_bit : 1; // bit offset=27  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usb2otghsulpien_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved3 : 3;
+            } c1_ahb1enr_bits;
+        };
+    } c1_ahb1enr_reg;
+
+    // C1_AHB2ENR @ offset=0x0000013C
+    typedef struct c1_ahb2enr_reg_t {
+        union {
+            uint32_t c1_ahb2enr_reg;
+
+            // bit fields
+            struct {
+                uint32_t dcmien_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved0: 3;
+                uint32_t crypten_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t hashen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t rngen_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 2;
+                uint32_t sdmmc2en_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 19;
+                uint32_t sram1en_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t sram2en_bit : 1; // bit offset=30  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t sram3en_bit : 1; // bit offset=31  bit width=1  access=SVDAccessType.READ_WRITE
+            } c1_ahb2enr_bits;
+        };
+    } c1_ahb2enr_reg;
+
+    // C1_AHB4ENR @ offset=0x00000140
+    typedef struct c1_ahb4enr_reg_t {
+        union {
+            uint32_t c1_ahb4enr_reg;
+
+            // bit fields
+            struct {
+                uint32_t gpioaen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpioben_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpiocen_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpioden_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpioeen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpiofen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpiogen_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpiohen_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpioien_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpiojen_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t gpioken_bit : 1; // bit offset=10  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved0: 8;
+                uint32_t crcen_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 1;
+                uint32_t bdmaen_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 2;
+                uint32_t adc3en_bit : 1; // bit offset=24  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t hsemen_bit : 1; // bit offset=25  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved3: 2;
+                uint32_t bkpramen_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved4 : 3;
+            } c1_ahb4enr_bits;
+        };
+    } c1_ahb4enr_reg;
+
+    // C1_APB3ENR @ offset=0x00000144
+    typedef struct c1_apb3enr_reg_t {
+        union {
+            uint32_t c1_apb3enr_reg;
+
+            // bit fields
+            struct {
+                uint32_t reserved0: 3;
+                uint32_t ltdcen_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 2;
+                uint32_t wwdg1en_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2 : 25;
+            } c1_apb3enr_bits;
+        };
+    } c1_apb3enr_reg;
+
+    // C1_APB1LENR @ offset=0x00000148
+    typedef struct c1_apb1lenr_reg_t {
+        union {
+            uint32_t c1_apb1lenr_reg;
+
+            // bit fields
+            struct {
+                uint32_t tim2en_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim3en_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim4en_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim5en_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim6en_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim7en_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim12en_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim13en_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim14en_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t lptim1en_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved0: 4;
+                uint32_t spi2en_bit : 1; // bit offset=14  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t spi3en_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t spdifrxen_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usart2en_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usart3en_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t uart4en_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t uart5en_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t i2c1en_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t i2c2en_bit : 1; // bit offset=22  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t i2c3en_bit : 1; // bit offset=23  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 3;
+                uint32_t hdmicecen_bit : 1; // bit offset=27  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 1;
+                uint32_t dac12en_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usart7en_bit : 1; // bit offset=30  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usart8en_bit : 1; // bit offset=31  bit width=1  access=SVDAccessType.READ_WRITE
+            } c1_apb1lenr_bits;
+        };
+    } c1_apb1lenr_reg;
+
+    // C1_APB1HENR @ offset=0x0000014C
+    typedef struct c1_apb1henr_reg_t {
+        union {
+            uint32_t c1_apb1henr_reg;
+
+            // bit fields
+            struct {
+                uint32_t reserved0: 1;
+                uint32_t crsen_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t swpen_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 1;
+                uint32_t opampen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t mdiosen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 2;
+                uint32_t fdcanen_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved3 : 23;
+            } c1_apb1henr_bits;
+        };
+    } c1_apb1henr_reg;
+
+    // C1_APB2ENR @ offset=0x00000150
+    typedef struct c1_apb2enr_reg_t {
+        union {
+            uint32_t c1_apb2enr_reg;
+
+            // bit fields
+            struct {
+                uint32_t tim1en_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim8en_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved0: 2;
+                uint32_t usart1en_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t usart6en_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved1: 6;
+                uint32_t spi1en_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t spi4en_bit : 1; // bit offset=13  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved2: 3;
+                uint32_t tim16en_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim15en_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t tim17en_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t spi5en_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved3: 1;
+                uint32_t sai1en_bit : 1; // bit offset=22  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t sai2en_bit : 1; // bit offset=23  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t sai3en_bit : 1; // bit offset=24  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved4: 3;
+                uint32_t dfsdm1en_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t hrtimen_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
+                uint32_t reserved5 : 2;
+            } c1_apb2enr_bits;
+        };
+    } c1_apb2enr_reg;
+
     // C1_APB4ENR @ offset=0x00000154
     typedef struct c1_apb4enr_reg_t {
         union {
@@ -1281,59 +1526,6 @@ typedef struct rcc_t {
         };
     } c1_ahb3lpenr_reg;
 
-    // AHB3LPENR @ offset=0x000000FC
-    typedef struct ahb3lpenr_reg_t {
-        union {
-            uint32_t ahb3lpenr_reg;
-
-            // bit fields
-            struct {
-                uint32_t mdmalpen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved0: 3;
-                uint32_t dma2dlpen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t jpgdeclpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 2;
-                uint32_t flashlpen_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 3;
-                uint32_t fmclpen_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved3: 1;
-                uint32_t qspilpen_bit : 1; // bit offset=14  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved4: 1;
-                uint32_t sdmmc1lpen_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved5: 11;
-                uint32_t d1dtcm1lpen_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t dtcm2lpen_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t itcmlpen_bit : 1; // bit offset=30  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t axisramlpen_bit : 1; // bit offset=31  bit width=1  access=SVDAccessType.READ_WRITE
-            } ahb3lpenr_bits;
-        };
-    } ahb3lpenr_reg;
-
-    // AHB1LPENR @ offset=0x00000100
-    typedef struct ahb1lpenr_reg_t {
-        union {
-            uint32_t ahb1lpenr_reg;
-
-            // bit fields
-            struct {
-                uint32_t dma1lpen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t dma2lpen_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved0: 3;
-                uint32_t adc12lpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 9;
-                uint32_t eth1maclpen_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t eth1txlpen_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t eth1rxlpen_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 7;
-                uint32_t usb1otghslpen_bit : 1; // bit offset=25  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usb1otghsulpilpen_bit : 1; // bit offset=26  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usb2otghslpen_bit : 1; // bit offset=27  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usb2otghsulpilpen_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved3 : 3;
-            } ahb1lpenr_bits;
-        };
-    } ahb1lpenr_reg;
-
     // C1_AHB1LPENR @ offset=0x00000160
     typedef struct c1_ahb1lpenr_reg_t {
         union {
@@ -1380,60 +1572,6 @@ typedef struct rcc_t {
             } c1_ahb2lpenr_bits;
         };
     } c1_ahb2lpenr_reg;
-
-    // AHB2LPENR @ offset=0x00000104
-    typedef struct ahb2lpenr_reg_t {
-        union {
-            uint32_t ahb2lpenr_reg;
-
-            // bit fields
-            struct {
-                uint32_t camitflpen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved0: 3;
-                uint32_t cryptlpen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t hashlpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 3;
-                uint32_t sdmmc2lpen_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t rnglpen_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 18;
-                uint32_t sram1lpen_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t sram2lpen_bit : 1; // bit offset=30  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t sram3lpen_bit : 1; // bit offset=31  bit width=1  access=SVDAccessType.READ_WRITE
-            } ahb2lpenr_bits;
-        };
-    } ahb2lpenr_reg;
-
-    // AHB4LPENR @ offset=0x00000108
-    typedef struct ahb4lpenr_reg_t {
-        union {
-            uint32_t ahb4lpenr_reg;
-
-            // bit fields
-            struct {
-                uint32_t gpioalpen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpioblpen_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpioclpen_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpiodlpen_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpioelpen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpioflpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpioglpen_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpiohlpen_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpioilpen_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpiojlpen_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t gpioklpen_bit : 1; // bit offset=10  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved0: 8;
-                uint32_t crclpen_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 1;
-                uint32_t bdmalpen_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 2;
-                uint32_t adc3lpen_bit : 1; // bit offset=24  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved3: 3;
-                uint32_t bkpramlpen_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t sram4lpen_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved4 : 2;
-            } ahb4lpenr_bits;
-        };
-    } ahb4lpenr_reg;
 
     // C1_AHB4LPENR @ offset=0x00000168
     typedef struct c1_ahb4lpenr_reg_t {
@@ -1482,60 +1620,6 @@ typedef struct rcc_t {
             } c1_apb3lpenr_bits;
         };
     } c1_apb3lpenr_reg;
-
-    // APB3LPENR @ offset=0x0000010C
-    typedef struct apb3lpenr_reg_t {
-        union {
-            uint32_t apb3lpenr_reg;
-
-            // bit fields
-            struct {
-                uint32_t reserved0: 3;
-                uint32_t ltdclpen_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 2;
-                uint32_t wwdg1lpen_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2 : 25;
-            } apb3lpenr_bits;
-        };
-    } apb3lpenr_reg;
-
-    // APB1LLPENR @ offset=0x00000110
-    typedef struct apb1llpenr_reg_t {
-        union {
-            uint32_t apb1llpenr_reg;
-
-            // bit fields
-            struct {
-                uint32_t tim2lpen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim3lpen_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim4lpen_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim5lpen_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim6lpen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim7lpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim12lpen_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim13lpen_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim14lpen_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t lptim1lpen_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved0: 4;
-                uint32_t spi2lpen_bit : 1; // bit offset=14  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t spi3lpen_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t spdifrxlpen_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usart2lpen_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usart3lpen_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t uart4lpen_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t uart5lpen_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t i2c1lpen_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t i2c2lpen_bit : 1; // bit offset=22  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t i2c3lpen_bit : 1; // bit offset=23  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 3;
-                uint32_t hdmiceclpen_bit : 1; // bit offset=27  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 1;
-                uint32_t dac12lpen_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usart7lpen_bit : 1; // bit offset=30  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usart8lpen_bit : 1; // bit offset=31  bit width=1  access=SVDAccessType.READ_WRITE
-            } apb1llpenr_bits;
-        };
-    } apb1llpenr_reg;
 
     // C1_APB1LLPENR @ offset=0x00000170
     typedef struct c1_apb1llpenr_reg_t {
@@ -1594,59 +1678,6 @@ typedef struct rcc_t {
             } c1_apb1hlpenr_bits;
         };
     } c1_apb1hlpenr_reg;
-
-    // APB1HLPENR @ offset=0x00000114
-    typedef struct apb1hlpenr_reg_t {
-        union {
-            uint32_t apb1hlpenr_reg;
-
-            // bit fields
-            struct {
-                uint32_t reserved0: 1;
-                uint32_t crslpen_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t swplpen_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 1;
-                uint32_t opamplpen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t mdioslpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 2;
-                uint32_t fdcanlpen_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved3 : 23;
-            } apb1hlpenr_bits;
-        };
-    } apb1hlpenr_reg;
-
-    // APB2LPENR @ offset=0x00000118
-    typedef struct apb2lpenr_reg_t {
-        union {
-            uint32_t apb2lpenr_reg;
-
-            // bit fields
-            struct {
-                uint32_t tim1lpen_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim8lpen_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved0: 2;
-                uint32_t usart1lpen_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t usart6lpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 6;
-                uint32_t spi1lpen_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t spi4lpen_bit : 1; // bit offset=13  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 2;
-                uint32_t tim15lpen_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim16lpen_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t tim17lpen_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved3: 1;
-                uint32_t spi5lpen_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved4: 1;
-                uint32_t sai1lpen_bit : 1; // bit offset=22  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t sai2lpen_bit : 1; // bit offset=23  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t sai3lpen_bit : 1; // bit offset=24  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved5: 3;
-                uint32_t dfsdm1lpen_bit : 1; // bit offset=28  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t hrtimlpen_bit : 1; // bit offset=29  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved6 : 2;
-            } apb2lpenr_bits;
-        };
-    } apb2lpenr_reg;
 
     // C1_APB2LPENR @ offset=0x00000178
     typedef struct c1_apb2lpenr_reg_t {
@@ -1711,36 +1742,5 @@ typedef struct rcc_t {
             } c1_apb4lpenr_bits;
         };
     } c1_apb4lpenr_reg;
-
-    // APB4LPENR @ offset=0x0000011C
-    typedef struct apb4lpenr_reg_t {
-        union {
-            uint32_t apb4lpenr_reg;
-
-            // bit fields
-            struct {
-                uint32_t reserved0: 1;
-                uint32_t syscfglpen_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 1;
-                uint32_t lpuart1lpen_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved2: 1;
-                uint32_t spi6lpen_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved3: 1;
-                uint32_t i2c4lpen_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved4: 1;
-                uint32_t lptim2lpen_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t lptim3lpen_bit : 1; // bit offset=10  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t lptim4lpen_bit : 1; // bit offset=11  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t lptim5lpen_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved5: 1;
-                uint32_t comp12lpen_bit : 1; // bit offset=14  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t vreflpen_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t rtcapblpen_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved6: 4;
-                uint32_t sai4lpen_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
-                uint32_t reserved7 : 10;
-            } apb4lpenr_bits;
-        };
-    } apb4lpenr_reg;
 
 } rcc_t;
