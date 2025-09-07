@@ -39,39 +39,42 @@ typedef struct rcc_t {
         };
     } cr_reg;
 
-    // ICSCR @ offset=0x00000004
-    typedef struct icscr_reg_t {
-        union {
-            uint32_t icscr_reg;
+    union {
+        // ICSCR @ offset=0x00000004
+        typedef struct icscr_reg_t {
+            union {
+                uint32_t icscr_reg;
 
-            // bit fields
-            struct {
-                uint32_t hsical_bit : 12; // bit offset=0  bit width=12  access=SVDAccessType.READ_ONLY
-                uint32_t reserved0: 11;
-                uint32_t hsitrim_bit : 6; // bit offset=12  bit width=6  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1: 5;
-                uint32_t csical_bit : 8; // bit offset=18  bit width=8  access=SVDAccessType.READ_ONLY
-                uint32_t reserved2: 7;
-                uint32_t csitrim_bit : 5; // bit offset=26  bit width=5  access=SVDAccessType.READ_WRITE
-                uint32_t reserved3 : 5;
-            } icscr_bits;
-        };
-    } icscr_reg;
+                // bit fields
+                struct {
+                    uint32_t hsical_bit : 12; // bit offset=0  bit width=12  access=SVDAccessType.READ_ONLY
+                    uint32_t reserved0: 11;
+                    uint32_t hsitrim_bit : 6; // bit offset=12  bit width=6  access=SVDAccessType.READ_WRITE
+                    uint32_t reserved1: 5;
+                    uint32_t csical_bit : 8; // bit offset=18  bit width=8  access=SVDAccessType.READ_ONLY
+                    uint32_t reserved2: 7;
+                    uint32_t csitrim_bit : 5; // bit offset=26  bit width=5  access=SVDAccessType.READ_WRITE
+                    uint32_t reserved3 : 5;
+                } icscr_bits;
+            };
+        } icscr_reg;
 
-    // HSICFGR @ offset=0x00000004
-    typedef struct hsicfgr_reg_t {
-        union {
-            uint32_t hsicfgr_reg;
+        // HSICFGR @ offset=0x00000004
+        typedef struct hsicfgr_reg_t {
+            union {
+                uint32_t hsicfgr_reg;
 
-            // bit fields
-            struct {
-                uint32_t hsical_bit : 12; // bit offset=0  bit width=12  access=SVDAccessType.READ_ONLY
-                uint32_t reserved0: 23;
-                uint32_t hsitrim_bit : 7; // bit offset=24  bit width=7  access=SVDAccessType.READ_WRITE
-                uint32_t reserved1 : 7;
-            } hsicfgr_bits;
-        };
-    } hsicfgr_reg;
+                // bit fields
+                struct {
+                    uint32_t hsical_bit : 12; // bit offset=0  bit width=12  access=SVDAccessType.READ_ONLY
+                    uint32_t reserved0: 23;
+                    uint32_t hsitrim_bit : 7; // bit offset=24  bit width=7  access=SVDAccessType.READ_WRITE
+                    uint32_t reserved1 : 7;
+                } hsicfgr_bits;
+            };
+        } hsicfgr_reg;
+
+    };
 
     // CRRCR @ offset=0x00000008
     uint32_t crrcr_reg;
@@ -105,6 +108,8 @@ typedef struct rcc_t {
             } cfgr_bits;
         };
     } cfgr_reg;
+
+    uint8_t reserved0[4];
 
     // D1CFGR @ offset=0x00000018
     typedef struct d1cfgr_reg_t {
@@ -141,6 +146,8 @@ typedef struct rcc_t {
 
     // D3CFGR @ offset=0x00000020
     uint32_t d3cfgr_reg;
+
+    uint8_t reserved1[4];
 
     // PLLCKSELR @ offset=0x00000028
     typedef struct pllckselr_reg_t {
@@ -260,6 +267,8 @@ typedef struct rcc_t {
     // PLL3FRACR @ offset=0x00000044
     uint32_t pll3fracr_reg;
 
+    uint8_t reserved2[4];
+
     // D1CCIPR @ offset=0x0000004C
     typedef struct d1ccipr_reg_t {
         union {
@@ -357,6 +366,8 @@ typedef struct rcc_t {
         };
     } d3ccipr_reg;
 
+    uint8_t reserved3[4];
+
     // CIER @ offset=0x00000060
     typedef struct cier_reg_t {
         union {
@@ -425,6 +436,8 @@ typedef struct rcc_t {
         };
     } cicr_reg;
 
+    uint8_t reserved4[4];
+
     // BDCR @ offset=0x00000070
     typedef struct bdcr_reg_t {
         union {
@@ -462,6 +475,8 @@ typedef struct rcc_t {
             } csr_bits;
         };
     } csr_reg;
+
+    uint8_t reserved5[4];
 
     // AHB3RSTR @ offset=0x0000007C
     typedef struct ahb3rstr_reg_t {
@@ -684,6 +699,8 @@ typedef struct rcc_t {
     // GCR @ offset=0x000000A0
     uint32_t gcr_reg;
 
+    uint8_t reserved6[4];
+
     // D3AMR @ offset=0x000000A8
     typedef struct d3amr_reg_t {
         union {
@@ -720,6 +737,8 @@ typedef struct rcc_t {
             } d3amr_bits;
         };
     } d3amr_reg;
+
+    uint8_t reserved7[36];
 
     // RSR @ offset=0x000000D0
     typedef struct rsr_reg_t {
@@ -987,6 +1006,8 @@ typedef struct rcc_t {
         };
     } apb4enr_reg;
 
+    uint8_t reserved8[4];
+
     // AHB3LPENR @ offset=0x000000FC
     typedef struct ahb3lpenr_reg_t {
         union {
@@ -1231,6 +1252,8 @@ typedef struct rcc_t {
             } apb4lpenr_bits;
         };
     } apb4lpenr_reg;
+
+    uint8_t reserved9[16];
 
     // C1_RSR @ offset=0x00000130
     typedef struct c1_rsr_reg_t {
@@ -1497,6 +1520,8 @@ typedef struct rcc_t {
             } c1_apb4enr_bits;
         };
     } c1_apb4enr_reg;
+
+    uint8_t reserved10[4];
 
     // C1_AHB3LPENR @ offset=0x0000015C
     typedef struct c1_ahb3lpenr_reg_t {

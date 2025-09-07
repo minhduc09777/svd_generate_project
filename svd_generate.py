@@ -70,14 +70,38 @@ class struct_periheral:
         self.peripheral = get_peripheral(device, peripheral_name)
         self.registers = [struct_register(device, peripheral_name, r.name) for r in self.peripheral.registers]
         self.registers.sort(key=lambda r: r.address_offset)
-    
+        self.registers_dict = {}
+        for r in self.registers:
+            if r.address_offset not in self.registers_dict:
+                self.registers_dict[r.address_offset] = [r]
+            else:
+                self.registers_dict[r.address_offset].append(r)
+
     def generate_struct(self):
         gen_content = f"// {self.peripheral.name} @ base_addess=0x{self.peripheral.base_address:08X}\n"
         gen_content += f"typedef struct {self.peripheral_name.lower()}_t {{\n\n"
 
-        for r in self.registers:
-            gen_content += f"    // {r.register_name} @ offset=0x{r.address_offset:08X}\n"
-            gen_content += r.generate_struct(indent=4, only_fields=False) + "\n"
+        list_tracking_length_offset = 0
+        count_reserved = 0
+        for key in self.registers_dict.keys():
+
+            offset_indent = 0
+            if len(self.registers_dict[key]) > 1:
+                gen_content += f"    union {{\n"
+                offset_indent = 4
+
+            for r in self.registers_dict[key]:
+                if list_tracking_length_offset < r.address_offset:
+                    gen_content += f"    uint8_t reserved{count_reserved}[{r.address_offset - list_tracking_length_offset}];\n\n"
+                    list_tracking_length_offset = r.address_offset
+                    count_reserved += 1
+                gen_content += offset_indent * " " + f"    // {r.register_name} @ offset=0x{r.address_offset:08X}\n"
+                gen_content += r.generate_struct(indent= 4 + offset_indent, only_fields=False) + "\n"
+                list_tracking_length_offset += 4
+
+            if len(self.registers_dict[key]) > 1:
+                gen_content += f"    }};\n\n"
+
         gen_content += f"}} {self.peripheral_name.lower()}_t;\n"
         return gen_content
 
