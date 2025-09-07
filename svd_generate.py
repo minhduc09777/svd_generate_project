@@ -46,7 +46,7 @@ class struct_register:
 
             if bit_off > list_tracking_length_offset:
                 gen_content += indent * " " + f"            uint{self.device_bit_width}_t reserved{count_reserved}: {bit_off - list_tracking_length_offset};\n"
-                list_tracking_length_offset = bit_off - 1
+                list_tracking_length_offset = bit_off
                 count_reserved += 1
             gen_content += indent * " " + f"            uint{self.device_bit_width}_t {f.name.lower()}_bit : {bit_wid}; // bit offset={bit_off}  bit width={bit_wid}  access={f.access}\n"
             list_tracking_length_offset += 1
