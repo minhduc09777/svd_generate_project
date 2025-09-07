@@ -29,7 +29,7 @@ class struct_register:
             print(gen_content)
             return gen_content
 
-        gen_content = indent * " " + f"typedef struct {self.register_name.lower()}_reg_t {{\n"
+        gen_content = indent * " " + f"struct {{\n"
         gen_content += indent * " " + f"    union {{\n"
         gen_content += indent * " " + f"        uint{self.device_bit_width}_t {self.register_name.lower()}_reg;\n\n"
         gen_content += indent * " " + f"        // bit fields\n"
@@ -60,7 +60,7 @@ class struct_register:
         gen_content += indent * " " + f"        }} {self.register_name.lower()}_bits;\n"
         gen_content += indent * " " + f"    }};\n"
 
-        gen_content += indent * " " + f"}} {self.register_name.lower()}_reg;\n"
+        gen_content += indent * " " + f"}};\n"
         print(gen_content)
         return gen_content
 
@@ -148,5 +148,6 @@ if __name__ == "__main__":
     #     f.write(PLLCFGR.generate_struct())
 
     RCC_reg = struct_periheral(device, "RCC")
+    GPIOA_reg = struct_periheral(device, "GPIOA")
     with open(f"{device.name}_io.h", "w") as f:
         f.write(RCC_reg.generate_struct())
