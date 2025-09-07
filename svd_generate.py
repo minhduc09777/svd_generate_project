@@ -20,6 +20,8 @@ class struct_register:
         self.device_bit_width = device.width
         peri_infor=get_register(device, peripheral_name, register_name)
         self.fields = peri_infor[0].fields
+        self.address_offset = peri_infor[2]
+        self.reset_value = peri_infor[3]
     
     def generate_struct(self, indent=0, only_fields=False):
         if not self.fields or len(self.fields) == 1 or only_fields:
@@ -67,10 +69,14 @@ class struct_periheral:
         self.peripheral_name = peripheral_name
         self.peripheral = get_peripheral(device, peripheral_name)
         self.registers = [struct_register(device, peripheral_name, r.name) for r in self.peripheral.registers]
+
     
     def generate_struct(self):
-        gen_content = f"typedef struct {self.peripheral_name.lower()}_t {{\n\n"
+        gen_content = f"// {self.peripheral.name} @ base_addess=0x{self.peripheral.base_address:08X}\n"
+        gen_content += f"typedef struct {self.peripheral_name.lower()}_t {{\n\n"
+
         for r in self.registers:
+            gen_content += f"    // {r.register_name} @ offset=0x{r.address_offset:08X}\n"
             gen_content += r.generate_struct(indent=4, only_fields=False) + "\n"
         gen_content += f"}} {self.peripheral_name.lower()}_t;\n"
         return gen_content

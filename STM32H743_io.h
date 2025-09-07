@@ -1,5 +1,7 @@
+// RCC @ base_addess=0x58024400
 typedef struct rcc_t {
 
+    // CR @ offset=0x00000000
     typedef struct cr_reg_t {
         union {
             uint32_t cr_reg;
@@ -37,6 +39,7 @@ typedef struct rcc_t {
         };
     } cr_reg;
 
+    // ICSCR @ offset=0x00000004
     typedef struct icscr_reg_t {
         union {
             uint32_t icscr_reg;
@@ -55,6 +58,7 @@ typedef struct rcc_t {
         };
     } icscr_reg;
 
+    // HSICFGR @ offset=0x00000004
     typedef struct hsicfgr_reg_t {
         union {
             uint32_t hsicfgr_reg;
@@ -69,8 +73,10 @@ typedef struct rcc_t {
         };
     } hsicfgr_reg;
 
+    // CRRCR @ offset=0x00000008
     uint32_t crrcr_reg;
 
+    // CFGR @ offset=0x00000010
     typedef struct cfgr_reg_t {
         union {
             uint32_t cfgr_reg;
@@ -100,6 +106,7 @@ typedef struct rcc_t {
         };
     } cfgr_reg;
 
+    // D1CFGR @ offset=0x00000018
     typedef struct d1cfgr_reg_t {
         union {
             uint32_t d1cfgr_reg;
@@ -116,6 +123,7 @@ typedef struct rcc_t {
         };
     } d1cfgr_reg;
 
+    // D2CFGR @ offset=0x0000001C
     typedef struct d2cfgr_reg_t {
         union {
             uint32_t d2cfgr_reg;
@@ -131,8 +139,10 @@ typedef struct rcc_t {
         };
     } d2cfgr_reg;
 
+    // D3CFGR @ offset=0x00000020
     uint32_t d3cfgr_reg;
 
+    // PLLCKSELR @ offset=0x00000028
     typedef struct pllckselr_reg_t {
         union {
             uint32_t pllckselr_reg;
@@ -151,6 +161,7 @@ typedef struct rcc_t {
         };
     } pllckselr_reg;
 
+    // PLLCFGR @ offset=0x0000002C
     typedef struct pllcfgr_reg_t {
         union {
             uint32_t pllcfgr_reg;
@@ -183,6 +194,7 @@ typedef struct rcc_t {
         };
     } pllcfgr_reg;
 
+    // PLL1DIVR @ offset=0x00000030
     typedef struct pll1divr_reg_t {
         union {
             uint32_t pll1divr_reg;
@@ -201,8 +213,10 @@ typedef struct rcc_t {
         };
     } pll1divr_reg;
 
+    // PLL1FRACR @ offset=0x00000034
     uint32_t pll1fracr_reg;
 
+    // PLL2DIVR @ offset=0x00000038
     typedef struct pll2divr_reg_t {
         union {
             uint32_t pll2divr_reg;
@@ -221,8 +235,10 @@ typedef struct rcc_t {
         };
     } pll2divr_reg;
 
+    // PLL2FRACR @ offset=0x0000003C
     uint32_t pll2fracr_reg;
 
+    // PLL3DIVR @ offset=0x00000040
     typedef struct pll3divr_reg_t {
         union {
             uint32_t pll3divr_reg;
@@ -241,8 +257,10 @@ typedef struct rcc_t {
         };
     } pll3divr_reg;
 
+    // PLL3FRACR @ offset=0x00000044
     uint32_t pll3fracr_reg;
 
+    // D1CCIPR @ offset=0x0000004C
     typedef struct d1ccipr_reg_t {
         union {
             uint32_t d1ccipr_reg;
@@ -261,6 +279,7 @@ typedef struct rcc_t {
         };
     } d1ccipr_reg;
 
+    // D2CCIP1R @ offset=0x00000050
     typedef struct d2ccip1r_reg_t {
         union {
             uint32_t d2ccip1r_reg;
@@ -286,6 +305,7 @@ typedef struct rcc_t {
         };
     } d2ccip1r_reg;
 
+    // D2CCIP2R @ offset=0x00000054
     typedef struct d2ccip2r_reg_t {
         union {
             uint32_t d2ccip2r_reg;
@@ -310,6 +330,7 @@ typedef struct rcc_t {
         };
     } d2ccip2r_reg;
 
+    // D3CCIPR @ offset=0x00000058
     typedef struct d3ccipr_reg_t {
         union {
             uint32_t d3ccipr_reg;
@@ -336,6 +357,7 @@ typedef struct rcc_t {
         };
     } d3ccipr_reg;
 
+    // CIER @ offset=0x00000060
     typedef struct cier_reg_t {
         union {
             uint32_t cier_reg;
@@ -357,6 +379,7 @@ typedef struct rcc_t {
         };
     } cier_reg;
 
+    // CIFR @ offset=0x00000064
     typedef struct cifr_reg_t {
         union {
             uint32_t cifr_reg;
@@ -379,6 +402,7 @@ typedef struct rcc_t {
         };
     } cifr_reg;
 
+    // CICR @ offset=0x00000068
     typedef struct cicr_reg_t {
         union {
             uint32_t cicr_reg;
@@ -401,6 +425,7 @@ typedef struct rcc_t {
         };
     } cicr_reg;
 
+    // BDCR @ offset=0x00000070
     typedef struct bdcr_reg_t {
         union {
             uint32_t bdcr_reg;
@@ -424,6 +449,7 @@ typedef struct rcc_t {
         };
     } bdcr_reg;
 
+    // CSR @ offset=0x00000074
     typedef struct csr_reg_t {
         union {
             uint32_t csr_reg;
@@ -437,6 +463,7 @@ typedef struct rcc_t {
         };
     } csr_reg;
 
+    // AHB3RSTR @ offset=0x0000007C
     typedef struct ahb3rstr_reg_t {
         union {
             uint32_t ahb3rstr_reg;
@@ -459,6 +486,7 @@ typedef struct rcc_t {
         };
     } ahb3rstr_reg;
 
+    // AHB1RSTR @ offset=0x00000080
     typedef struct ahb1rstr_reg_t {
         union {
             uint32_t ahb1rstr_reg;
@@ -480,6 +508,7 @@ typedef struct rcc_t {
         };
     } ahb1rstr_reg;
 
+    // AHB2RSTR @ offset=0x00000084
     typedef struct ahb2rstr_reg_t {
         union {
             uint32_t ahb2rstr_reg;
@@ -498,6 +527,7 @@ typedef struct rcc_t {
         };
     } ahb2rstr_reg;
 
+    // AHB4RSTR @ offset=0x00000088
     typedef struct ahb4rstr_reg_t {
         union {
             uint32_t ahb4rstr_reg;
@@ -527,8 +557,10 @@ typedef struct rcc_t {
         };
     } ahb4rstr_reg;
 
+    // APB3RSTR @ offset=0x0000008C
     uint32_t apb3rstr_reg;
 
+    // APB1LRSTR @ offset=0x00000090
     typedef struct apb1lrstr_reg_t {
         union {
             uint32_t apb1lrstr_reg;
@@ -566,6 +598,7 @@ typedef struct rcc_t {
         };
     } apb1lrstr_reg;
 
+    // APB1HRSTR @ offset=0x00000094
     typedef struct apb1hrstr_reg_t {
         union {
             uint32_t apb1hrstr_reg;
@@ -585,6 +618,7 @@ typedef struct rcc_t {
         };
     } apb1hrstr_reg;
 
+    // APB2RSTR @ offset=0x00000098
     typedef struct apb2rstr_reg_t {
         union {
             uint32_t apb2rstr_reg;
@@ -617,6 +651,7 @@ typedef struct rcc_t {
         };
     } apb2rstr_reg;
 
+    // APB4RSTR @ offset=0x0000009C
     typedef struct apb4rstr_reg_t {
         union {
             uint32_t apb4rstr_reg;
@@ -646,8 +681,10 @@ typedef struct rcc_t {
         };
     } apb4rstr_reg;
 
+    // GCR @ offset=0x000000A0
     uint32_t gcr_reg;
 
+    // D3AMR @ offset=0x000000A8
     typedef struct d3amr_reg_t {
         union {
             uint32_t d3amr_reg;
@@ -684,6 +721,7 @@ typedef struct rcc_t {
         };
     } d3amr_reg;
 
+    // RSR @ offset=0x000000D0
     typedef struct rsr_reg_t {
         union {
             uint32_t rsr_reg;
@@ -711,6 +749,7 @@ typedef struct rcc_t {
         };
     } rsr_reg;
 
+    // C1_RSR @ offset=0x00000130
     typedef struct c1_rsr_reg_t {
         union {
             uint32_t c1_rsr_reg;
@@ -738,6 +777,7 @@ typedef struct rcc_t {
         };
     } c1_rsr_reg;
 
+    // C1_AHB3ENR @ offset=0x00000134
     typedef struct c1_ahb3enr_reg_t {
         union {
             uint32_t c1_ahb3enr_reg;
@@ -759,6 +799,7 @@ typedef struct rcc_t {
         };
     } c1_ahb3enr_reg;
 
+    // AHB3ENR @ offset=0x000000D4
     typedef struct ahb3enr_reg_t {
         union {
             uint32_t ahb3enr_reg;
@@ -780,6 +821,7 @@ typedef struct rcc_t {
         };
     } ahb3enr_reg;
 
+    // AHB1ENR @ offset=0x000000D8
     typedef struct ahb1enr_reg_t {
         union {
             uint32_t ahb1enr_reg;
@@ -804,6 +846,7 @@ typedef struct rcc_t {
         };
     } ahb1enr_reg;
 
+    // C1_AHB1ENR @ offset=0x00000138
     typedef struct c1_ahb1enr_reg_t {
         union {
             uint32_t c1_ahb1enr_reg;
@@ -828,6 +871,7 @@ typedef struct rcc_t {
         };
     } c1_ahb1enr_reg;
 
+    // C1_AHB2ENR @ offset=0x0000013C
     typedef struct c1_ahb2enr_reg_t {
         union {
             uint32_t c1_ahb2enr_reg;
@@ -849,6 +893,7 @@ typedef struct rcc_t {
         };
     } c1_ahb2enr_reg;
 
+    // AHB2ENR @ offset=0x000000DC
     typedef struct ahb2enr_reg_t {
         union {
             uint32_t ahb2enr_reg;
@@ -870,6 +915,7 @@ typedef struct rcc_t {
         };
     } ahb2enr_reg;
 
+    // AHB4ENR @ offset=0x000000E0
     typedef struct ahb4enr_reg_t {
         union {
             uint32_t ahb4enr_reg;
@@ -901,6 +947,7 @@ typedef struct rcc_t {
         };
     } ahb4enr_reg;
 
+    // C1_AHB4ENR @ offset=0x00000140
     typedef struct c1_ahb4enr_reg_t {
         union {
             uint32_t c1_ahb4enr_reg;
@@ -932,6 +979,7 @@ typedef struct rcc_t {
         };
     } c1_ahb4enr_reg;
 
+    // C1_APB3ENR @ offset=0x00000144
     typedef struct c1_apb3enr_reg_t {
         union {
             uint32_t c1_apb3enr_reg;
@@ -947,6 +995,7 @@ typedef struct rcc_t {
         };
     } c1_apb3enr_reg;
 
+    // APB3ENR @ offset=0x000000E4
     typedef struct apb3enr_reg_t {
         union {
             uint32_t apb3enr_reg;
@@ -962,6 +1011,7 @@ typedef struct rcc_t {
         };
     } apb3enr_reg;
 
+    // APB1LENR @ offset=0x000000E8
     typedef struct apb1lenr_reg_t {
         union {
             uint32_t apb1lenr_reg;
@@ -999,6 +1049,7 @@ typedef struct rcc_t {
         };
     } apb1lenr_reg;
 
+    // C1_APB1LENR @ offset=0x00000148
     typedef struct c1_apb1lenr_reg_t {
         union {
             uint32_t c1_apb1lenr_reg;
@@ -1036,6 +1087,7 @@ typedef struct rcc_t {
         };
     } c1_apb1lenr_reg;
 
+    // APB1HENR @ offset=0x000000EC
     typedef struct apb1henr_reg_t {
         union {
             uint32_t apb1henr_reg;
@@ -1055,6 +1107,7 @@ typedef struct rcc_t {
         };
     } apb1henr_reg;
 
+    // C1_APB1HENR @ offset=0x0000014C
     typedef struct c1_apb1henr_reg_t {
         union {
             uint32_t c1_apb1henr_reg;
@@ -1074,6 +1127,7 @@ typedef struct rcc_t {
         };
     } c1_apb1henr_reg;
 
+    // C1_APB2ENR @ offset=0x00000150
     typedef struct c1_apb2enr_reg_t {
         union {
             uint32_t c1_apb2enr_reg;
@@ -1105,6 +1159,7 @@ typedef struct rcc_t {
         };
     } c1_apb2enr_reg;
 
+    // APB2ENR @ offset=0x000000F0
     typedef struct apb2enr_reg_t {
         union {
             uint32_t apb2enr_reg;
@@ -1136,6 +1191,7 @@ typedef struct rcc_t {
         };
     } apb2enr_reg;
 
+    // APB4ENR @ offset=0x000000F4
     typedef struct apb4enr_reg_t {
         union {
             uint32_t apb4enr_reg;
@@ -1166,6 +1222,7 @@ typedef struct rcc_t {
         };
     } apb4enr_reg;
 
+    // C1_APB4ENR @ offset=0x00000154
     typedef struct c1_apb4enr_reg_t {
         union {
             uint32_t c1_apb4enr_reg;
@@ -1196,6 +1253,7 @@ typedef struct rcc_t {
         };
     } c1_apb4enr_reg;
 
+    // C1_AHB3LPENR @ offset=0x0000015C
     typedef struct c1_ahb3lpenr_reg_t {
         union {
             uint32_t c1_ahb3lpenr_reg;
@@ -1223,6 +1281,7 @@ typedef struct rcc_t {
         };
     } c1_ahb3lpenr_reg;
 
+    // AHB3LPENR @ offset=0x000000FC
     typedef struct ahb3lpenr_reg_t {
         union {
             uint32_t ahb3lpenr_reg;
@@ -1250,6 +1309,7 @@ typedef struct rcc_t {
         };
     } ahb3lpenr_reg;
 
+    // AHB1LPENR @ offset=0x00000100
     typedef struct ahb1lpenr_reg_t {
         union {
             uint32_t ahb1lpenr_reg;
@@ -1274,6 +1334,7 @@ typedef struct rcc_t {
         };
     } ahb1lpenr_reg;
 
+    // C1_AHB1LPENR @ offset=0x00000160
     typedef struct c1_ahb1lpenr_reg_t {
         union {
             uint32_t c1_ahb1lpenr_reg;
@@ -1298,6 +1359,7 @@ typedef struct rcc_t {
         };
     } c1_ahb1lpenr_reg;
 
+    // C1_AHB2LPENR @ offset=0x00000164
     typedef struct c1_ahb2lpenr_reg_t {
         union {
             uint32_t c1_ahb2lpenr_reg;
@@ -1319,6 +1381,7 @@ typedef struct rcc_t {
         };
     } c1_ahb2lpenr_reg;
 
+    // AHB2LPENR @ offset=0x00000104
     typedef struct ahb2lpenr_reg_t {
         union {
             uint32_t ahb2lpenr_reg;
@@ -1340,6 +1403,7 @@ typedef struct rcc_t {
         };
     } ahb2lpenr_reg;
 
+    // AHB4LPENR @ offset=0x00000108
     typedef struct ahb4lpenr_reg_t {
         union {
             uint32_t ahb4lpenr_reg;
@@ -1371,6 +1435,7 @@ typedef struct rcc_t {
         };
     } ahb4lpenr_reg;
 
+    // C1_AHB4LPENR @ offset=0x00000168
     typedef struct c1_ahb4lpenr_reg_t {
         union {
             uint32_t c1_ahb4lpenr_reg;
@@ -1402,6 +1467,7 @@ typedef struct rcc_t {
         };
     } c1_ahb4lpenr_reg;
 
+    // C1_APB3LPENR @ offset=0x0000016C
     typedef struct c1_apb3lpenr_reg_t {
         union {
             uint32_t c1_apb3lpenr_reg;
@@ -1417,6 +1483,7 @@ typedef struct rcc_t {
         };
     } c1_apb3lpenr_reg;
 
+    // APB3LPENR @ offset=0x0000010C
     typedef struct apb3lpenr_reg_t {
         union {
             uint32_t apb3lpenr_reg;
@@ -1432,6 +1499,7 @@ typedef struct rcc_t {
         };
     } apb3lpenr_reg;
 
+    // APB1LLPENR @ offset=0x00000110
     typedef struct apb1llpenr_reg_t {
         union {
             uint32_t apb1llpenr_reg;
@@ -1469,6 +1537,7 @@ typedef struct rcc_t {
         };
     } apb1llpenr_reg;
 
+    // C1_APB1LLPENR @ offset=0x00000170
     typedef struct c1_apb1llpenr_reg_t {
         union {
             uint32_t c1_apb1llpenr_reg;
@@ -1506,6 +1575,7 @@ typedef struct rcc_t {
         };
     } c1_apb1llpenr_reg;
 
+    // C1_APB1HLPENR @ offset=0x00000174
     typedef struct c1_apb1hlpenr_reg_t {
         union {
             uint32_t c1_apb1hlpenr_reg;
@@ -1525,6 +1595,7 @@ typedef struct rcc_t {
         };
     } c1_apb1hlpenr_reg;
 
+    // APB1HLPENR @ offset=0x00000114
     typedef struct apb1hlpenr_reg_t {
         union {
             uint32_t apb1hlpenr_reg;
@@ -1544,6 +1615,7 @@ typedef struct rcc_t {
         };
     } apb1hlpenr_reg;
 
+    // APB2LPENR @ offset=0x00000118
     typedef struct apb2lpenr_reg_t {
         union {
             uint32_t apb2lpenr_reg;
@@ -1576,6 +1648,7 @@ typedef struct rcc_t {
         };
     } apb2lpenr_reg;
 
+    // C1_APB2LPENR @ offset=0x00000178
     typedef struct c1_apb2lpenr_reg_t {
         union {
             uint32_t c1_apb2lpenr_reg;
@@ -1608,6 +1681,7 @@ typedef struct rcc_t {
         };
     } c1_apb2lpenr_reg;
 
+    // C1_APB4LPENR @ offset=0x0000017C
     typedef struct c1_apb4lpenr_reg_t {
         union {
             uint32_t c1_apb4lpenr_reg;
@@ -1638,6 +1712,7 @@ typedef struct rcc_t {
         };
     } c1_apb4lpenr_reg;
 
+    // APB4LPENR @ offset=0x0000011C
     typedef struct apb4lpenr_reg_t {
         union {
             uint32_t apb4lpenr_reg;
