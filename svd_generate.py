@@ -103,6 +103,18 @@ class struct_periheral:
         gen_content += f"}} {self.peripheral_name.lower()}_t;\n\n"
         return gen_content
 
+class struct_device:
+    def __init__(self, device):
+        self.device = device
+        self.peripherals = [struct_periheral(device, p.name) for p in device.peripherals]
+        self.peripherals.sort(key=lambda p: p.peripheral.base_address)
+    
+    def generate_struct(self):
+        gen_content = f"// Device {self.device.name}\n\n"
+        for p in self.peripherals:
+            gen_content += p.generate_struct()
+        return gen_content
+
 def show_register_infor(register, base_address=0):
     abs_addr = base_address + register.address_offset
     print(f"  {register.name:<24} @ +0x{register.address_offset:04X} = 0x{abs_addr:08X}  reset={register.reset_value:08X}")
@@ -147,6 +159,8 @@ if __name__ == "__main__":
 
     RCC_reg = struct_periheral(device, "RCC")
     GPIOA_reg = struct_periheral(device, "GPIOA")
+    stm32h743 = struct_device(device)
     with open(f"{device.name}_io.h", "w") as f:
-        f.write(RCC_reg.generate_struct())
-        f.write(GPIOA_reg.generate_struct())
+        # f.write(RCC_reg.generate_struct())
+        # f.write(GPIOA_reg.generate_struct())
+        f.write(stm32h743.generate_struct())
