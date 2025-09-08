@@ -25,13 +25,13 @@ class struct_register:
     
     def generate_struct(self, indent=0, only_fields=False):
         if not self.fields or len(self.fields) == 1 or only_fields:
-            gen_content = indent * " " + f"uint{self.device_bit_width}_t {self.register_name.lower()}_reg;\n"
+            gen_content = indent * " " + f"__IO uint{self.device_bit_width}_t {self.register_name.lower()}_reg;\n"
             print(gen_content)
             return gen_content
 
         hierachy_level=[0*" ", 4*" ", 8*" "]
         gen_content = indent * " " + f"union {{\n"
-        gen_content += indent * " " + hierachy_level[1] + f"uint{self.device_bit_width}_t {self.register_name.lower()}_reg;\n\n"
+        gen_content += indent * " " + hierachy_level[1] + f"__IO uint{self.device_bit_width}_t {self.register_name.lower()}_reg;\n\n"
         gen_content += indent * " " + hierachy_level[1] + f"// bit fields\n"
         gen_content += indent * " " + hierachy_level[1] + f"struct {{\n"
 
@@ -47,14 +47,14 @@ class struct_register:
                 bit_wid = f.msb - f.lsb + 1
 
             if bit_off > list_tracking_length_offset:
-                gen_content += indent * " " + hierachy_level[2] + f"uint{self.device_bit_width}_t reserved{count_reserved}: {bit_off - list_tracking_length_offset};\n"
+                gen_content += indent * " " + hierachy_level[2] + f"__IO uint{self.device_bit_width}_t reserved{count_reserved}: {bit_off - list_tracking_length_offset};\n"
                 list_tracking_length_offset = bit_off
                 count_reserved += 1
-            gen_content += indent * " " + hierachy_level[2] + f"uint{self.device_bit_width}_t {f.name.lower()}_bit : {bit_wid}; // bit offset={bit_off}  bit width={bit_wid}  access={f.access}\n"
+            gen_content += indent * " " + hierachy_level[2] + f"__IO uint{self.device_bit_width}_t {f.name.lower()}_bit : {bit_wid}; // bit offset={bit_off}  bit width={bit_wid}  access={f.access}\n"
             list_tracking_length_offset += 1
         
         if list_tracking_length_offset < self.device_bit_width:
-            gen_content += indent * " " + hierachy_level[2] + f"uint{self.device_bit_width}_t reserved{count_reserved} : {self.device_bit_width - list_tracking_length_offset};\n"
+            gen_content += indent * " " + hierachy_level[2] + f"__IO uint{self.device_bit_width}_t reserved{count_reserved} : {self.device_bit_width - list_tracking_length_offset};\n"
             list_tracking_length_offset = self.device_bit_width
 
         gen_content += indent * " " + hierachy_level[1] + f"}} {self.register_name.lower()}_bits;\n"
@@ -91,7 +91,7 @@ class struct_periheral:
 
             for r in self.registers_dict[key]:
                 if list_tracking_length_offset < r.address_offset:
-                    gen_content += f"    uint8_t reserved{count_reserved}[{r.address_offset - list_tracking_length_offset}];\n\n"
+                    gen_content += f"    __IO uint8_t reserved{count_reserved}[{r.address_offset - list_tracking_length_offset}];\n\n"
                     list_tracking_length_offset = r.address_offset
                     count_reserved += 1
                 gen_content += offset_indent * " " + f"    // {r.register_name} @ offset=0x{r.address_offset:08X}\n"
