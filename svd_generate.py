@@ -107,12 +107,20 @@ class struct_device:
     def __init__(self, device):
         self.device = device
         self.peripherals = [struct_periheral(device, p.name) for p in device.peripherals]
-        self.peripherals.sort(key=lambda p: p.peripheral.base_address)
+        self.peripherals.sort(key=lambda p: p.peripheral_name)
     
     def generate_struct(self):
         gen_content = f"// Device {self.device.name}\n\n"
         for p in self.peripherals:
             gen_content += p.generate_struct()
+        return gen_content
+    
+    def generate_macro_define(self):
+        gen_content = "/*------------------------ Device Macro Define ---------------------*/\n"
+        gen_content += f"// Device {self.device.name}\n\n"
+        indent = 20
+        for p in self.peripherals:
+            gen_content += f"#define PERI_{p.peripheral_name.upper()}" + (indent-len(p.peripheral_name))*" " + f"(({p.peripheral_name.lower()}_t *) 0x{p.peripheral.base_address:08X})\n"
         return gen_content
 
 def show_register_infor(register, base_address=0):
@@ -164,3 +172,4 @@ if __name__ == "__main__":
         # f.write(RCC_reg.generate_struct())
         # f.write(GPIOA_reg.generate_struct())
         f.write(stm32h743.generate_struct())
+        f.write(stm32h743.generate_macro_define())
