@@ -10,18 +10,18 @@ def get_register(device, peripheral_name, register_name):
     peripheral = get_peripheral(device, peripheral_name)
     for r in peripheral.registers:
           if r.name == register_name:
-            return (r, peripheral.base_address, r.address_offset, r.reset_value)
+            return (r, peripheral.base_address, r.address_offset, r.reset_value, r.size)
     raise ValueError(f"register {register_name} not found")
 
 class struct_register:
     def __init__(self, device, peripheral_name, register_name):
         self.peripheral_name = peripheral_name
         self.register_name = register_name
-        self.device_bit_width = device.width
         peri_infor=get_register(device, peripheral_name, register_name)
         self.fields = peri_infor[0].fields
         self.address_offset = peri_infor[2]
         self.reset_value = peri_infor[3]
+        self.device_bit_width = peri_infor[4]
     
     def generate_struct(self, indent=0, only_fields=False):
         if not self.fields or len(self.fields) == 1 or only_fields:
@@ -29,11 +29,10 @@ class struct_register:
             print(gen_content)
             return gen_content
 
-        gen_content = indent * " " + f"struct {{\n"
-        gen_content += indent * " " + f"    union {{\n"
-        gen_content += indent * " " + f"        uint{self.device_bit_width}_t {self.register_name.lower()}_reg;\n\n"
-        gen_content += indent * " " + f"        // bit fields\n"
-        gen_content += indent * " " + f"        struct {{\n"
+        gen_content = indent * " " + f"union {{\n"
+        gen_content += indent * " " + f"    uint{self.device_bit_width}_t {self.register_name.lower()}_reg;\n\n"
+        gen_content += indent * " " + f"    // bit fields\n"
+        gen_content += indent * " " + f"    struct {{\n"
 
         list_tracking_length_offset = 0
         count_reserved = 0
@@ -47,20 +46,19 @@ class struct_register:
                 bit_wid = f.msb - f.lsb + 1
 
             if bit_off > list_tracking_length_offset:
-                gen_content += indent * " " + f"            uint{self.device_bit_width}_t reserved{count_reserved}: {bit_off - list_tracking_length_offset};\n"
+                gen_content += indent * " " + f"        uint{self.device_bit_width}_t reserved{count_reserved}: {bit_off - list_tracking_length_offset};\n"
                 list_tracking_length_offset = bit_off
                 count_reserved += 1
-            gen_content += indent * " " + f"            uint{self.device_bit_width}_t {f.name.lower()}_bit : {bit_wid}; // bit offset={bit_off}  bit width={bit_wid}  access={f.access}\n"
+            gen_content += indent * " " + f"        uint{self.device_bit_width}_t {f.name.lower()}_bit : {bit_wid}; // bit offset={bit_off}  bit width={bit_wid}  access={f.access}\n"
             list_tracking_length_offset += 1
         
         if list_tracking_length_offset < self.device_bit_width:
-            gen_content += indent * " " + f"            uint{self.device_bit_width}_t reserved{count_reserved} : {self.device_bit_width - list_tracking_length_offset};\n"
+            gen_content += indent * " " + f"        uint{self.device_bit_width}_t reserved{count_reserved} : {self.device_bit_width - list_tracking_length_offset};\n"
             list_tracking_length_offset = self.device_bit_width
 
-        gen_content += indent * " " + f"        }} {self.register_name.lower()}_bits;\n"
-        gen_content += indent * " " + f"    }};\n"
-
+        gen_content += indent * " " + f"    }} {self.register_name.lower()}_bits;\n"
         gen_content += indent * " " + f"}};\n"
+
         print(gen_content)
         return gen_content
 
@@ -78,7 +76,7 @@ class struct_periheral:
                 self.registers_dict[r.address_offset].append(r)
 
     def generate_struct(self):
-        gen_content = f"// {self.peripheral.name} @ base_addess=0x{self.peripheral.base_address:08X}\n"
+        gen_content = f"// Peripheral {self.peripheral.name} @ base_addess=0x{self.peripheral.base_address:08X}\n"
         gen_content += f"typedef struct {self.peripheral_name.lower()}_t {{\n\n"
 
         list_tracking_length_offset = 0
@@ -102,7 +100,7 @@ class struct_periheral:
             if len(self.registers_dict[key]) > 1:
                 gen_content += f"    }};\n\n"
 
-        gen_content += f"}} {self.peripheral_name.lower()}_t;\n"
+        gen_content += f"}} {self.peripheral_name.lower()}_t;\n\n"
         return gen_content
 
 def show_register_infor(register, base_address=0):
@@ -151,3 +149,4 @@ if __name__ == "__main__":
     GPIOA_reg = struct_periheral(device, "GPIOA")
     with open(f"{device.name}_io.h", "w") as f:
         f.write(RCC_reg.generate_struct())
+        f.write(GPIOA_reg.generate_struct())
