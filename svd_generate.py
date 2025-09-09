@@ -22,12 +22,15 @@ class struct_register:
         self.address_offset = peri_infor[2]
         self.reset_value = peri_infor[3]
         self.device_bit_width = peri_infor[4]
+        self
     
     def generate_struct(self, indent=0, only_fields=False):
         if not self.fields or len(self.fields) == 1 or only_fields:
             gen_content = indent * " " + f"__IO uint{self.device_bit_width}_t {self.register_name.lower()}_reg;\n"
             print(gen_content)
             return gen_content
+
+        self.fields.sort(key=lambda f: f.bit_offset if hasattr(f, "bit_offset") else (f.lsb if hasattr(f, "lsb") else 0))
 
         hierachy_level=[0*" ", 4*" ", 8*" "]
         gen_content = indent * " " + f"union {{\n"
