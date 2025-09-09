@@ -51,7 +51,7 @@ class struct_register:
                 list_tracking_length_offset = bit_off
                 count_reserved += 1
             gen_content += indent * " " + hierachy_level[2] + f"__IO uint{self.device_bit_width}_t {f.name.lower()}_bit : {bit_wid}; // bit offset={bit_off}  bit width={bit_wid}  access={f.access}\n"
-            list_tracking_length_offset += 1
+            list_tracking_length_offset = bit_off + bit_wid
         
         if list_tracking_length_offset < self.device_bit_width:
             gen_content += indent * " " + hierachy_level[2] + f"__IO uint{self.device_bit_width}_t reserved{count_reserved} : {self.device_bit_width - list_tracking_length_offset};\n"
@@ -96,7 +96,7 @@ class struct_periheral:
                     count_reserved += 1
                 gen_content += offset_indent * " " + f"    // {r.register_name} @ offset=0x{r.address_offset:08X}\n"
                 gen_content += r.generate_struct(indent= 4 + offset_indent, only_fields=False) + "\n"
-                list_tracking_length_offset += 4
+                list_tracking_length_offset = r.address_offset + r.device_bit_width // 8
 
             if len(self.registers_dict[key]) > 1:
                 gen_content += f"    }};\n\n"
@@ -168,9 +168,13 @@ if __name__ == "__main__":
 
     RCC_reg = struct_periheral(device, "RCC")
     GPIOA_reg = struct_periheral(device, "GPIOA")
+    GPIOB_reg = struct_periheral(device, "GPIOB")
+    GPIOE_reg = struct_periheral(device, "GPIOE")
     stm32h743 = struct_device(device)
     with open(f"{device.name}_io.h", "w") as f:
-        # f.write(RCC_reg.generate_struct())
+        f.write(RCC_reg.generate_struct())
+        f.write(GPIOB_reg.generate_struct())
+        f.write(GPIOE_reg.generate_struct())
         # f.write(GPIOA_reg.generate_struct())
-        f.write(stm32h743.generate_struct())
+        # f.write(stm32h743.generate_struct())
         f.write(stm32h743.generate_macro_define())
