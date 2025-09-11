@@ -175,6 +175,8 @@ if __name__ == "__main__":
     GPIOE_reg = struct_periheral(device, "GPIOE")
     stm32h743 = struct_device(device)
     with open(f"{device.name}_io.h", "w") as f:
+        f.write(f"#ifndef {device.name}_H_\n")
+        f.write(f"#define {device.name}_H_\n\n")
         f.write("#include <stdint.h>\n\n")
         f.write("#define __IO volatile\n\n")
         # f.write(RCC_reg.generate_struct())
@@ -183,3 +185,4 @@ if __name__ == "__main__":
         # f.write(GPIOA_reg.generate_struct())
         f.write(stm32h743.generate_struct())
         f.write(stm32h743.generate_macro_define())
+        f.write("\n\n#endif")

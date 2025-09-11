@@ -1,3 +1,6 @@
+#ifndef STM32H743_H_
+#define STM32H743_H_
+
 #include <stdint.h>
 
 #define __IO volatile
@@ -43403,3 +43406,6 @@ typedef struct wwdg_t {
 #define PERI_USART6              ((usart6_t *) 0x40011400)
 #define PERI_VREFBUF             ((vrefbuf_t *) 0x58003C00)
 #define PERI_WWDG                ((wwdg_t *) 0x50003000)
+
+
+#endif
