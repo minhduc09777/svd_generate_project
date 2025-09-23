@@ -27,7 +27,9 @@ typedef struct adc1_t {
             __IO uint32_t AWD2_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t AWD3_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t JQOVF_bit : 1; // bit offset=10  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0 : 21;
+            __IO uint32_t RESERVED0: 1;
+            __IO uint32_t LDORDY_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t RESERVED1 : 19;
         } ISR_bits;
     };
 
@@ -478,7 +480,9 @@ typedef struct adc2_t {
             __IO uint32_t AWD2_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t AWD3_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t JQOVF_bit : 1; // bit offset=10  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0 : 21;
+            __IO uint32_t RESERVED0: 1;
+            __IO uint32_t LDORDY_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t RESERVED1 : 19;
         } ISR_bits;
     };
 
@@ -855,7 +859,9 @@ typedef struct adc3_t {
             __IO uint32_t AWD2_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t AWD3_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t JQOVF_bit : 1; // bit offset=10  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0 : 21;
+            __IO uint32_t RESERVED0: 1;
+            __IO uint32_t LDORDY_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t RESERVED1 : 19;
         } ISR_bits;
     };
 

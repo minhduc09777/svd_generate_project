@@ -40804,6 +40804,12 @@ Writing 1 in each bit clears the corresponding overrun flag SOFx in the DMAMUX_C
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
+              <name>LDORDY</name>
+              <description>ADC LDO output voltage ready bit</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
               <name>JQOVF</name>
               <description>ADC group injected contexts queue
               overflow flag</description>
