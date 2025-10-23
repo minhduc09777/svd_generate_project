@@ -20,7 +20,7 @@ Copyright (c) 2025 STMicroelectronics.
   <name>STM32H743</name>
   <version>2.4</version>
   <description>STM32H743</description>
-   <cpu>
+  <cpu>
     <name>CM7</name>
     <revision>r0p1</revision>
     <endian>little</endian>
@@ -28,6 +28,8 @@ Copyright (c) 2025 STMicroelectronics.
     <fpuPresent>true</fpuPresent>
     <nvicPrioBits>4</nvicPrioBits>
     <vendorSystickConfig>false</vendorSystickConfig>
+    <icache>true</icache>
+    <dcache>true</dcache>
   </cpu>
   <addressUnitBits>8</addressUnitBits>
   <width>32</width>
