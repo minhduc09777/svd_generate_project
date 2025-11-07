@@ -1,4 +1,6 @@
 from cmsis_svd.parser import SVDParser
+import argparse
+import os, sys
 
 def get_peripheral(device, peripheral_name):
     for p in device.peripherals:
@@ -27,7 +29,7 @@ class struct_register:
     def generate_struct(self, indent=0, only_fields=False):
         if not self.fields or len(self.fields) == 1 or only_fields:
             gen_content = indent * " " + f"__IO uint{self.device_bit_width}_t {self.register_name.upper()}_reg;\n"
-            print(gen_content)
+            # print(gen_content)
             return gen_content
 
         self.fields.sort(key=lambda f: f.bit_offset if hasattr(f, "bit_offset") else (f.lsb if hasattr(f, "lsb") else 0))
@@ -63,7 +65,7 @@ class struct_register:
         gen_content += indent * " " + hierachy_level[1] + f"}} {self.register_name.upper()}_bits;\n"
         gen_content += indent * " " + f"}};\n"
 
-        print(gen_content)
+        # print(gen_content)
         return gen_content
 
 class struct_periheral:
@@ -162,17 +164,22 @@ def show_peripheral_infor(device, peripheral_name):
     print("-"*60)
 
 if __name__ == "__main__":
-    parser = SVDParser.for_xml_file("STM32H743.svd")
+
+    argument_parser = argparse.ArgumentParser()
+    argument_parser.add_argument("--device", type=str, help="Generate Device (ex: STM32H743)")
+    device_name = argument_parser.parse_args()
+    svd_file = f"{device_name.device}.svd"
+
+    if os.path.exists(svd_file):
+        print(f"generate IO define: {svd_file}")
+    else:
+        print(f"Not found file: {svd_file}")
+        sys.exit(1)
+
+
+    parser = SVDParser.for_xml_file(svd_file)
     device = parser.get_device()
 
-    # PLLCFGR = struct_register(device, "RCC", "PLLCFGR")
-    # with open(f"{device.name}_io.h", "w") as f:
-    #     f.write(PLLCFGR.generate_struct())
-
-    RCC_reg = struct_periheral(device, "RCC")
-    GPIOA_reg = struct_periheral(device, "GPIOA")
-    GPIOB_reg = struct_periheral(device, "GPIOB")
-    GPIOE_reg = struct_periheral(device, "GPIOE")
     stm32h743 = struct_device(device)
 
     wrapper = ""
@@ -186,10 +193,8 @@ if __name__ == "__main__":
         f.write("#include <stdint.h>\n\n")
         f.write("#define __IO volatile\n\n")
         f.write(wrapper)
-        # f.write(RCC_reg.generate_struct())
-        # f.write(GPIOB_reg.generate_struct())
-        # f.write(GPIOE_reg.generate_struct())
-        # f.write(GPIOA_reg.generate_struct())
         f.write(stm32h743.generate_struct())
         f.write(stm32h743.generate_macro_define())
         f.write("\n\n#endif")
+    
+    print("Generated successfully")
