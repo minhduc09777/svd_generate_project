@@ -1,4 +1,5 @@
 from cmsis_svd.parser import SVDParser
+
 import argparse
 import os, sys
 
@@ -24,7 +25,6 @@ class struct_register:
         self.address_offset = peri_infor[2]
         self.reset_value = peri_infor[3]
         self.device_bit_width = peri_infor[4]
-        self
     
     def generate_struct(self, indent=0, only_fields=False):
         if not self.fields or len(self.fields) == 1 or only_fields:
@@ -110,6 +110,7 @@ class struct_periheral:
         return gen_content
 
 class struct_device:
+     
     def __init__(self, device):
         self.device = device
         self.peripherals = [struct_periheral(device, p.name) for p in device.peripherals]
@@ -128,6 +129,51 @@ class struct_device:
         for p in self.peripherals:
             gen_content += f"#define PERI_{p.peripheral_name.upper()}" + (indent-len(p.peripheral_name))*" " + f"(({p.peripheral_name.lower()}_t *) 0x{p.peripheral.base_address:08X})\n"
         return gen_content
+    
+    def generate_macro_header(self):
+        gen_content =  f"#ifndef {self.device.name}_H_\n"
+        gen_content += f"#define {self.device.name}_H_\n\n"
+        gen_content += "#include <stdint.h>\n\n"
+        gen_content += "#define __IO volatile\n\n"
+        return gen_content
+
+    def generate_cpu_config_infor(self):
+        __DEVICE_REV = "__{}_REV"
+        __MPU_PRESENT = "__MPU_PRESENT"
+        __NVIC_PRIO_BITS = "__NVIC_PRIO_BITS"
+        __VENDOR_SYSTICKCONFIG = "__Vendor_SysTickConfig"
+        __FPU_PRESENT = "__FPU_PRESENT"
+
+        cpu = self.device.cpu
+        dict_cpu = dict()
+
+        cpu_revision = list(cpu.revision)
+        for i, item in enumerate(cpu_revision):
+            if item.isalpha():
+                cpu_revision[i] = "0"
+        
+        cpu_revision = "".join(cpu_revision)
+
+        dict_cpu[__DEVICE_REV.format(cpu.name.name)] = cpu_revision
+        dict_cpu[__MPU_PRESENT] = int(cpu.mpu_present)
+        dict_cpu[__NVIC_PRIO_BITS] = cpu.nvic_prio_bits
+        dict_cpu[__VENDOR_SYSTICKCONFIG] = cpu.vendor_systick_config
+        dict_cpu[__FPU_PRESENT] = int(cpu.fpu_present)
+
+        gen_content = "/* CPU information */\n"
+        indent = 33
+        for key, value in dict_cpu.items():
+            macro_part = "#define " + key
+            value_part = str(value)
+            space_name = indent - len(macro_part)
+            gen_content +=  macro_part + " " * space_name + value_part + "\n"
+        
+        gen_content += "\n"
+        return gen_content
+    
+    def generate_interrupt_event_enumerate(self):
+         
+
 
 def show_register_infor(register, base_address=0):
     abs_addr = base_address + register.address_offset
@@ -180,7 +226,7 @@ if __name__ == "__main__":
     parser = SVDParser.for_xml_file(svd_file)
     device = parser.get_device()
 
-    stm32h743 = struct_device(device)
+    iodefine_gen = struct_device(device)
 
     wrapper = ""
 
@@ -188,13 +234,11 @@ if __name__ == "__main__":
         wrapper = f.read()
         
     with open(f"{device.name}_io.h", "w") as f:
-        f.write(f"#ifndef {device.name}_H_\n")
-        f.write(f"#define {device.name}_H_\n\n")
-        f.write("#include <stdint.h>\n\n")
-        f.write("#define __IO volatile\n\n")
+        f.write(iodefine_gen.generate_macro_header())
+        f.write(iodefine_gen.generate_cpu_config_infor())
         f.write(wrapper)
-        f.write(stm32h743.generate_struct())
-        f.write(stm32h743.generate_macro_define())
+        f.write(iodefine_gen.generate_struct())
+        f.write(iodefine_gen.generate_macro_define())
         f.write("\n\n#endif")
     
     print("Generated successfully")
