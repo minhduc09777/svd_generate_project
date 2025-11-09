@@ -109,9 +109,53 @@ class struct_periheral:
         gen_content += f"}} {self.peripheral_name.lower()}_t;\n\n"
         return gen_content
 
+class interrupt_periheral:
+    def __init__(self, device, cortex):
+        self.cpu_interrupt = self.cortex_interrupt_support(cortex)
+        self.peripheral_interrupts = self.peripheral_interrupt_support(device)
+
+    def peripheral_interrupt_support(self, device):
+        peripherals = device.peripherals
+        interrupt_list = list()
+        for peripheral in peripherals:
+            if hasattr(peripheral, 'interrupts') and peripheral.interrupts:
+                interrupt_list += ({interrupt.name + "_IRQn": [interrupt.value, interrupt.description + " Interrupt"]} for interrupt in peripheral.interrupts)
+
+        interrupt_list.sort(key=lambda p: list(p.values())[0])
+        filter_list = list()
+        filter_interrupt_list = list()
+        for interrupt in interrupt_list:
+            for k, v in interrupt.items():
+                if v[0] not in filter_list:
+                    filter_list.append(v[0])
+                    filter_interrupt_list.append(interrupt)
+        return list(filter_interrupt_list)
+
+    def cortex_interrupt_support(self, cortex):
+        dict_cortex_support = {
+            "cortex-M": {
+            "NonMaskableInt_IRQn": [-14, "Non Maskable Interrupt"],
+            "HardFault_IRQn": [-13, "Hard Fault Interrupt"],
+            "MemoryManagement_IRQn": [-12, "Memory Management Interrupt"],
+            "BusFault_IRQn": [-11, "Bus Fault Interrupt"],
+            "UsageFault_IRQn": [-10, "Usage Fault Interrupt"],
+            "SVCall_IRQn": [-5, "SVCall Interrupt"],
+            "DebugMonitor_IRQn": [-4, "Debug Monitor Interrupt"],
+            "PendSV_IRQn": [-2, "PendSV Interrupt"],
+            "SysTick_IRQn": [-1, "SysTick Interrupt"],
+            }
+        }
+        if cortex in dict_cortex_support:
+            return dict_cortex_support[cortex]
+        else:
+            print("ERR: Not found cortex")
+            sys.exit(1)
+
+
 class struct_device:
      
-    def __init__(self, device):
+    def __init__(self, device, core):
+        self.core = core
         self.device = device
         self.peripherals = [struct_periheral(device, p.name) for p in device.peripherals]
         self.peripherals.sort(key=lambda p: p.peripheral_name)
@@ -172,8 +216,25 @@ class struct_device:
         return gen_content
     
     def generate_interrupt_event_enumerate(self):
-         
+        cortex_interrupt = interrupt_periheral(self.device, self.core)
 
+        indent = 28
+        gen_content = """/**
+* @brief Interrupt Number Definition, according to the selected device
+*        in @ref Library_configuration_section
+*/\n"""
+
+        gen_content += "typedef enum {\n"
+        gen_content += f"/****** {self.core} Processor Exceptions Numbers *******************************************************************/\n"
+        for interrupt_name, value in cortex_interrupt.cpu_interrupt.items():
+                gen_content += "  " + interrupt_name + " " * (indent - len(interrupt_name)) + "= " + str(value[0]) + "," + " " * (4 - len(str(value[0]))) + "/*!<" + value[1] + " "*(72-len(value[1])) + "*/\n"
+
+        for peripheral_interrupt in cortex_interrupt.peripheral_interrupts:
+            for interrupt_name, value in peripheral_interrupt.items():
+                gen_content += "  " + interrupt_name + " " * (indent - len(interrupt_name)) + "= " + str(value[0]) + "," + " " * (4 - len(str(value[0]))) + "/*!<" + value[1] + " "*(72-len(value[1])) + "*/\n"
+        
+        gen_content += "}\n\n"
+        return gen_content
 
 def show_register_infor(register, base_address=0):
     abs_addr = base_address + register.address_offset
@@ -213,8 +274,11 @@ if __name__ == "__main__":
 
     argument_parser = argparse.ArgumentParser()
     argument_parser.add_argument("--device", type=str, help="Generate Device (ex: STM32H743)")
-    device_name = argument_parser.parse_args()
-    svd_file = f"{device_name.device}.svd"
+    argument_parser.add_argument("--core", type=str, help="information core (ex: cortex-M)")
+    infor_device = argument_parser.parse_args()
+
+    svd_file = f"{infor_device.device}.svd"
+    core = infor_device.core
 
     if os.path.exists(svd_file):
         print(f"generate IO define: {svd_file}")
@@ -226,17 +290,14 @@ if __name__ == "__main__":
     parser = SVDParser.for_xml_file(svd_file)
     device = parser.get_device()
 
-    iodefine_gen = struct_device(device)
+    iodefine_gen = struct_device(device, core)
 
     wrapper = ""
-
-    with open(f"stm32H743xx_core_define_wraper.h", "r") as f:
-        wrapper = f.read()
         
     with open(f"{device.name}_io.h", "w") as f:
         f.write(iodefine_gen.generate_macro_header())
         f.write(iodefine_gen.generate_cpu_config_infor())
-        f.write(wrapper)
+        f.write(iodefine_gen.generate_interrupt_event_enumerate())
         f.write(iodefine_gen.generate_struct())
         f.write(iodefine_gen.generate_macro_define())
         f.write("\n\n#endif")
