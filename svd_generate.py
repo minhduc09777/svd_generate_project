@@ -278,23 +278,24 @@ if __name__ == "__main__":
     infor_device = argument_parser.parse_args()
 
     svd_file = f"{infor_device.device}.svd"
+    svd_path = f"{infor_device.device}/"
     core = infor_device.core
 
-    if os.path.exists(svd_file):
+    if os.path.exists(svd_path+svd_file):
         print(f"generate IO define: {svd_file}")
     else:
         print(f"Not found file: {svd_file}")
         sys.exit(1)
 
 
-    parser = SVDParser.for_xml_file(svd_file)
+    parser = SVDParser.for_xml_file(svd_path+svd_file)
     device = parser.get_device()
 
     iodefine_gen = struct_device(device, core)
 
     wrapper = ""
         
-    with open(f"{device.name}_io.h", "w") as f:
+    with open(f"{svd_path}/{device.name}_io.h", "w") as f:
         f.write(iodefine_gen.generate_macro_header())
         f.write(iodefine_gen.generate_cpu_config_infor())
         f.write(iodefine_gen.generate_interrupt_event_enumerate())
