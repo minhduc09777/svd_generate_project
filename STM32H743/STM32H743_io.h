@@ -166,7 +166,7 @@ typedef enum {
   CRS_IRQn                    = 144, /*!<Clock Recovery System globa Interrupt                                   */
   SAI4_IRQn                   = 146, /*!<SAI4 global interrupt Interrupt                                         */
   WKUP_IRQn                   = 149, /*!<WKUP1 to WKUP6 pins Interrupt                                           */
-} IRQn_Type
+} IRQn_Type;
 
 // Device STM32H743
 

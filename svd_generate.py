@@ -233,7 +233,7 @@ class struct_device:
             for interrupt_name, value in peripheral_interrupt.items():
                 gen_content += "  " + interrupt_name + " " * (indent - len(interrupt_name)) + "= " + str(value[0]) + "," + " " * (4 - len(str(value[0]))) + "/*!<" + value[1] + " "*(72-len(value[1])) + "*/\n"
         
-        gen_content += "} IRQn_Type\n\n"
+        gen_content += "} IRQn_Type;\n\n"
         return gen_content
 
 def show_register_infor(register, base_address=0):
