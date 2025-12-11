@@ -89,7 +89,7 @@ class yml_cfg_type:
             else:
                 return
     def generate(self, indent=1):
-        gen_data = ""
+        gen_data = "\n"
         level = [0, 1, 2, 3]
         for infor_type in self.collect_data_type:
             gen_data += " "*indent*level[0] + f"typedef struct {infor_type[0]} {{\n"

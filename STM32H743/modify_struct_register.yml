@@ -8,4 +8,15 @@ DMA$:
         DMA_Stream_x_Cfg
       data: [S#CR, S#NDTR, S#PAR, S#M0AR, S#M1AR, S#FCR]
       length: 8
+
+DMAMUX$:
+  unit: [1, 2]
+  array:
+    struct1:
+      struct_name:
+        dmamux_cxcr_reg_t
+      varname:
+        DMAMUX_CxCR_Reg
+      data: [DMAMUX_C#CR, ]
+      length: 16
         

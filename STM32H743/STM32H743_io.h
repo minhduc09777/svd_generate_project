@@ -169,6 +169,7 @@ typedef enum {
 } IRQn_Type;
 
 /*------------------------ Device type Define ---------------------*/
+
 typedef struct dma_stream_x_cfg_t {
   union {
       __IO uint32_t S0CR_reg;
@@ -218,6 +219,26 @@ typedef struct dma_stream_x_cfg_t {
           __IO uint32_t FEIE_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
           __IO uint32_t RESERVED1 : 24;
       } S0FCR_bits;
+  };
+  
+}
+typedef struct dmamux_cxcr_reg_t {
+  union {
+      __IO uint32_t DMAMUX_C0CR_reg;
+  
+      // bit fields
+      struct {
+          __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
+          __IO uint32_t RESERVED0: 1;
+          __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
+          __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
+          __IO uint32_t RESERVED1: 6;
+          __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
+          __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
+          __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
+          __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
+          __IO uint32_t RESERVED2 : 5;
+      } DMAMUX_C0CR_bits;
   };
   
 }
@@ -5069,311 +5090,8 @@ typedef struct dma2d_t {
 // Peripheral DMAMUX1 @ base_addess=0x40020800
 typedef struct dmamux1_t {
 
-    // DMAMUX_C0CR @ offset=0x00000000
-    union {
-        __IO uint32_t DMAMUX_C0CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C0CR_bits;
-    };
-
-    // DMAMUX_C1CR @ offset=0x00000004
-    union {
-        __IO uint32_t DMAMUX_C1CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C1CR_bits;
-    };
-
-    // DMAMUX_C2CR @ offset=0x00000008
-    union {
-        __IO uint32_t DMAMUX_C2CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C2CR_bits;
-    };
-
-    // DMAMUX_C3CR @ offset=0x0000000C
-    union {
-        __IO uint32_t DMAMUX_C3CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C3CR_bits;
-    };
-
-    // DMAMUX_C4CR @ offset=0x00000010
-    union {
-        __IO uint32_t DMAMUX_C4CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C4CR_bits;
-    };
-
-    // DMAMUX_C5CR @ offset=0x00000014
-    union {
-        __IO uint32_t DMAMUX_C5CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C5CR_bits;
-    };
-
-    // DMAMUX_C6CR @ offset=0x00000018
-    union {
-        __IO uint32_t DMAMUX_C6CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C6CR_bits;
-    };
-
-    // DMAMUX_C7CR @ offset=0x0000001C
-    union {
-        __IO uint32_t DMAMUX_C7CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C7CR_bits;
-    };
-
-    // DMAMUX_C8CR @ offset=0x00000020
-    union {
-        __IO uint32_t DMAMUX_C8CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C8CR_bits;
-    };
-
-    // DMAMUX_C9CR @ offset=0x00000024
-    union {
-        __IO uint32_t DMAMUX_C9CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C9CR_bits;
-    };
-
-    // DMAMUX_C10CR @ offset=0x00000028
-    union {
-        __IO uint32_t DMAMUX_C10CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C10CR_bits;
-    };
-
-    // DMAMUX_C11CR @ offset=0x0000002C
-    union {
-        __IO uint32_t DMAMUX_C11CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C11CR_bits;
-    };
-
-    // DMAMUX_C12CR @ offset=0x00000030
-    union {
-        __IO uint32_t DMAMUX_C12CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C12CR_bits;
-    };
-
-    // DMAMUX_C13CR @ offset=0x00000034
-    union {
-        __IO uint32_t DMAMUX_C13CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C13CR_bits;
-    };
-
-    // DMAMUX_C14CR @ offset=0x00000038
-    union {
-        __IO uint32_t DMAMUX_C14CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C14CR_bits;
-    };
-
-    // DMAMUX_C15CR @ offset=0x0000003C
-    union {
-        __IO uint32_t DMAMUX_C15CR_reg;
-
-        // bit fields
-        struct {
-            __IO uint32_t DMAREQ_ID_bit : 7; // bit offset=0  bit width=7  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED0: 1;
-            __IO uint32_t SOIE_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t EGE_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 6;
-            __IO uint32_t SE_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SPOL_bit : 2; // bit offset=17  bit width=2  access=SVDAccessType.READ_WRITE
-            __IO uint32_t NBREQ_bit : 5; // bit offset=19  bit width=5  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SYNC_ID_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED2 : 5;
-        } DMAMUX_C15CR_bits;
-    };
-
-    __IO uint8_t RESERVED0[64];
+    dmamux_cxcr_reg_t DMAMUX_CxCR_Reg[16];
+    __IO uint8_t RESERVED0[128];
 
     // DMAMUX_CSR @ offset=0x00000080
     union {
