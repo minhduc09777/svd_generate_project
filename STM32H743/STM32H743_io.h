@@ -170,7 +170,7 @@ typedef enum {
 
 /*------------------------ Device type Define ---------------------*/
 
-typedef struct dma_stream_x_cfg_t {
+typedef struct {
   union {
       __IO uint32_t S0CR_reg;
   
@@ -221,8 +221,9 @@ typedef struct dma_stream_x_cfg_t {
       } S0FCR_bits;
   };
   
-}
-typedef struct dmamux_cxcr_reg_t {
+} dma_stream_x_cfg_t;
+
+typedef struct {
   union {
       __IO uint32_t DMAMUX_C0CR_reg;
   
@@ -241,7 +242,8 @@ typedef struct dmamux_cxcr_reg_t {
       } DMAMUX_C0CR_bits;
   };
   
-}
+} dmamux_cxcr_reg_t;
+
 // Device STM32H743
 
 // Peripheral ADC1 @ base_addess=0x40022000

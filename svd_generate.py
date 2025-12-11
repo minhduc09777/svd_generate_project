@@ -92,7 +92,7 @@ class yml_cfg_type:
         gen_data = "\n"
         level = [0, 1, 2, 3]
         for infor_type in self.collect_data_type:
-            gen_data += " "*indent*level[0] + f"typedef struct {infor_type[0]} {{\n"
+            gen_data += " "*indent*level[0] + f"typedef struct {{\n"
             for item in infor_type[1]:
                 if item in self.collect_register_type.keys():
                     data_reg = self.collect_register_type[item]
@@ -102,7 +102,7 @@ class yml_cfg_type:
                 else:
                     gen_data += " "*indent*level[2] + f"  __IO uint32_t {item}_reg\n"
 
-            gen_data  += " "*indent*level[0] + f"}}"
+            gen_data  += " "*indent*level[0] + f"}} {infor_type[0]};\n"
         return gen_data
 
 
