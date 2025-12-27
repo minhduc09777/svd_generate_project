@@ -19,4 +19,3 @@ DMAMUX$:
         DMAMUX_CxCR_Reg
       data: [DMAMUX_C#CR, ]
       length: 16
-        

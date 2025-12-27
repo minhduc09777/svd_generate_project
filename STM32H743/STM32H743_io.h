@@ -18112,16 +18112,7 @@ typedef struct i2c1_t {
 
         // bit fields
         struct {
-            __IO uint32_t SADD0_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD1_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD2_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD3_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD4_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD5_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD6_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD7_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD8_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD9_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t SADD_bit : 10; // bit offset=0  bit width=10  access=SVDAccessType.READ_WRITE
             __IO uint32_t RD_WRN_bit : 1; // bit offset=10  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ADD10_bit : 1; // bit offset=11  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t HEAD10R_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
@@ -18296,16 +18287,7 @@ typedef struct i2c2_t {
 
         // bit fields
         struct {
-            __IO uint32_t SADD0_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD1_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD2_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD3_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD4_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD5_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD6_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD7_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD8_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD9_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t SADD_bit : 10; // bit offset=0  bit width=10  access=SVDAccessType.READ_WRITE
             __IO uint32_t RD_WRN_bit : 1; // bit offset=10  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ADD10_bit : 1; // bit offset=11  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t HEAD10R_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
@@ -18480,16 +18462,7 @@ typedef struct i2c3_t {
 
         // bit fields
         struct {
-            __IO uint32_t SADD0_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD1_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD2_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD3_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD4_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD5_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD6_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD7_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD8_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD9_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t SADD_bit : 10; // bit offset=0  bit width=10  access=SVDAccessType.READ_WRITE
             __IO uint32_t RD_WRN_bit : 1; // bit offset=10  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ADD10_bit : 1; // bit offset=11  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t HEAD10R_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE
@@ -18664,16 +18637,7 @@ typedef struct i2c4_t {
 
         // bit fields
         struct {
-            __IO uint32_t SADD0_bit : 1; // bit offset=0  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD1_bit : 1; // bit offset=1  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD2_bit : 1; // bit offset=2  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD3_bit : 1; // bit offset=3  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD4_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD5_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD6_bit : 1; // bit offset=6  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD7_bit : 1; // bit offset=7  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD8_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t SADD9_bit : 1; // bit offset=9  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t SADD_bit : 10; // bit offset=0  bit width=10  access=SVDAccessType.READ_WRITE
             __IO uint32_t RD_WRN_bit : 1; // bit offset=10  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ADD10_bit : 1; // bit offset=11  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t HEAD10R_bit : 1; // bit offset=12  bit width=1  access=SVDAccessType.READ_WRITE

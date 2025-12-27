@@ -17443,7 +17443,7 @@ Writing 1 in each bit clears the corresponding overrun flag SOFx in the DMAMUX_C
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
-              <name>SADD0</name>
+              <name>SADD</name>
               <description>Slave address bit 0 (master mode) In
               7-bit addressing mode (ADD10 = 0): This bit is dont
               care In 10-bit addressing mode (ADD10 = 1): This bit
@@ -17451,115 +17451,7 @@ Writing 1 in each bit clears the corresponding overrun flag SOFx in the DMAMUX_C
               be sent Note: Changing these bits when the START bit
               is set is not allowed.</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>SADD1</name>
-              <description>Slave address bit 7:1 (master mode) In
-              7-bit addressing mode (ADD10 = 0): These bits should
-              be written with the 7-bit slave address to be sent In
-              10-bit addressing mode (ADD10 = 1): These bits should
-              be written with bits 7:1 of the slave address to be
-              sent. Note: Changing these bits when the START bit is
-              set is not allowed.</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>SADD2</name>
-              <description>Slave address bit 7:1 (master mode) In
-              7-bit addressing mode (ADD10 = 0): These bits should
-              be written with the 7-bit slave address to be sent In
-              10-bit addressing mode (ADD10 = 1): These bits should
-              be written with bits 7:1 of the slave address to be
-              sent. Note: Changing these bits when the START bit is
-              set is not allowed.</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>SADD3</name>
-              <description>Slave address bit 7:1 (master mode) In
-              7-bit addressing mode (ADD10 = 0): These bits should
-              be written with the 7-bit slave address to be sent In
-              10-bit addressing mode (ADD10 = 1): These bits should
-              be written with bits 7:1 of the slave address to be
-              sent. Note: Changing these bits when the START bit is
-              set is not allowed.</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>SADD4</name>
-              <description>Slave address bit 7:1 (master mode) In
-              7-bit addressing mode (ADD10 = 0): These bits should
-              be written with the 7-bit slave address to be sent In
-              10-bit addressing mode (ADD10 = 1): These bits should
-              be written with bits 7:1 of the slave address to be
-              sent. Note: Changing these bits when the START bit is
-              set is not allowed.</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>SADD5</name>
-              <description>Slave address bit 7:1 (master mode) In
-              7-bit addressing mode (ADD10 = 0): These bits should
-              be written with the 7-bit slave address to be sent In
-              10-bit addressing mode (ADD10 = 1): These bits should
-              be written with bits 7:1 of the slave address to be
-              sent. Note: Changing these bits when the START bit is
-              set is not allowed.</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>SADD6</name>
-              <description>Slave address bit 7:1 (master mode) In
-              7-bit addressing mode (ADD10 = 0): These bits should
-              be written with the 7-bit slave address to be sent In
-              10-bit addressing mode (ADD10 = 1): These bits should
-              be written with bits 7:1 of the slave address to be
-              sent. Note: Changing these bits when the START bit is
-              set is not allowed.</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>SADD7</name>
-              <description>Slave address bit 7:1 (master mode) In
-              7-bit addressing mode (ADD10 = 0): These bits should
-              be written with the 7-bit slave address to be sent In
-              10-bit addressing mode (ADD10 = 1): These bits should
-              be written with bits 7:1 of the slave address to be
-              sent. Note: Changing these bits when the START bit is
-              set is not allowed.</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>SADD8</name>
-              <description>Slave address bit 9:8 (master mode) In
-              7-bit addressing mode (ADD10 = 0): These bits are
-              dont care In 10-bit addressing mode (ADD10 = 1):
-              These bits should be written with bits 9:8 of the
-              slave address to be sent Note: Changing these bits
-              when the START bit is set is not
-              allowed.</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-            </field>
-            <field>
-              <name>SADD9</name>
-              <description>Slave address bit 9:8 (master mode) In
-              7-bit addressing mode (ADD10 = 0): These bits are
-              dont care In 10-bit addressing mode (ADD10 = 1):
-              These bits should be written with bits 9:8 of the
-              slave address to be sent Note: Changing these bits
-              when the START bit is set is not
-              allowed.</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
+              <bitWidth>10</bitWidth>
             </field>
             <field>
               <name>RD_WRN</name>
