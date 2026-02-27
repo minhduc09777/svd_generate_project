@@ -1,23 +1,33 @@
-from cmsis_svd.parser import SVDParser
-import yaml
+"""SVD file parser and code generator for microcontroller peripheral definitions."""
 
 import argparse
-import os, sys
+import os
+import sys
 
-def get_peripheral(device, peripheral_name):
+import yaml
+from cmsis_svd.parser import SVDParser
+
+def get_peripheral(device, peripheral_name: str):
+    """Get a peripheral by name from the device."""
     for p in device.peripherals:
-          if p.name == peripheral_name:
+        if p.name == peripheral_name:
             return p
-    raise ValueError(f"Peripheral {peripheral_name} not found")
+    raise ValueError(f"Peripheral '{peripheral_name}' not found in device")
 
-def get_register(device, peripheral_name, register_name):
+def get_register(device, peripheral_name: str, register_name: str):
+    """Get a register by name from a specific peripheral.
+    
+    Returns: Tuple of (register, base_address, address_offset, reset_value, size)
+    """
     peripheral = get_peripheral(device, peripheral_name)
     for r in peripheral.registers:
-          if r.name == register_name:
+        if r.name == register_name:
             return (r, peripheral.base_address, r.address_offset, r.reset_value, r.size)
-    raise ValueError(f"register {register_name} not found")
+    raise ValueError(f"Register '{register_name}' not found in peripheral '{peripheral_name}'")
 
-class yml_type_array:
+class YamlArrayType:
+    """Represents array type definitions from YAML configuration."""
+    
     def __init__(self, yml_array_type):
         self.structs = []
         self.collect_peri_gen = []
@@ -33,10 +43,11 @@ class yml_type_array:
                 if "#" in reg:
                     for i in range(v["length"]):
                         data.append(reg.replace("#", str(i)))
-            self.structs.append([v["struct_name"], v["varname"],  v["length"], data, False])
+            self.structs.append([v["struct_name"], v["varname"], v["length"], data, False])
     def generate(self, register_name, peri):
+        """Generate array structure code if register matches."""
         for struct in self.structs:
-            if (struct[4] == True) and (peri in self.collect_peri_gen):
+            if struct[4] and peri in self.collect_peri_gen:
                 return None
             if register_name in struct[3]:
                 struct[4] = True
@@ -44,7 +55,9 @@ class yml_type_array:
                 return f"{struct[0]} {struct[1]}[{struct[2]}];\n"
     
             
-class yml_cfg_type:
+class YamlConfigType:
+    """Represents peripheral configuration from YAML."""
+    
     def __init__(self, yml_peripheral_cfg, unit_number="0"):
         self.type = {"array": None, "var": None}
         self.collect_register = []
@@ -73,14 +86,15 @@ class yml_cfg_type:
                             if unit_reg not in self.collect_unit_register:
                                 self.index_unit[unit_reg]= index
                                 self.collect_unit_register.append(unit_reg)
-            self.type["array"] = yml_type_array(yml_peripheral_cfg["array"])
+            self.type["array"] = YamlArrayType(yml_peripheral_cfg["array"])
         
-        for infor_type in self.collect_data_type:
-            for i, item in enumerate(infor_type[1]):
+        for info_type in self.collect_data_type:
+            for i, item in enumerate(info_type[1]):
                 if "#" in item:
-                    infor_type[1][i] = item.replace("#", "x")
+                    info_type[1][i] = item.replace("#", "x")
 
-    def get_register_type_infor(self, data_dict):
+    def get_register_type_info(self, data_dict):
+        """Get register type information from data dictionary."""
         for k, v in data_dict.items():
             if k in self.collect_unit_register:
                 key = list(k)
@@ -89,11 +103,12 @@ class yml_cfg_type:
             else:
                 return
     def generate(self, indent=1):
+        """Generate structure definitions."""
         gen_data = "\n"
         level = [0, 1, 2, 3]
-        for infor_type in self.collect_data_type:
+        for info_type in self.collect_data_type:
             gen_data += " "*indent*level[0] + f"typedef struct {{\n"
-            for item in infor_type[1]:
+            for item in info_type[1]:
                 if item in self.collect_register_type.keys():
                     data_reg = self.collect_register_type[item]
                     list_data_reg = data_reg.split("\n")
@@ -102,11 +117,13 @@ class yml_cfg_type:
                 else:
                     gen_data += " "*indent*level[2] + f"  __IO uint32_t {item}_reg\n"
 
-            gen_data  += " "*indent*level[0] + f"}} {infor_type[0]};\n"
+            gen_data += " "*indent*level[0] + f"}} {info_type[0]};\n"
         return gen_data
 
 
-class yaml_cfg_register:
+class YamlConfigRegister:
+    """Manages register configurations from YAML."""
+    
     def __init__(self, yml_cfg):
         self.yml_cfg = yml_cfg
         self.peripheral_names = []
@@ -114,7 +131,7 @@ class yaml_cfg_register:
             unit = None
             if "$" in k:
                 unit = v["unit"]
-            self.peripheral_names.append({k: yml_cfg_type(v), "unit": unit})
+            self.peripheral_names.append({k: YamlConfigType(v), "unit": unit})
 
         self.collect_modify_perripheral_names = {}
         for index, p in enumerate(self.peripheral_names):
@@ -132,7 +149,9 @@ class yaml_cfg_register:
                 else:
                     self.collect_modify_perripheral_names[k] = (k, index)
 
-class struct_register:
+class StructRegister:
+    """Represents a hardware register structure."""
+    
     def __init__(self, device, peripheral_name, register_name, modify_register):
         self.peripheral_name = peripheral_name
         self.register_name = register_name
@@ -142,23 +161,20 @@ class struct_register:
         self.reset_value = peri_infor[3]
         self.device_bit_width = peri_infor[4]
         self.modify_register = modify_register
-        # if self.modify_register != None:
-        #     print(self.register_name)
-        #     print(self.modify_register)
     
     def generate_struct(self, indent=0, only_fields=False):
+        """Generate C struct definition for this register."""
         if not self.fields or len(self.fields) == 1 or only_fields:
             gen_content = indent * " " + f"__IO uint{self.device_bit_width}_t {self.register_name.upper()}_reg;\n"
-            # print(gen_content)
             return gen_content
 
         self.fields.sort(key=lambda f: f.bit_offset if hasattr(f, "bit_offset") else (f.lsb if hasattr(f, "lsb") else 0))
 
-        hierachy_level=[0*" ", 4*" ", 8*" "]
+        hierarchy_level = [0*" ", 4*" ", 8*" "]
         gen_content = indent * " " + f"union {{\n"
-        gen_content += indent * " " + hierachy_level[1] + f"__IO uint{self.device_bit_width}_t {self.register_name.upper()}_reg;\n\n"
-        gen_content += indent * " " + hierachy_level[1] + f"// bit fields\n"
-        gen_content += indent * " " + hierachy_level[1] + f"struct {{\n"
+        gen_content += indent * " " + hierarchy_level[1] + f"__IO uint{self.device_bit_width}_t {self.register_name.upper()}_reg;\n\n"
+        gen_content += indent * " " + hierarchy_level[1] + f"// bit fields\n"
+        gen_content += indent * " " + hierarchy_level[1] + f"struct {{\n"
 
         list_tracking_length_offset = 0
         count_reserved = 0
@@ -172,24 +188,25 @@ class struct_register:
                 bit_wid = f.msb - f.lsb + 1
 
             if bit_off > list_tracking_length_offset:
-                gen_content += indent * " " + hierachy_level[2] + f"__IO uint{self.device_bit_width}_t RESERVED{count_reserved}: {bit_off - list_tracking_length_offset};\n"
+                gen_content += indent * " " + hierarchy_level[2] + f"__IO uint{self.device_bit_width}_t RESERVED{count_reserved}: {bit_off - list_tracking_length_offset};\n"
                 list_tracking_length_offset = bit_off
                 count_reserved += 1
-            gen_content += indent * " " + hierachy_level[2] + f"__IO uint{self.device_bit_width}_t {f.name.upper()}_bit : {bit_wid}; // bit offset={bit_off}  bit width={bit_wid}  access={f.access}\n"
+            gen_content += indent * " " + hierarchy_level[2] + f"__IO uint{self.device_bit_width}_t {f.name.upper()}_bit : {bit_wid}; // bit offset={bit_off}  bit width={bit_wid}  access={f.access}\n"
             list_tracking_length_offset = bit_off + bit_wid
         
         if list_tracking_length_offset < self.device_bit_width:
-            gen_content += indent * " " + hierachy_level[2] + f"__IO uint{self.device_bit_width}_t RESERVED{count_reserved} : {self.device_bit_width - list_tracking_length_offset};\n"
+            gen_content += indent * " " + hierarchy_level[2] + f"__IO uint{self.device_bit_width}_t RESERVED{count_reserved} : {self.device_bit_width - list_tracking_length_offset};\n"
             list_tracking_length_offset = self.device_bit_width
 
-        gen_content += indent * " " + hierachy_level[1] + f"}} {self.register_name.upper()}_bits;\n"
+        gen_content += indent * " " + hierarchy_level[1] + f"}} {self.register_name.upper()}_bits;\n"
         gen_content += indent * " " + f"}};\n"
 
-        # print(gen_content)
         return gen_content
 
-class struct_periheral:
-    def __init__(self, device, peripheral_name, struct_modify: yaml_cfg_register = None):
+
+class StructPeripheral:
+    """Represents a peripheral with its registers."""
+    def __init__(self, device, peripheral_name, struct_modify: 'YamlConfigRegister' = None):
         self.peripheral_name = peripheral_name
         self.peripheral = get_peripheral(device, peripheral_name)
         self.modify_reg = None
@@ -197,10 +214,10 @@ class struct_periheral:
             for peri_name in v[0]:
                 if self.peripheral_name == peri_name:
                     for e, f in struct_modify.peripheral_names[v[1]].items():
-                        if e != "unit" and e != "length":
-                            self.modify_reg  = [f, peri_name]
+                        if e not in ("unit", "length"):
+                            self.modify_reg = [f, peri_name]
         
-        self.registers = [struct_register(device, peripheral_name, r.name, self.modify_reg ) for r in self.peripheral.registers]
+        self.registers = [StructRegister(device, peripheral_name, r.name, self.modify_reg) for r in self.peripheral.registers]
         self.registers.sort(key=lambda r: r.address_offset)
         self.registers_dict = {}
         for r in self.registers:
@@ -212,10 +229,11 @@ class struct_periheral:
         for key in self.registers_dict.keys():
             for r in self.registers_dict[key]:
                 if self.modify_reg:
-                    self.modify_reg[0].get_register_type_infor({r.register_name: r.generate_struct()})
+                    self.modify_reg[0].get_register_type_info({r.register_name: r.generate_struct()})
 
     def generate_struct(self):
-        gen_content = f"// Peripheral {self.peripheral.name} @ base_addess=0x{self.peripheral.base_address:08X}\n"
+        """Generate peripheral structure definition."""
+        gen_content = f"// Peripheral {self.peripheral.name} @ base_address=0x{self.peripheral.base_address:08X}\n"
         gen_content += f"typedef struct {self.peripheral_name.lower()}_t {{\n\n"
 
         list_tracking_length_offset = 0
@@ -228,8 +246,8 @@ class struct_periheral:
                 offset_indent = 4
 
             for r in self.registers_dict[key]:
-                if self.modify_reg != None:
-                    if (self.modify_reg[1] == self.peripheral_name and r.register_name in self.modify_reg[0].collect_register):
+                if self.modify_reg is not None:
+                    if self.modify_reg[1] == self.peripheral_name and r.register_name in self.modify_reg[0].collect_register:
                         register_modify_arr = self.modify_reg[0].type["array"]
                         if register_modify_arr:
                             data = register_modify_arr.generate(r.register_name, self.peripheral_name)
@@ -251,14 +269,17 @@ class struct_periheral:
         gen_content += f"}} {self.peripheral_name.lower()}_t;\n\n"
         return gen_content
 
-class interrupt_periheral:
+class InterruptPeripheral:
+    """Manages interrupt definitions."""
+    
     def __init__(self, device, cortex):
         self.cpu_interrupt = self.cortex_interrupt_support(cortex)
         self.peripheral_interrupts = self.peripheral_interrupt_support(device)
 
     def peripheral_interrupt_support(self, device):
+        """Get peripheral interrupt definitions from device."""
         peripherals = device.peripherals
-        interrupt_list = list()
+        interrupt_list = []
         for peripheral in peripherals:
             if hasattr(peripheral, 'interrupts') and peripheral.interrupts:
                 interrupt_list += ({interrupt.name + "_IRQn": [interrupt.value, interrupt.description + " Interrupt"]} for interrupt in peripheral.interrupts)
@@ -274,6 +295,7 @@ class interrupt_periheral:
         return list(filter_interrupt_list)
 
     def cortex_interrupt_support(self, cortex):
+        """Get Cortex-specific interrupt definitions."""
         dict_cortex_support = {
             "cortex-M": {
             "NonMaskableInt_IRQn": [-14, "Non Maskable Interrupt"],
@@ -290,36 +312,38 @@ class interrupt_periheral:
         if cortex in dict_cortex_support:
             return dict_cortex_support[cortex]
         else:
-            print("ERR: Not found cortex")
-            sys.exit(1)
+            raise ValueError(f"Unsupported Cortex type: '{cortex}'")
 
 
-class struct_device:
-     
-    def __init__(self, device, core, struct_modify: yaml_cfg_register = None):
+class StructDevice:
+    """Represents a complete device structure with all peripherals."""
+    
+    def __init__(self, device, core, struct_modify: 'YamlConfigRegister' = None):
         self.core = core
         self.device = device
-        self.peripherals = [struct_periheral(device, p.name, struct_modify) for p in device.peripherals]
+        self.peripherals = [StructPeripheral(device, p.name, struct_modify) for p in device.peripherals]
         self.peripherals.sort(key=lambda p: p.peripheral_name)
         self.struct_modify = struct_modify
     
     def generate_struct(self):
+        """Generate all peripheral structures."""
         gen_content = f"// Device {self.device.name}\n\n"
         for p in self.peripherals:
             gen_content += p.generate_struct()
         return gen_content
 
     def generate_struct_type(self):
+        """Generate custom struct type definitions from YAML."""
         gen_content = f"/*------------------------ Device type Define ---------------------*/\n"
         if self.struct_modify:
             for peripheral in self.struct_modify.peripheral_names:
                 for k, v in peripheral.items():
-                    if k != "unit":
-                        if v:
-                            gen_content += v.generate()
+                    if k != "unit" and v:
+                        gen_content += v.generate()
         return gen_content + "\n"
     
     def generate_macro_define(self):
+        """Generate peripheral pointer macros."""
         gen_content = "/*------------------------ Device Macro Define ---------------------*/\n"
         gen_content += f"// Device {self.device.name}\n\n"
         indent = 20
@@ -328,13 +352,15 @@ class struct_device:
         return gen_content
     
     def generate_macro_header(self):
-        gen_content =  f"#ifndef {self.device.name}_H_\n"
+        """Generate header file includes and macros."""
+        gen_content = f"#ifndef {self.device.name}_H_\n"
         gen_content += f"#define {self.device.name}_H_\n\n"
         gen_content += "#include <stdint.h>\n\n"
         gen_content += "#define __IO volatile\n\n"
         return gen_content
 
-    def generate_cpu_config_infor(self):
+    def generate_cpu_config_info(self):
+        """Generate CPU configuration macros."""
         __DEVICE_REV = "__{}_REV"
         __MPU_PRESENT = "__MPU_PRESENT"
         __NVIC_PRIO_BITS = "__NVIC_PRIO_BITS"
@@ -342,7 +368,7 @@ class struct_device:
         __FPU_PRESENT = "__FPU_PRESENT"
 
         cpu = self.device.cpu
-        dict_cpu = dict()
+        dict_cpu = {}
 
         cpu_revision = list(cpu.revision)
         for i, item in enumerate(cpu_revision):
@@ -363,13 +389,14 @@ class struct_device:
             macro_part = "#define " + key
             value_part = str(value)
             space_name = indent - len(macro_part)
-            gen_content +=  macro_part + " " * space_name + value_part + "\n"
+            gen_content += macro_part + " " * space_name + value_part + "\n"
         
         gen_content += "\n"
         return gen_content
     
     def generate_interrupt_event_enumerate(self):
-        cortex_interrupt = interrupt_periheral(self.device, self.core)
+        """Generate IRQn_Type enum with all interrupt definitions."""
+        cortex_interrupt = InterruptPeripheral(self.device, self.core)
 
         indent = 28
         gen_content = """/**
@@ -389,11 +416,11 @@ class struct_device:
         gen_content += "} IRQn_Type;\n\n"
         return gen_content
 
-def show_register_infor(register, base_address=0):
+def show_register_info(register, base_address=0):
+    """Display register information in human-readable format."""
     abs_addr = base_address + register.address_offset
     print(f"  {register.name:<24} @ +0x{register.address_offset:04X} = 0x{abs_addr:08X}  reset={register.reset_value:08X}")
 
-    # 5) Iterate fields in each register
     for f in register.fields or []:
             bit_off  = getattr(f, "bit_offset", None)
             bit_wid  = getattr(f, "bit_width",  None)
@@ -404,64 +431,71 @@ def show_register_infor(register, base_address=0):
                 bit_wid = f.msb - f.lsb + 1
             print(f"    {f.name:<20} bit offset={bit_off}  bit width={bit_wid}  access={f.access}")
 
-def show_device_infor(device):
+def show_device_info(device):
+    """Display all peripherals and registers information."""
     for p in device.peripherals:
         print(f"{p.name}  base=0x{p.base_address:08X}  desc={p.description}")
         print("-"*60)
         for r in p.registers:
-            show_register_infor(r, p.base_address)
+            show_register_info(r, p.base_address)
 
         print("-"*60)
 
-def show_peripheral_infor(device, peripheral_name):
+
+def show_peripheral_info(device, peripheral_name):
+    """Display information for a specific peripheral."""
     peripheral = get_peripheral(device, peripheral_name)
     print(f"{peripheral.name}  base=0x{peripheral.base_address:08X}  desc={peripheral.description}")
     print("-"*60)
 
     for r in peripheral.registers:
-        show_register_infor(r, peripheral.base_address)
+        show_register_info(r, peripheral.base_address)
 
     print("-"*60)
 
 if __name__ == "__main__":
+    argument_parser = argparse.ArgumentParser(description="Generate device header files from SVD definitions.")
+    argument_parser.add_argument("--device", type=str, required=True, help="Device name (ex: STM32H743)")
+    argument_parser.add_argument("--core", type=str, required=True, help="Cortex core type (ex: cortex-M)")
+    args = argument_parser.parse_args()
 
-    argument_parser = argparse.ArgumentParser()
-    argument_parser.add_argument("--device", type=str, help="Generate Device (ex: STM32H743)")
-    argument_parser.add_argument("--core", type=str, help="information core (ex: cortex-M)")
-    infor_device = argument_parser.parse_args()
+    svd_file = f"{args.device}.svd"
+    svd_path = f"{args.device}/"
+    core = args.core
 
-    svd_file = f"{infor_device.device}.svd"
-    svd_path = f"{infor_device.device}/"
-    core = infor_device.core
-
-    if os.path.exists(svd_path+svd_file):
-        print(f"generate IO define: {svd_file}")
-    else:
-        print(f"Not found file: {svd_file}")
+    if not os.path.exists(svd_path + svd_file):
+        print(f"Error: SVD file not found: {svd_file}", file=sys.stderr)
         sys.exit(1)
     
-    with open(svd_path + "modify_struct_register.yml", "r") as f:
-        ymlconfig = yaml.safe_load(f)
+    yaml_config_file = svd_path + "modify_struct_register.yml"
+    if not os.path.exists(yaml_config_file):
+        print(f"Error: YAML config file not found: {yaml_config_file}", file=sys.stderr)
+        sys.exit(1)
     
-    struct_modify = yaml_cfg_register(ymlconfig)
-    #print(struct_modify.peripheral_names[0]['DMA$'].type['array'].structs)
-    # print(struct_modify.peripheral_names[0]['length'])
-
-
-    parser = SVDParser.for_xml_file(svd_path+svd_file)
-    device = parser.get_device()
-
-    iodefine_gen = struct_device(device, core, struct_modify)
-
-    wrapper = ""
+    try:
+        with open(yaml_config_file, "r") as f:
+            ymlconfig = yaml.safe_load(f)
         
-    with open(f"{svd_path}/{device.name}_io.h", "w") as f:
-        f.write(iodefine_gen.generate_macro_header())
-        f.write(iodefine_gen.generate_cpu_config_infor())
-        f.write(iodefine_gen.generate_interrupt_event_enumerate())
-        f.write(iodefine_gen.generate_struct_type())
-        f.write(iodefine_gen.generate_struct())
-        f.write(iodefine_gen.generate_macro_define())
-        f.write("\n\n#endif")
-    
-    print("Generated successfully")
+        struct_modify = YamlConfigRegister(ymlconfig)
+        parser = SVDParser.for_xml_file(svd_path + svd_file)
+        device = parser.get_device()
+        iodefine_gen = StructDevice(device, core, struct_modify)
+        
+        print(f"Generating IO definitions for {svd_file}...")
+        output_file = f"{svd_path}/{device.name}_io.h"
+        with open(output_file, "w") as f:
+            f.write(iodefine_gen.generate_macro_header())
+            f.write(iodefine_gen.generate_cpu_config_info())
+            f.write(iodefine_gen.generate_interrupt_event_enumerate())
+            f.write(iodefine_gen.generate_struct_type())
+            f.write(iodefine_gen.generate_struct())
+            f.write(iodefine_gen.generate_macro_define())
+            f.write("\n\n#endif")
+        
+        print(f"Successfully generated: {output_file}")
+    except FileNotFoundError as e:
+        print(f"Error: File not found - {e}", file=sys.stderr)
+        sys.exit(1)
+    except Exception as e:
+        print(f"Error during code generation: {e}", file=sys.stderr)
+        sys.exit(1)

@@ -246,7 +246,7 @@ typedef struct {
 
 // Device STM32H743
 
-// Peripheral ADC1 @ base_addess=0x40022000
+// Peripheral ADC1 @ base_address=0x40022000
 typedef struct adc1_t {
 
     // ISR @ offset=0x00000000
@@ -625,7 +625,7 @@ typedef struct adc1_t {
 
 } adc1_t;
 
-// Peripheral ADC12_Common @ base_addess=0x40022300
+// Peripheral ADC12_Common @ base_address=0x40022300
 typedef struct adc12_common_t {
 
     // CSR @ offset=0x00000000
@@ -699,7 +699,7 @@ typedef struct adc12_common_t {
 
 } adc12_common_t;
 
-// Peripheral ADC2 @ base_addess=0x40022100
+// Peripheral ADC2 @ base_address=0x40022100
 typedef struct adc2_t {
 
     // ISR @ offset=0x00000000
@@ -1078,7 +1078,7 @@ typedef struct adc2_t {
 
 } adc2_t;
 
-// Peripheral ADC3 @ base_addess=0x58026000
+// Peripheral ADC3 @ base_address=0x58026000
 typedef struct adc3_t {
 
     // ISR @ offset=0x00000000
@@ -1457,7 +1457,7 @@ typedef struct adc3_t {
 
 } adc3_t;
 
-// Peripheral ADC3_Common @ base_addess=0x58026300
+// Peripheral ADC3_Common @ base_address=0x58026300
 typedef struct adc3_common_t {
 
     // CSR @ offset=0x00000000
@@ -1531,7 +1531,7 @@ typedef struct adc3_common_t {
 
 } adc3_common_t;
 
-// Peripheral AXI @ base_addess=0x51000000
+// Peripheral AXI @ base_address=0x51000000
 typedef struct axi_t {
 
     __IO uint8_t RESERVED0[8144];
@@ -1932,7 +1932,7 @@ typedef struct axi_t {
 
 } axi_t;
 
-// Peripheral BDMA @ base_addess=0x58025400
+// Peripheral BDMA @ base_address=0x58025400
 typedef struct bdma_t {
 
     // BDMA_ISR @ offset=0x00000000
@@ -2307,7 +2307,7 @@ typedef struct bdma_t {
 
 } bdma_t;
 
-// Peripheral CAN_CCU @ base_addess=0x4000A800
+// Peripheral CAN_CCU @ base_address=0x4000A800
 typedef struct can_ccu_t {
 
     // CREL @ offset=0x00000000
@@ -2392,7 +2392,7 @@ typedef struct can_ccu_t {
 
 } can_ccu_t;
 
-// Peripheral CEC @ base_addess=0x40006C00
+// Peripheral CEC @ base_address=0x40006C00
 typedef struct cec_t {
 
     // CR @ offset=0x00000000
@@ -2481,7 +2481,7 @@ typedef struct cec_t {
 
 } cec_t;
 
-// Peripheral COMP1 @ base_addess=0x58003800
+// Peripheral COMP1 @ base_address=0x58003800
 typedef struct comp1_t {
 
     // SR @ offset=0x00000000
@@ -2580,7 +2580,7 @@ typedef struct comp1_t {
 
 } comp1_t;
 
-// Peripheral CRC @ base_addess=0x58024C00
+// Peripheral CRC @ base_address=0x58024C00
 typedef struct crc_t {
 
     // DR @ offset=0x00000000
@@ -2614,7 +2614,7 @@ typedef struct crc_t {
 
 } crc_t;
 
-// Peripheral CRS @ base_addess=0x40008400
+// Peripheral CRS @ base_address=0x40008400
 typedef struct crs_t {
 
     // CR @ offset=0x00000000
@@ -2688,7 +2688,7 @@ typedef struct crs_t {
 
 } crs_t;
 
-// Peripheral DAC @ base_addess=0x40007400
+// Peripheral DAC @ base_address=0x40007400
 typedef struct dac_t {
 
     // CR @ offset=0x00000000
@@ -2871,7 +2871,7 @@ typedef struct dac_t {
 
 } dac_t;
 
-// Peripheral DBGMCU @ base_addess=0x5C001000
+// Peripheral DBGMCU @ base_address=0x5C001000
 typedef struct dbgmcu_t {
 
     // IDC @ offset=0x00000000
@@ -2987,7 +2987,7 @@ typedef struct dbgmcu_t {
 
 } dbgmcu_t;
 
-// Peripheral DCMI @ base_addess=0x48020000
+// Peripheral DCMI @ base_address=0x48020000
 typedef struct dcmi_t {
 
     // CR @ offset=0x00000000
@@ -3157,7 +3157,7 @@ typedef struct dcmi_t {
 
 } dcmi_t;
 
-// Peripheral DELAY_Block_QUADSPI @ base_addess=0x52006000
+// Peripheral DELAY_Block_QUADSPI @ base_address=0x52006000
 typedef struct delay_block_quadspi_t {
 
     // CR @ offset=0x00000000
@@ -3190,7 +3190,7 @@ typedef struct delay_block_quadspi_t {
 
 } delay_block_quadspi_t;
 
-// Peripheral DELAY_Block_SDMMC1 @ base_addess=0x52008000
+// Peripheral DELAY_Block_SDMMC1 @ base_address=0x52008000
 typedef struct delay_block_sdmmc1_t {
 
     // CR @ offset=0x00000000
@@ -3223,7 +3223,7 @@ typedef struct delay_block_sdmmc1_t {
 
 } delay_block_sdmmc1_t;
 
-// Peripheral DELAY_Block_SDMMC2 @ base_addess=0x48022800
+// Peripheral DELAY_Block_SDMMC2 @ base_address=0x48022800
 typedef struct delay_block_sdmmc2_t {
 
     // CR @ offset=0x00000000
@@ -3256,7 +3256,7 @@ typedef struct delay_block_sdmmc2_t {
 
 } delay_block_sdmmc2_t;
 
-// Peripheral DFSDM @ base_addess=0x40017000
+// Peripheral DFSDM @ base_address=0x40017000
 typedef struct dfsdm_t {
 
     // DFSDM_CHCFG0R1 @ offset=0x00000000
@@ -4593,7 +4593,7 @@ typedef struct dfsdm_t {
 
 } dfsdm_t;
 
-// Peripheral DMA1 @ base_addess=0x40020000
+// Peripheral DMA1 @ base_address=0x40020000
 typedef struct dma1_t {
 
     // LISR @ offset=0x00000000
@@ -4739,7 +4739,7 @@ typedef struct dma1_t {
     dma_stream_x_cfg_t DMA_Stream_x_Cfg[8];
 } dma1_t;
 
-// Peripheral DMA2 @ base_addess=0x40020400
+// Peripheral DMA2 @ base_address=0x40020400
 typedef struct dma2_t {
 
     // LISR @ offset=0x00000000
@@ -4885,7 +4885,7 @@ typedef struct dma2_t {
     dma_stream_x_cfg_t DMA_Stream_x_Cfg[8];
 } dma2_t;
 
-// Peripheral DMA2D @ base_addess=0x52001000
+// Peripheral DMA2D @ base_address=0x52001000
 typedef struct dma2d_t {
 
     // CR @ offset=0x00000000
@@ -5089,7 +5089,7 @@ typedef struct dma2d_t {
 
 } dma2d_t;
 
-// Peripheral DMAMUX1 @ base_addess=0x40020800
+// Peripheral DMAMUX1 @ base_address=0x40020800
 typedef struct dmamux1_t {
 
     dmamux_cxcr_reg_t DMAMUX_CxCR_Reg[16];
@@ -5325,7 +5325,7 @@ typedef struct dmamux1_t {
 
 } dmamux1_t;
 
-// Peripheral DMAMUX2 @ base_addess=0x58025800
+// Peripheral DMAMUX2 @ base_address=0x58025800
 typedef struct dmamux2_t {
 
     // C0CR @ offset=0x00000000
@@ -5696,7 +5696,7 @@ typedef struct dmamux2_t {
 
 } dmamux2_t;
 
-// Peripheral EXTI @ base_addess=0x58000000
+// Peripheral EXTI @ base_address=0x58000000
 typedef struct exti_t {
 
     // RTSR1 @ offset=0x00000000
@@ -6327,7 +6327,7 @@ typedef struct exti_t {
 
 } exti_t;
 
-// Peripheral Ethernet_DMA @ base_addess=0x40029000
+// Peripheral Ethernet_DMA @ base_address=0x40029000
 typedef struct ethernet_dma_t {
 
     // DMAMR @ offset=0x00000000
@@ -6554,7 +6554,7 @@ typedef struct ethernet_dma_t {
 
 } ethernet_dma_t;
 
-// Peripheral Ethernet_MAC @ base_addess=0x40028000
+// Peripheral Ethernet_MAC @ base_address=0x40028000
 typedef struct ethernet_mac_t {
 
     // MACCR @ offset=0x00000000
@@ -7526,7 +7526,7 @@ typedef struct ethernet_mac_t {
 
 } ethernet_mac_t;
 
-// Peripheral Ethernet_MTL @ base_addess=0x40028C00
+// Peripheral Ethernet_MTL @ base_address=0x40028C00
 typedef struct ethernet_mtl_t {
 
     // MTLOMR @ offset=0x00000000
@@ -7672,7 +7672,7 @@ typedef struct ethernet_mtl_t {
 
 } ethernet_mtl_t;
 
-// Peripheral FDCAN1 @ base_addess=0x4000A000
+// Peripheral FDCAN1 @ base_address=0x4000A000
 typedef struct fdcan1_t {
 
     // FDCAN_CREL @ offset=0x00000000
@@ -8613,7 +8613,7 @@ typedef struct fdcan1_t {
 
 } fdcan1_t;
 
-// Peripheral FDCAN2 @ base_addess=0x4000A400
+// Peripheral FDCAN2 @ base_address=0x4000A400
 typedef struct fdcan2_t {
 
     // FDCAN_CREL @ offset=0x00000000
@@ -9554,7 +9554,7 @@ typedef struct fdcan2_t {
 
 } fdcan2_t;
 
-// Peripheral FMC @ base_addess=0x52004000
+// Peripheral FMC @ base_address=0x52004000
 typedef struct fmc_t {
 
     // BCR1 @ offset=0x00000000
@@ -10008,7 +10008,7 @@ typedef struct fmc_t {
 
 } fmc_t;
 
-// Peripheral Flash @ base_addess=0x52002000
+// Peripheral Flash @ base_address=0x52002000
 typedef struct flash_t {
 
     // ACR @ offset=0x00000000
@@ -10598,7 +10598,7 @@ typedef struct flash_t {
 
 } flash_t;
 
-// Peripheral GPIOA @ base_addess=0x58020000
+// Peripheral GPIOA @ base_address=0x58020000
 typedef struct gpioa_t {
 
     // MODER @ offset=0x00000000
@@ -10858,7 +10858,7 @@ typedef struct gpioa_t {
 
 } gpioa_t;
 
-// Peripheral GPIOB @ base_addess=0x58020400
+// Peripheral GPIOB @ base_address=0x58020400
 typedef struct gpiob_t {
 
     // MODER @ offset=0x00000000
@@ -11118,7 +11118,7 @@ typedef struct gpiob_t {
 
 } gpiob_t;
 
-// Peripheral GPIOC @ base_addess=0x58020800
+// Peripheral GPIOC @ base_address=0x58020800
 typedef struct gpioc_t {
 
     // MODER @ offset=0x00000000
@@ -11378,7 +11378,7 @@ typedef struct gpioc_t {
 
 } gpioc_t;
 
-// Peripheral GPIOD @ base_addess=0x58020C00
+// Peripheral GPIOD @ base_address=0x58020C00
 typedef struct gpiod_t {
 
     // MODER @ offset=0x00000000
@@ -11638,7 +11638,7 @@ typedef struct gpiod_t {
 
 } gpiod_t;
 
-// Peripheral GPIOE @ base_addess=0x58021000
+// Peripheral GPIOE @ base_address=0x58021000
 typedef struct gpioe_t {
 
     // MODER @ offset=0x00000000
@@ -11898,7 +11898,7 @@ typedef struct gpioe_t {
 
 } gpioe_t;
 
-// Peripheral GPIOF @ base_addess=0x58021400
+// Peripheral GPIOF @ base_address=0x58021400
 typedef struct gpiof_t {
 
     // MODER @ offset=0x00000000
@@ -12158,7 +12158,7 @@ typedef struct gpiof_t {
 
 } gpiof_t;
 
-// Peripheral GPIOG @ base_addess=0x58021800
+// Peripheral GPIOG @ base_address=0x58021800
 typedef struct gpiog_t {
 
     // MODER @ offset=0x00000000
@@ -12418,7 +12418,7 @@ typedef struct gpiog_t {
 
 } gpiog_t;
 
-// Peripheral GPIOH @ base_addess=0x58021C00
+// Peripheral GPIOH @ base_address=0x58021C00
 typedef struct gpioh_t {
 
     // MODER @ offset=0x00000000
@@ -12678,7 +12678,7 @@ typedef struct gpioh_t {
 
 } gpioh_t;
 
-// Peripheral GPIOI @ base_addess=0x58022000
+// Peripheral GPIOI @ base_address=0x58022000
 typedef struct gpioi_t {
 
     // MODER @ offset=0x00000000
@@ -12938,7 +12938,7 @@ typedef struct gpioi_t {
 
 } gpioi_t;
 
-// Peripheral GPIOJ @ base_addess=0x58022400
+// Peripheral GPIOJ @ base_address=0x58022400
 typedef struct gpioj_t {
 
     // MODER @ offset=0x00000000
@@ -13198,7 +13198,7 @@ typedef struct gpioj_t {
 
 } gpioj_t;
 
-// Peripheral GPIOK @ base_addess=0x58022800
+// Peripheral GPIOK @ base_address=0x58022800
 typedef struct gpiok_t {
 
     // MODER @ offset=0x00000000
@@ -13458,7 +13458,7 @@ typedef struct gpiok_t {
 
 } gpiok_t;
 
-// Peripheral HRTIM_Common @ base_addess=0x40017780
+// Peripheral HRTIM_Common @ base_address=0x40017780
 typedef struct hrtim_common_t {
 
     // CR1 @ offset=0x00000000
@@ -14056,7 +14056,7 @@ typedef struct hrtim_common_t {
 
 } hrtim_common_t;
 
-// Peripheral HRTIM_Master @ base_addess=0x40017400
+// Peripheral HRTIM_Master @ base_address=0x40017400
 typedef struct hrtim_master_t {
 
     // MCR @ offset=0x00000000
@@ -14174,7 +14174,7 @@ typedef struct hrtim_master_t {
 
 } hrtim_master_t;
 
-// Peripheral HRTIM_TIMA @ base_addess=0x40017480
+// Peripheral HRTIM_TIMA @ base_address=0x40017480
 typedef struct hrtim_tima_t {
 
     // TIMACR @ offset=0x00000000
@@ -14750,7 +14750,7 @@ typedef struct hrtim_tima_t {
 
 } hrtim_tima_t;
 
-// Peripheral HRTIM_TIMB @ base_addess=0x40017500
+// Peripheral HRTIM_TIMB @ base_address=0x40017500
 typedef struct hrtim_timb_t {
 
     // TIMBCR @ offset=0x00000000
@@ -15326,7 +15326,7 @@ typedef struct hrtim_timb_t {
 
 } hrtim_timb_t;
 
-// Peripheral HRTIM_TIMC @ base_addess=0x40017580
+// Peripheral HRTIM_TIMC @ base_address=0x40017580
 typedef struct hrtim_timc_t {
 
     // TIMCCR @ offset=0x00000000
@@ -15902,7 +15902,7 @@ typedef struct hrtim_timc_t {
 
 } hrtim_timc_t;
 
-// Peripheral HRTIM_TIMD @ base_addess=0x40017600
+// Peripheral HRTIM_TIMD @ base_address=0x40017600
 typedef struct hrtim_timd_t {
 
     // TIMDCR @ offset=0x00000000
@@ -16478,7 +16478,7 @@ typedef struct hrtim_timd_t {
 
 } hrtim_timd_t;
 
-// Peripheral HRTIM_TIME @ base_addess=0x40017680
+// Peripheral HRTIM_TIME @ base_address=0x40017680
 typedef struct hrtim_time_t {
 
     // TIMECR @ offset=0x00000000
@@ -17054,7 +17054,7 @@ typedef struct hrtim_time_t {
 
 } hrtim_time_t;
 
-// Peripheral HSEM @ base_addess=0x58026400
+// Peripheral HSEM @ base_address=0x58026400
 typedef struct hsem_t {
 
     // HSEM_R0 @ offset=0x00000000
@@ -18072,7 +18072,7 @@ typedef struct hsem_t {
 
 } hsem_t;
 
-// Peripheral I2C1 @ base_addess=0x40005400
+// Peripheral I2C1 @ base_address=0x40005400
 typedef struct i2c1_t {
 
     // CR1 @ offset=0x00000000
@@ -18247,7 +18247,7 @@ typedef struct i2c1_t {
 
 } i2c1_t;
 
-// Peripheral I2C2 @ base_addess=0x40005800
+// Peripheral I2C2 @ base_address=0x40005800
 typedef struct i2c2_t {
 
     // CR1 @ offset=0x00000000
@@ -18422,7 +18422,7 @@ typedef struct i2c2_t {
 
 } i2c2_t;
 
-// Peripheral I2C3 @ base_addess=0x40005C00
+// Peripheral I2C3 @ base_address=0x40005C00
 typedef struct i2c3_t {
 
     // CR1 @ offset=0x00000000
@@ -18597,7 +18597,7 @@ typedef struct i2c3_t {
 
 } i2c3_t;
 
-// Peripheral I2C4 @ base_addess=0x58001C00
+// Peripheral I2C4 @ base_address=0x58001C00
 typedef struct i2c4_t {
 
     // CR1 @ offset=0x00000000
@@ -18772,7 +18772,7 @@ typedef struct i2c4_t {
 
 } i2c4_t;
 
-// Peripheral IWDG @ base_addess=0x58004800
+// Peripheral IWDG @ base_address=0x58004800
 typedef struct iwdg_t {
 
     // KR @ offset=0x00000000
@@ -18802,7 +18802,7 @@ typedef struct iwdg_t {
 
 } iwdg_t;
 
-// Peripheral JPEG @ base_addess=0x52003000
+// Peripheral JPEG @ base_address=0x52003000
 typedef struct jpeg_t {
 
     // CONFR0 @ offset=0x00000000
@@ -18960,7 +18960,7 @@ typedef struct jpeg_t {
 
 } jpeg_t;
 
-// Peripheral LPTIM1 @ base_addess=0x40002400
+// Peripheral LPTIM1 @ base_address=0x40002400
 typedef struct lptim1_t {
 
     // ISR @ offset=0x00000000
@@ -19082,7 +19082,7 @@ typedef struct lptim1_t {
 
 } lptim1_t;
 
-// Peripheral LPTIM2 @ base_addess=0x58002400
+// Peripheral LPTIM2 @ base_address=0x58002400
 typedef struct lptim2_t {
 
     // ISR @ offset=0x00000000
@@ -19204,7 +19204,7 @@ typedef struct lptim2_t {
 
 } lptim2_t;
 
-// Peripheral LPTIM3 @ base_addess=0x58002800
+// Peripheral LPTIM3 @ base_address=0x58002800
 typedef struct lptim3_t {
 
     // ISR @ offset=0x00000000
@@ -19316,7 +19316,7 @@ typedef struct lptim3_t {
 
 } lptim3_t;
 
-// Peripheral LPTIM4 @ base_addess=0x58002C00
+// Peripheral LPTIM4 @ base_address=0x58002C00
 typedef struct lptim4_t {
 
     // ISR @ offset=0x00000000
@@ -19428,7 +19428,7 @@ typedef struct lptim4_t {
 
 } lptim4_t;
 
-// Peripheral LPTIM5 @ base_addess=0x58003000
+// Peripheral LPTIM5 @ base_address=0x58003000
 typedef struct lptim5_t {
 
     // ISR @ offset=0x00000000
@@ -19540,7 +19540,7 @@ typedef struct lptim5_t {
 
 } lptim5_t;
 
-// Peripheral LPUART1 @ base_addess=0x58000C00
+// Peripheral LPUART1 @ base_address=0x58000C00
 typedef struct lpuart1_t {
 
     // CR1 @ offset=0x00000000
@@ -19736,7 +19736,7 @@ typedef struct lpuart1_t {
 
 } lpuart1_t;
 
-// Peripheral LTDC @ base_addess=0x50001000
+// Peripheral LTDC @ base_address=0x50001000
 typedef struct ltdc_t {
 
     __IO uint8_t RESERVED0[8];
@@ -20165,7 +20165,7 @@ typedef struct ltdc_t {
 
 } ltdc_t;
 
-// Peripheral MDIOS @ base_addess=0x40009400
+// Peripheral MDIOS @ base_address=0x40009400
 typedef struct mdios_t {
 
     // CR @ offset=0x00000000
@@ -20417,7 +20417,7 @@ typedef struct mdios_t {
 
 } mdios_t;
 
-// Peripheral MDMA @ base_addess=0x52000000
+// Peripheral MDMA @ base_address=0x52000000
 typedef struct mdma_t {
 
     // MDMA_GISR0 @ offset=0x00000000
@@ -22880,7 +22880,7 @@ typedef struct mdma_t {
 
 } mdma_t;
 
-// Peripheral OPAMP @ base_addess=0x40009000
+// Peripheral OPAMP @ base_address=0x40009000
 typedef struct opamp_t {
 
     // OPAMP1_CSR @ offset=0x00000000
@@ -22988,7 +22988,7 @@ typedef struct opamp_t {
 
 } opamp_t;
 
-// Peripheral OTG1_HS_DEVICE @ base_addess=0x40040800
+// Peripheral OTG1_HS_DEVICE @ base_address=0x40040800
 typedef struct otg1_hs_device_t {
 
     // OTG_HS_DCFG @ offset=0x00000000
@@ -24238,7 +24238,7 @@ typedef struct otg1_hs_device_t {
 
 } otg1_hs_device_t;
 
-// Peripheral OTG1_HS_GLOBAL @ base_addess=0x40040000
+// Peripheral OTG1_HS_GLOBAL @ base_address=0x40040000
 typedef struct otg1_hs_global_t {
 
     // OTG_HS_GOTGCTL @ offset=0x00000000
@@ -24697,7 +24697,7 @@ typedef struct otg1_hs_global_t {
 
 } otg1_hs_global_t;
 
-// Peripheral OTG1_HS_HOST @ base_addess=0x40040400
+// Peripheral OTG1_HS_HOST @ base_address=0x40040400
 typedef struct otg1_hs_host_t {
 
     // OTG_HS_HCFG @ offset=0x00000000
@@ -26286,7 +26286,7 @@ typedef struct otg1_hs_host_t {
 
 } otg1_hs_host_t;
 
-// Peripheral OTG1_HS_PWRCLK @ base_addess=0x40040E00
+// Peripheral OTG1_HS_PWRCLK @ base_address=0x40040E00
 typedef struct otg1_hs_pwrclk_t {
 
     // OTG_HS_PCGCR @ offset=0x00000000
@@ -26305,7 +26305,7 @@ typedef struct otg1_hs_pwrclk_t {
 
 } otg1_hs_pwrclk_t;
 
-// Peripheral OTG2_HS_DEVICE @ base_addess=0x40080800
+// Peripheral OTG2_HS_DEVICE @ base_address=0x40080800
 typedef struct otg2_hs_device_t {
 
     // OTG_HS_DCFG @ offset=0x00000000
@@ -27555,7 +27555,7 @@ typedef struct otg2_hs_device_t {
 
 } otg2_hs_device_t;
 
-// Peripheral OTG2_HS_GLOBAL @ base_addess=0x40080000
+// Peripheral OTG2_HS_GLOBAL @ base_address=0x40080000
 typedef struct otg2_hs_global_t {
 
     // OTG_HS_GOTGCTL @ offset=0x00000000
@@ -28014,7 +28014,7 @@ typedef struct otg2_hs_global_t {
 
 } otg2_hs_global_t;
 
-// Peripheral OTG2_HS_HOST @ base_addess=0x40080400
+// Peripheral OTG2_HS_HOST @ base_address=0x40080400
 typedef struct otg2_hs_host_t {
 
     // OTG_HS_HCFG @ offset=0x00000000
@@ -29603,7 +29603,7 @@ typedef struct otg2_hs_host_t {
 
 } otg2_hs_host_t;
 
-// Peripheral OTG2_HS_PWRCLK @ base_addess=0x40080E00
+// Peripheral OTG2_HS_PWRCLK @ base_address=0x40080E00
 typedef struct otg2_hs_pwrclk_t {
 
     // OTG_HS_PCGCR @ offset=0x00000000
@@ -29622,7 +29622,7 @@ typedef struct otg2_hs_pwrclk_t {
 
 } otg2_hs_pwrclk_t;
 
-// Peripheral PWR @ base_addess=0x58024800
+// Peripheral PWR @ base_address=0x58024800
 typedef struct pwr_t {
 
     // CR1 @ offset=0x00000000
@@ -29790,7 +29790,7 @@ typedef struct pwr_t {
 
 } pwr_t;
 
-// Peripheral QUADSPI @ base_addess=0x52005000
+// Peripheral QUADSPI @ base_address=0x52005000
 typedef struct quadspi_t {
 
     // CR @ offset=0x00000000
@@ -29918,7 +29918,7 @@ typedef struct quadspi_t {
 
 } quadspi_t;
 
-// Peripheral RAMECC1 @ base_addess=0x52009000
+// Peripheral RAMECC1 @ base_address=0x52009000
 typedef struct ramecc1_t {
 
     // IER @ offset=0x00000000
@@ -30152,7 +30152,7 @@ typedef struct ramecc1_t {
 
 } ramecc1_t;
 
-// Peripheral RAMECC2 @ base_addess=0x48023000
+// Peripheral RAMECC2 @ base_address=0x48023000
 typedef struct ramecc2_t {
 
     // IER @ offset=0x00000000
@@ -30386,7 +30386,7 @@ typedef struct ramecc2_t {
 
 } ramecc2_t;
 
-// Peripheral RAMECC3 @ base_addess=0x58027000
+// Peripheral RAMECC3 @ base_address=0x58027000
 typedef struct ramecc3_t {
 
     // IER @ offset=0x00000000
@@ -30491,7 +30491,7 @@ typedef struct ramecc3_t {
 
 } ramecc3_t;
 
-// Peripheral RCC @ base_addess=0x58024400
+// Peripheral RCC @ base_address=0x58024400
 typedef struct rcc_t {
 
     // CR @ offset=0x00000000
@@ -32106,7 +32106,7 @@ typedef struct rcc_t {
 
 } rcc_t;
 
-// Peripheral RNG @ base_addess=0x48021800
+// Peripheral RNG @ base_address=0x48021800
 typedef struct rng_t {
 
     // CR @ offset=0x00000000
@@ -32145,7 +32145,7 @@ typedef struct rng_t {
 
 } rng_t;
 
-// Peripheral RTC @ base_addess=0x58004000
+// Peripheral RTC @ base_address=0x58004000
 typedef struct rtc_t {
 
     // RTC_TR @ offset=0x00000000
@@ -32547,7 +32547,7 @@ typedef struct rtc_t {
 
 } rtc_t;
 
-// Peripheral SAI1 @ base_addess=0x40015800
+// Peripheral SAI1 @ base_address=0x40015800
 typedef struct sai1_t {
 
     // SAI_GCR @ offset=0x00000000
@@ -32872,7 +32872,7 @@ typedef struct sai1_t {
 
 } sai1_t;
 
-// Peripheral SAI2 @ base_addess=0x40015C00
+// Peripheral SAI2 @ base_address=0x40015C00
 typedef struct sai2_t {
 
     // SAI_GCR @ offset=0x00000000
@@ -33197,7 +33197,7 @@ typedef struct sai2_t {
 
 } sai2_t;
 
-// Peripheral SAI3 @ base_addess=0x40016000
+// Peripheral SAI3 @ base_address=0x40016000
 typedef struct sai3_t {
 
     // SAI_GCR @ offset=0x00000000
@@ -33522,7 +33522,7 @@ typedef struct sai3_t {
 
 } sai3_t;
 
-// Peripheral SAI4 @ base_addess=0x58005400
+// Peripheral SAI4 @ base_address=0x58005400
 typedef struct sai4_t {
 
     // SAI_GCR @ offset=0x00000000
@@ -33847,7 +33847,7 @@ typedef struct sai4_t {
 
 } sai4_t;
 
-// Peripheral SDMMC1 @ base_addess=0x52007000
+// Peripheral SDMMC1 @ base_address=0x52007000
 typedef struct sdmmc1_t {
 
     // POWER @ offset=0x00000000
@@ -34110,7 +34110,7 @@ typedef struct sdmmc1_t {
 
 } sdmmc1_t;
 
-// Peripheral SDMMC2 @ base_addess=0x48022400
+// Peripheral SDMMC2 @ base_address=0x48022400
 typedef struct sdmmc2_t {
 
     // POWER @ offset=0x00000000
@@ -34373,7 +34373,7 @@ typedef struct sdmmc2_t {
 
 } sdmmc2_t;
 
-// Peripheral SPDIFRX @ base_addess=0x40004000
+// Peripheral SPDIFRX @ base_address=0x40004000
 typedef struct spdifrx_t {
 
     // CR @ offset=0x00000000
@@ -34550,7 +34550,7 @@ typedef struct spdifrx_t {
 
 } spdifrx_t;
 
-// Peripheral SPI1 @ base_addess=0x40013000
+// Peripheral SPI1 @ base_address=0x40013000
 typedef struct spi1_t {
 
     // CR1 @ offset=0x00000000
@@ -34750,7 +34750,7 @@ typedef struct spi1_t {
 
 } spi1_t;
 
-// Peripheral SPI2 @ base_addess=0x40003800
+// Peripheral SPI2 @ base_address=0x40003800
 typedef struct spi2_t {
 
     // CR1 @ offset=0x00000000
@@ -34950,7 +34950,7 @@ typedef struct spi2_t {
 
 } spi2_t;
 
-// Peripheral SPI3 @ base_addess=0x40003C00
+// Peripheral SPI3 @ base_address=0x40003C00
 typedef struct spi3_t {
 
     // CR1 @ offset=0x00000000
@@ -35150,7 +35150,7 @@ typedef struct spi3_t {
 
 } spi3_t;
 
-// Peripheral SPI4 @ base_addess=0x40013400
+// Peripheral SPI4 @ base_address=0x40013400
 typedef struct spi4_t {
 
     // CR1 @ offset=0x00000000
@@ -35350,7 +35350,7 @@ typedef struct spi4_t {
 
 } spi4_t;
 
-// Peripheral SPI5 @ base_addess=0x40015000
+// Peripheral SPI5 @ base_address=0x40015000
 typedef struct spi5_t {
 
     // CR1 @ offset=0x00000000
@@ -35550,7 +35550,7 @@ typedef struct spi5_t {
 
 } spi5_t;
 
-// Peripheral SPI6 @ base_addess=0x58001400
+// Peripheral SPI6 @ base_address=0x58001400
 typedef struct spi6_t {
 
     // CR1 @ offset=0x00000000
@@ -35750,7 +35750,7 @@ typedef struct spi6_t {
 
 } spi6_t;
 
-// Peripheral SWPMI @ base_addess=0x40008800
+// Peripheral SWPMI @ base_address=0x40008800
 typedef struct swpmi_t {
 
     // CR @ offset=0x00000000
@@ -35863,7 +35863,7 @@ typedef struct swpmi_t {
 
 } swpmi_t;
 
-// Peripheral SYSCFG @ base_addess=0x58000400
+// Peripheral SYSCFG @ base_address=0x58000400
 typedef struct syscfg_t {
 
     __IO uint8_t RESERVED0[4];
@@ -36166,7 +36166,7 @@ typedef struct syscfg_t {
 
 } syscfg_t;
 
-// Peripheral TIM1 @ base_addess=0x40010000
+// Peripheral TIM1 @ base_address=0x40010000
 typedef struct tim1_t {
 
     // CR1 @ offset=0x00000000
@@ -36595,7 +36595,7 @@ typedef struct tim1_t {
 
 } tim1_t;
 
-// Peripheral TIM12 @ base_addess=0x40001800
+// Peripheral TIM12 @ base_address=0x40001800
 typedef struct tim12_t {
 
     // CR1 @ offset=0x00000000
@@ -36942,7 +36942,7 @@ typedef struct tim12_t {
 
 } tim12_t;
 
-// Peripheral TIM13 @ base_addess=0x40001C00
+// Peripheral TIM13 @ base_address=0x40001C00
 typedef struct tim13_t {
 
     // CR1 @ offset=0x00000000
@@ -37289,7 +37289,7 @@ typedef struct tim13_t {
 
 } tim13_t;
 
-// Peripheral TIM14 @ base_addess=0x40002000
+// Peripheral TIM14 @ base_address=0x40002000
 typedef struct tim14_t {
 
     // CR1 @ offset=0x00000000
@@ -37636,7 +37636,7 @@ typedef struct tim14_t {
 
 } tim14_t;
 
-// Peripheral TIM15 @ base_addess=0x40014000
+// Peripheral TIM15 @ base_address=0x40014000
 typedef struct tim15_t {
 
     // CR1 @ offset=0x00000000
@@ -37918,7 +37918,7 @@ typedef struct tim15_t {
 
 } tim15_t;
 
-// Peripheral TIM16 @ base_addess=0x40014400
+// Peripheral TIM16 @ base_address=0x40014400
 typedef struct tim16_t {
 
     // CR1 @ offset=0x00000000
@@ -38149,7 +38149,7 @@ typedef struct tim16_t {
 
 } tim16_t;
 
-// Peripheral TIM17 @ base_addess=0x40014800
+// Peripheral TIM17 @ base_address=0x40014800
 typedef struct tim17_t {
 
     // CR1 @ offset=0x00000000
@@ -38380,7 +38380,7 @@ typedef struct tim17_t {
 
 } tim17_t;
 
-// Peripheral TIM2 @ base_addess=0x40000000
+// Peripheral TIM2 @ base_address=0x40000000
 typedef struct tim2_t {
 
     // CR1 @ offset=0x00000000
@@ -38727,7 +38727,7 @@ typedef struct tim2_t {
 
 } tim2_t;
 
-// Peripheral TIM3 @ base_addess=0x40000400
+// Peripheral TIM3 @ base_address=0x40000400
 typedef struct tim3_t {
 
     // CR1 @ offset=0x00000000
@@ -39074,7 +39074,7 @@ typedef struct tim3_t {
 
 } tim3_t;
 
-// Peripheral TIM4 @ base_addess=0x40000800
+// Peripheral TIM4 @ base_address=0x40000800
 typedef struct tim4_t {
 
     // CR1 @ offset=0x00000000
@@ -39421,7 +39421,7 @@ typedef struct tim4_t {
 
 } tim4_t;
 
-// Peripheral TIM5 @ base_addess=0x40000C00
+// Peripheral TIM5 @ base_address=0x40000C00
 typedef struct tim5_t {
 
     // CR1 @ offset=0x00000000
@@ -39768,7 +39768,7 @@ typedef struct tim5_t {
 
 } tim5_t;
 
-// Peripheral TIM6 @ base_addess=0x40001000
+// Peripheral TIM6 @ base_address=0x40001000
 typedef struct tim6_t {
 
     // CR1 @ offset=0x00000000
@@ -39835,7 +39835,7 @@ typedef struct tim6_t {
 
 } tim6_t;
 
-// Peripheral TIM7 @ base_addess=0x40001400
+// Peripheral TIM7 @ base_address=0x40001400
 typedef struct tim7_t {
 
     // CR1 @ offset=0x00000000
@@ -39902,7 +39902,7 @@ typedef struct tim7_t {
 
 } tim7_t;
 
-// Peripheral TIM8 @ base_addess=0x40010400
+// Peripheral TIM8 @ base_address=0x40010400
 typedef struct tim8_t {
 
     // CR1 @ offset=0x00000000
@@ -40331,7 +40331,7 @@ typedef struct tim8_t {
 
 } tim8_t;
 
-// Peripheral UART4 @ base_addess=0x40004C00
+// Peripheral UART4 @ base_address=0x40004C00
 typedef struct uart4_t {
 
     // CR1 @ offset=0x00000000
@@ -40569,7 +40569,7 @@ typedef struct uart4_t {
 
 } uart4_t;
 
-// Peripheral UART5 @ base_addess=0x40005000
+// Peripheral UART5 @ base_address=0x40005000
 typedef struct uart5_t {
 
     // CR1 @ offset=0x00000000
@@ -40807,7 +40807,7 @@ typedef struct uart5_t {
 
 } uart5_t;
 
-// Peripheral UART7 @ base_addess=0x40007800
+// Peripheral UART7 @ base_address=0x40007800
 typedef struct uart7_t {
 
     // CR1 @ offset=0x00000000
@@ -41045,7 +41045,7 @@ typedef struct uart7_t {
 
 } uart7_t;
 
-// Peripheral UART8 @ base_addess=0x40007C00
+// Peripheral UART8 @ base_address=0x40007C00
 typedef struct uart8_t {
 
     // CR1 @ offset=0x00000000
@@ -41283,7 +41283,7 @@ typedef struct uart8_t {
 
 } uart8_t;
 
-// Peripheral USART1 @ base_addess=0x40011000
+// Peripheral USART1 @ base_address=0x40011000
 typedef struct usart1_t {
 
     // CR1 @ offset=0x00000000
@@ -41521,7 +41521,7 @@ typedef struct usart1_t {
 
 } usart1_t;
 
-// Peripheral USART2 @ base_addess=0x40004400
+// Peripheral USART2 @ base_address=0x40004400
 typedef struct usart2_t {
 
     // CR1 @ offset=0x00000000
@@ -41759,7 +41759,7 @@ typedef struct usart2_t {
 
 } usart2_t;
 
-// Peripheral USART3 @ base_addess=0x40004800
+// Peripheral USART3 @ base_address=0x40004800
 typedef struct usart3_t {
 
     // CR1 @ offset=0x00000000
@@ -41997,7 +41997,7 @@ typedef struct usart3_t {
 
 } usart3_t;
 
-// Peripheral USART6 @ base_addess=0x40011400
+// Peripheral USART6 @ base_address=0x40011400
 typedef struct usart6_t {
 
     // CR1 @ offset=0x00000000
@@ -42235,7 +42235,7 @@ typedef struct usart6_t {
 
 } usart6_t;
 
-// Peripheral VREFBUF @ base_addess=0x58003C00
+// Peripheral VREFBUF @ base_address=0x58003C00
 typedef struct vrefbuf_t {
 
     // CSR @ offset=0x00000000
@@ -42258,7 +42258,7 @@ typedef struct vrefbuf_t {
 
 } vrefbuf_t;
 
-// Peripheral WWDG @ base_addess=0x50003000
+// Peripheral WWDG @ base_address=0x50003000
 typedef struct wwdg_t {
 
     // CR @ offset=0x00000000
