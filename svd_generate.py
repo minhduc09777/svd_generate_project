@@ -351,6 +351,55 @@ class StructDevice:
             gen_content += f"#define PERI_{p.peripheral_name.upper()}" + (indent-len(p.peripheral_name))*" " + f"(({p.peripheral_name.lower()}_t *) 0x{p.peripheral.base_address:08X})\n"
         return gen_content
     
+    def generate_macro_bits_mask_shift(self):
+        """Generate nicely formatted bit-shift and mask macros.
+
+        Macros will be aligned using the longest register and field names
+        so that the output is easy to read.  For each field we emit both a
+        _SHIFT and a _MASK macro (mask is width-based).  The register
+        comment is also separated for clarity.
+        """
+        gen_content = "/*------------------------ Device Macro Bit Mask/Shift Define ------*/\n"
+
+        # flatten all registers from peripherals
+        registers = [r for p in self.peripherals for r in p.registers]
+
+        # compute width for alignment
+        max_reg = max((len(r.register_name) for r in registers), default=0)
+        max_field = max((len(f.name) for r in registers for f in r.fields), default=0)
+
+        for register in registers:
+            reg_up = register.register_name.upper()
+            gen_content += f"/*--- register {register.register_name} -------------------------------------------------*/\n"
+            for f in register.fields:
+                bit_off = getattr(f, "bit_offset", None)
+                bit_wid = getattr(f, "bit_width", None)
+
+                # fall back to lsb/msb if necessary
+                if bit_off is None and hasattr(f, "lsb") and hasattr(f, "msb"):
+                    bit_off = f.lsb
+                    bit_wid = f.msb - f.lsb + 1
+
+                field_up = f.name.upper()
+                shift_macro = f"PERI_{reg_up}_BIT_{field_up}_SHIFT"
+                mask_macro = f"PERI_{reg_up}_BIT_{field_up}_MASK"
+
+                # calculate padding to align values
+                pad_shift = " " * (max_reg + max_field - len(shift_macro))
+                pad_mask = " " * (max_reg + max_field - len(mask_macro))
+
+                gen_content += (
+                    f"#define {shift_macro}{pad_shift}({bit_off}U)\n"
+                )
+                if bit_wid is not None:
+                    # generate mask based on width: ((1U<<width)-1) << shift
+                    gen_content += (
+                        f"#define {mask_macro}{pad_mask}(((1U<<{bit_wid})-1)U << {shift_macro})\n"
+                    )
+            gen_content += "\n"
+
+        return gen_content
+    
     def generate_macro_header(self):
         """Generate header file includes and macros."""
         gen_content = f"#ifndef {self.device.name}_H_\n"
@@ -489,6 +538,7 @@ if __name__ == "__main__":
             f.write(iodefine_gen.generate_interrupt_event_enumerate())
             f.write(iodefine_gen.generate_struct_type())
             f.write(iodefine_gen.generate_struct())
+            f.write(iodefine_gen.generate_macro_bits_mask_shift())
             f.write(iodefine_gen.generate_macro_define())
             f.write("\n\n#endif")
         
