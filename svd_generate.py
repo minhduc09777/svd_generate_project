@@ -394,7 +394,7 @@ class StructDevice:
                 if bit_wid is not None:
                     # generate mask based on width: ((1U<<width)-1) << shift
                     gen_content += (
-                        f"#define {mask_macro}{pad_mask}(((1U<<{bit_wid})-1)U << {shift_macro})\n"
+                        f"#define {mask_macro}{pad_mask}((((1U<<{bit_wid})-1)U) << {shift_macro})\n"
                     )
             gen_content += "\n"
 
