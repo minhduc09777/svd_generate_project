@@ -362,16 +362,16 @@ class StructDevice:
         gen_content = "/*------------------------ Device Macro Bit Mask/Shift Define ------*/\n"
 
         # flatten all registers from peripherals
-        registers = [r for p in self.peripherals for r in p.registers]
+        registers = [{"peripheral": p, "register": r} for p in self.peripherals for r in p.registers]
 
         # compute width for alignment
-        max_reg = max((len(r.register_name) for r in registers), default=0)
-        max_field = max((len(f.name) for r in registers for f in r.fields), default=0)
+        max_reg = max((len(r["register"].register_name) for r in registers), default=0)
+        max_field = max((len(f.name) for r in registers for f in r["register"].fields), default=0)
 
         for register in registers:
-            reg_up = register.register_name.upper()
-            gen_content += f"/*--- register {register.register_name} -------------------------------------------------*/\n"
-            for f in register.fields:
+            reg_up = register["register"].register_name.upper()
+            gen_content += f"/*--- register {register['register'].register_name} -------------------------------------------------*/\n"
+            for f in register["register"].fields:
                 bit_off = getattr(f, "bit_offset", None)
                 bit_wid = getattr(f, "bit_width", None)
 
@@ -381,12 +381,12 @@ class StructDevice:
                     bit_wid = f.msb - f.lsb + 1
 
                 field_up = f.name.upper()
-                shift_macro = f"PERI_{reg_up}_BIT_{field_up}_SHIFT"
-                mask_macro = f"PERI_{reg_up}_BIT_{field_up}_MASK"
+                shift_macro = f"PERI_{register['peripheral'].peripheral_name}_{reg_up}_BIT_{field_up}_SHIFT"
+                mask_macro = f"PERI_{register['peripheral'].peripheral_name}_{reg_up}_BIT_{field_up}_MASK"
 
                 # calculate padding to align values
-                pad_shift = " " * (max_reg + max_field - len(shift_macro))
-                pad_mask = " " * (max_reg + max_field - len(mask_macro))
+                pad_shift = " " * (max_reg + max_field - len(shift_macro)) + " "
+                pad_mask = " " * (max_reg + max_field - len(mask_macro)) + " "
 
                 gen_content += (
                     f"#define {shift_macro}{pad_shift}({bit_off}U)\n"
