@@ -40397,7 +40397,7 @@ typedef struct uart4_t {
             __IO uint32_t SWAP_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t RXINV_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t TXINV_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t TAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t DATAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t MSBFIRST_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABREN_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABRMOD0_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
@@ -40635,7 +40635,7 @@ typedef struct uart5_t {
             __IO uint32_t SWAP_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t RXINV_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t TXINV_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t TAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t DATAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t MSBFIRST_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABREN_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABRMOD0_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
@@ -40873,7 +40873,7 @@ typedef struct uart7_t {
             __IO uint32_t SWAP_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t RXINV_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t TXINV_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t TAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t DATAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t MSBFIRST_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABREN_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABRMOD0_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
@@ -41111,7 +41111,7 @@ typedef struct uart8_t {
             __IO uint32_t SWAP_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t RXINV_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t TXINV_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t TAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t DATAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t MSBFIRST_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABREN_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABRMOD0_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
@@ -41349,7 +41349,7 @@ typedef struct usart1_t {
             __IO uint32_t SWAP_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t RXINV_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t TXINV_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t TAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t DATAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t MSBFIRST_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABREN_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABRMOD0_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
@@ -41587,7 +41587,7 @@ typedef struct usart2_t {
             __IO uint32_t SWAP_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t RXINV_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t TXINV_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t TAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t DATAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t MSBFIRST_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABREN_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABRMOD0_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
@@ -41825,7 +41825,7 @@ typedef struct usart3_t {
             __IO uint32_t SWAP_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t RXINV_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t TXINV_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t TAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t DATAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t MSBFIRST_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABREN_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABRMOD0_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
@@ -42063,7 +42063,7 @@ typedef struct usart6_t {
             __IO uint32_t SWAP_bit : 1; // bit offset=15  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t RXINV_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t TXINV_bit : 1; // bit offset=17  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t TAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
+            __IO uint32_t DATAINV_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t MSBFIRST_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABREN_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t ABRMOD0_bit : 1; // bit offset=21  bit width=1  access=SVDAccessType.READ_WRITE
@@ -82317,8 +82317,8 @@ typedef struct wwdg_t {
 #define PERI_UART4_CR2_BIT_RXINV_MASK                               (((1U<<1)-1) << PERI_UART4_CR2_BIT_RXINV_SHIFT)
 #define PERI_UART4_CR2_BIT_TXINV_SHIFT                              (17U)
 #define PERI_UART4_CR2_BIT_TXINV_MASK                               (((1U<<1)-1) << PERI_UART4_CR2_BIT_TXINV_SHIFT)
-#define PERI_UART4_CR2_BIT_TAINV_SHIFT                              (18U)
-#define PERI_UART4_CR2_BIT_TAINV_MASK                               (((1U<<1)-1) << PERI_UART4_CR2_BIT_TAINV_SHIFT)
+#define PERI_UART4_CR2_BIT_DATAINV_SHIFT                            (18U)
+#define PERI_UART4_CR2_BIT_DATAINV_MASK                             (((1U<<1)-1) << PERI_UART4_CR2_BIT_DATAINV_SHIFT)
 #define PERI_UART4_CR2_BIT_MSBFIRST_SHIFT                           (19U)
 #define PERI_UART4_CR2_BIT_MSBFIRST_MASK                            (((1U<<1)-1) << PERI_UART4_CR2_BIT_MSBFIRST_SHIFT)
 #define PERI_UART4_CR2_BIT_ABREN_SHIFT                              (20U)
@@ -82611,8 +82611,8 @@ typedef struct wwdg_t {
 #define PERI_UART5_CR2_BIT_RXINV_MASK                               (((1U<<1)-1) << PERI_UART5_CR2_BIT_RXINV_SHIFT)
 #define PERI_UART5_CR2_BIT_TXINV_SHIFT                              (17U)
 #define PERI_UART5_CR2_BIT_TXINV_MASK                               (((1U<<1)-1) << PERI_UART5_CR2_BIT_TXINV_SHIFT)
-#define PERI_UART5_CR2_BIT_TAINV_SHIFT                              (18U)
-#define PERI_UART5_CR2_BIT_TAINV_MASK                               (((1U<<1)-1) << PERI_UART5_CR2_BIT_TAINV_SHIFT)
+#define PERI_UART5_CR2_BIT_DATAINV_SHIFT                            (18U)
+#define PERI_UART5_CR2_BIT_DATAINV_MASK                             (((1U<<1)-1) << PERI_UART5_CR2_BIT_DATAINV_SHIFT)
 #define PERI_UART5_CR2_BIT_MSBFIRST_SHIFT                           (19U)
 #define PERI_UART5_CR2_BIT_MSBFIRST_MASK                            (((1U<<1)-1) << PERI_UART5_CR2_BIT_MSBFIRST_SHIFT)
 #define PERI_UART5_CR2_BIT_ABREN_SHIFT                              (20U)
@@ -82905,8 +82905,8 @@ typedef struct wwdg_t {
 #define PERI_UART7_CR2_BIT_RXINV_MASK                               (((1U<<1)-1) << PERI_UART7_CR2_BIT_RXINV_SHIFT)
 #define PERI_UART7_CR2_BIT_TXINV_SHIFT                              (17U)
 #define PERI_UART7_CR2_BIT_TXINV_MASK                               (((1U<<1)-1) << PERI_UART7_CR2_BIT_TXINV_SHIFT)
-#define PERI_UART7_CR2_BIT_TAINV_SHIFT                              (18U)
-#define PERI_UART7_CR2_BIT_TAINV_MASK                               (((1U<<1)-1) << PERI_UART7_CR2_BIT_TAINV_SHIFT)
+#define PERI_UART7_CR2_BIT_DATAINV_SHIFT                            (18U)
+#define PERI_UART7_CR2_BIT_DATAINV_MASK                             (((1U<<1)-1) << PERI_UART7_CR2_BIT_DATAINV_SHIFT)
 #define PERI_UART7_CR2_BIT_MSBFIRST_SHIFT                           (19U)
 #define PERI_UART7_CR2_BIT_MSBFIRST_MASK                            (((1U<<1)-1) << PERI_UART7_CR2_BIT_MSBFIRST_SHIFT)
 #define PERI_UART7_CR2_BIT_ABREN_SHIFT                              (20U)
@@ -83199,8 +83199,8 @@ typedef struct wwdg_t {
 #define PERI_UART8_CR2_BIT_RXINV_MASK                               (((1U<<1)-1) << PERI_UART8_CR2_BIT_RXINV_SHIFT)
 #define PERI_UART8_CR2_BIT_TXINV_SHIFT                              (17U)
 #define PERI_UART8_CR2_BIT_TXINV_MASK                               (((1U<<1)-1) << PERI_UART8_CR2_BIT_TXINV_SHIFT)
-#define PERI_UART8_CR2_BIT_TAINV_SHIFT                              (18U)
-#define PERI_UART8_CR2_BIT_TAINV_MASK                               (((1U<<1)-1) << PERI_UART8_CR2_BIT_TAINV_SHIFT)
+#define PERI_UART8_CR2_BIT_DATAINV_SHIFT                            (18U)
+#define PERI_UART8_CR2_BIT_DATAINV_MASK                             (((1U<<1)-1) << PERI_UART8_CR2_BIT_DATAINV_SHIFT)
 #define PERI_UART8_CR2_BIT_MSBFIRST_SHIFT                           (19U)
 #define PERI_UART8_CR2_BIT_MSBFIRST_MASK                            (((1U<<1)-1) << PERI_UART8_CR2_BIT_MSBFIRST_SHIFT)
 #define PERI_UART8_CR2_BIT_ABREN_SHIFT                              (20U)
@@ -83493,8 +83493,8 @@ typedef struct wwdg_t {
 #define PERI_USART1_CR2_BIT_RXINV_MASK                              (((1U<<1)-1) << PERI_USART1_CR2_BIT_RXINV_SHIFT)
 #define PERI_USART1_CR2_BIT_TXINV_SHIFT                             (17U)
 #define PERI_USART1_CR2_BIT_TXINV_MASK                              (((1U<<1)-1) << PERI_USART1_CR2_BIT_TXINV_SHIFT)
-#define PERI_USART1_CR2_BIT_TAINV_SHIFT                             (18U)
-#define PERI_USART1_CR2_BIT_TAINV_MASK                              (((1U<<1)-1) << PERI_USART1_CR2_BIT_TAINV_SHIFT)
+#define PERI_USART1_CR2_BIT_DATAINV_SHIFT                           (18U)
+#define PERI_USART1_CR2_BIT_DATAINV_MASK                            (((1U<<1)-1) << PERI_USART1_CR2_BIT_DATAINV_SHIFT)
 #define PERI_USART1_CR2_BIT_MSBFIRST_SHIFT                          (19U)
 #define PERI_USART1_CR2_BIT_MSBFIRST_MASK                           (((1U<<1)-1) << PERI_USART1_CR2_BIT_MSBFIRST_SHIFT)
 #define PERI_USART1_CR2_BIT_ABREN_SHIFT                             (20U)
@@ -83787,8 +83787,8 @@ typedef struct wwdg_t {
 #define PERI_USART2_CR2_BIT_RXINV_MASK                              (((1U<<1)-1) << PERI_USART2_CR2_BIT_RXINV_SHIFT)
 #define PERI_USART2_CR2_BIT_TXINV_SHIFT                             (17U)
 #define PERI_USART2_CR2_BIT_TXINV_MASK                              (((1U<<1)-1) << PERI_USART2_CR2_BIT_TXINV_SHIFT)
-#define PERI_USART2_CR2_BIT_TAINV_SHIFT                             (18U)
-#define PERI_USART2_CR2_BIT_TAINV_MASK                              (((1U<<1)-1) << PERI_USART2_CR2_BIT_TAINV_SHIFT)
+#define PERI_USART2_CR2_BIT_DATAINV_SHIFT                           (18U)
+#define PERI_USART2_CR2_BIT_DATAINV_MASK                            (((1U<<1)-1) << PERI_USART2_CR2_BIT_DATAINV_SHIFT)
 #define PERI_USART2_CR2_BIT_MSBFIRST_SHIFT                          (19U)
 #define PERI_USART2_CR2_BIT_MSBFIRST_MASK                           (((1U<<1)-1) << PERI_USART2_CR2_BIT_MSBFIRST_SHIFT)
 #define PERI_USART2_CR2_BIT_ABREN_SHIFT                             (20U)
@@ -84081,8 +84081,8 @@ typedef struct wwdg_t {
 #define PERI_USART3_CR2_BIT_RXINV_MASK                              (((1U<<1)-1) << PERI_USART3_CR2_BIT_RXINV_SHIFT)
 #define PERI_USART3_CR2_BIT_TXINV_SHIFT                             (17U)
 #define PERI_USART3_CR2_BIT_TXINV_MASK                              (((1U<<1)-1) << PERI_USART3_CR2_BIT_TXINV_SHIFT)
-#define PERI_USART3_CR2_BIT_TAINV_SHIFT                             (18U)
-#define PERI_USART3_CR2_BIT_TAINV_MASK                              (((1U<<1)-1) << PERI_USART3_CR2_BIT_TAINV_SHIFT)
+#define PERI_USART3_CR2_BIT_DATAINV_SHIFT                           (18U)
+#define PERI_USART3_CR2_BIT_DATAINV_MASK                            (((1U<<1)-1) << PERI_USART3_CR2_BIT_DATAINV_SHIFT)
 #define PERI_USART3_CR2_BIT_MSBFIRST_SHIFT                          (19U)
 #define PERI_USART3_CR2_BIT_MSBFIRST_MASK                           (((1U<<1)-1) << PERI_USART3_CR2_BIT_MSBFIRST_SHIFT)
 #define PERI_USART3_CR2_BIT_ABREN_SHIFT                             (20U)
@@ -84375,8 +84375,8 @@ typedef struct wwdg_t {
 #define PERI_USART6_CR2_BIT_RXINV_MASK                              (((1U<<1)-1) << PERI_USART6_CR2_BIT_RXINV_SHIFT)
 #define PERI_USART6_CR2_BIT_TXINV_SHIFT                             (17U)
 #define PERI_USART6_CR2_BIT_TXINV_MASK                              (((1U<<1)-1) << PERI_USART6_CR2_BIT_TXINV_SHIFT)
-#define PERI_USART6_CR2_BIT_TAINV_SHIFT                             (18U)
-#define PERI_USART6_CR2_BIT_TAINV_MASK                              (((1U<<1)-1) << PERI_USART6_CR2_BIT_TAINV_SHIFT)
+#define PERI_USART6_CR2_BIT_DATAINV_SHIFT                           (18U)
+#define PERI_USART6_CR2_BIT_DATAINV_MASK                            (((1U<<1)-1) << PERI_USART6_CR2_BIT_DATAINV_SHIFT)
 #define PERI_USART6_CR2_BIT_MSBFIRST_SHIFT                          (19U)
 #define PERI_USART6_CR2_BIT_MSBFIRST_MASK                           (((1U<<1)-1) << PERI_USART6_CR2_BIT_MSBFIRST_SHIFT)
 #define PERI_USART6_CR2_BIT_ABREN_SHIFT                             (20U)
