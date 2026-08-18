@@ -192,10 +192,10 @@ typedef struct {
           __IO uint32_t PL_bit : 2; // bit offset=16  bit width=2  access=SVDAccessType.READ_WRITE
           __IO uint32_t DBM_bit : 1; // bit offset=18  bit width=1  access=SVDAccessType.READ_WRITE
           __IO uint32_t CT_bit : 1; // bit offset=19  bit width=1  access=SVDAccessType.READ_WRITE
-          __IO uint32_t RESERVED0: 1;
+          __IO uint32_t TRBUFF_bit : 1; // bit offset=20  bit width=1  access=SVDAccessType.READ_WRITE
           __IO uint32_t PBURST_bit : 2; // bit offset=21  bit width=2  access=SVDAccessType.READ_WRITE
           __IO uint32_t MBURST_bit : 2; // bit offset=23  bit width=2  access=SVDAccessType.READ_WRITE
-          __IO uint32_t RESERVED1 : 7;
+          __IO uint32_t RESERVED0 : 7;
       } S0CR_bits;
   };
   
@@ -46121,6 +46121,8 @@ typedef struct wwdg_t {
 #define PERI_DMA1_S0CR_BIT_DBM_MASK                                 (((1U<<1)-1) << PERI_DMA1_S0CR_BIT_DBM_SHIFT)
 #define PERI_DMA1_S0CR_BIT_CT_SHIFT                                 (19U)
 #define PERI_DMA1_S0CR_BIT_CT_MASK                                  (((1U<<1)-1) << PERI_DMA1_S0CR_BIT_CT_SHIFT)
+#define PERI_DMA1_S0CR_BIT_TRBUFF_SHIFT                             (20U)
+#define PERI_DMA1_S0CR_BIT_TRBUFF_MASK                              (((1U<<1)-1) << PERI_DMA1_S0CR_BIT_TRBUFF_SHIFT)
 #define PERI_DMA1_S0CR_BIT_PBURST_SHIFT                             (21U)
 #define PERI_DMA1_S0CR_BIT_PBURST_MASK                              (((1U<<2)-1) << PERI_DMA1_S0CR_BIT_PBURST_SHIFT)
 #define PERI_DMA1_S0CR_BIT_MBURST_SHIFT                             (23U)
@@ -46815,6 +46817,8 @@ typedef struct wwdg_t {
 #define PERI_DMA2_S0CR_BIT_DBM_MASK                                 (((1U<<1)-1) << PERI_DMA2_S0CR_BIT_DBM_SHIFT)
 #define PERI_DMA2_S0CR_BIT_CT_SHIFT                                 (19U)
 #define PERI_DMA2_S0CR_BIT_CT_MASK                                  (((1U<<1)-1) << PERI_DMA2_S0CR_BIT_CT_SHIFT)
+#define PERI_DMA2_S0CR_BIT_TRBUFF_SHIFT                             (20U)
+#define PERI_DMA2_S0CR_BIT_TRBUFF_MASK                              (((1U<<1)-1) << PERI_DMA2_S0CR_BIT_TRBUFF_SHIFT)
 #define PERI_DMA2_S0CR_BIT_PBURST_SHIFT                             (21U)
 #define PERI_DMA2_S0CR_BIT_PBURST_MASK                              (((1U<<2)-1) << PERI_DMA2_S0CR_BIT_PBURST_SHIFT)
 #define PERI_DMA2_S0CR_BIT_MBURST_SHIFT                             (23U)

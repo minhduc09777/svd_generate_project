@@ -74509,6 +74509,12 @@ Minimum value is 16</description>
               <bitWidth>2</bitWidth>
             </field>
             <field>
+              <name>TRBUFF</name>
+              <description> Enable the DMA to handle bufferable transfers</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
               <name>CT</name>
               <description>Current target (only in double buffer
               mode)</description>
