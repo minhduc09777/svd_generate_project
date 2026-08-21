@@ -48,7 +48,7 @@ class YamlArrayType:
         """Generate array structure code if register matches."""
         for struct in self.structs:
             if struct[4] and peri in self.collect_peri_gen:
-                return None
+                continue
             if register_name in struct[3]:
                 struct[4] = True
                 self.collect_peri_gen.append(peri)
@@ -136,7 +136,7 @@ class YamlConfigRegister:
         self.collect_modify_perripheral_names = {}
         for index, p in enumerate(self.peripheral_names):
             for k, v in p.items():
-                if k == "length" and k == "unit":
+                if k == "length" or k == "unit":
                     continue
                 if "$" in k:
                     perisplit = k.split('$')
@@ -148,7 +148,6 @@ class YamlConfigRegister:
                     self.collect_modify_perripheral_names[k] = (list_peri, index)
                 else:
                     self.collect_modify_perripheral_names[k] = (k, index)
-
 class StructRegister:
     """Represents a hardware register structure."""
     
@@ -216,7 +215,7 @@ class StructPeripheral:
                     for e, f in struct_modify.peripheral_names[v[1]].items():
                         if e not in ("unit", "length"):
                             self.modify_reg = [f, peri_name]
-        
+
         self.registers = [StructRegister(device, peripheral_name, r.name, self.modify_reg) for r in self.peripheral.registers]
         self.registers.sort(key=lambda r: r.address_offset)
         self.registers_dict = {}
@@ -246,6 +245,13 @@ class StructPeripheral:
                 offset_indent = 4
 
             for r in self.registers_dict[key]:
+                is_modify_reg = False
+
+                if list_tracking_length_offset < r.address_offset:
+                    gen_content += f"    __IO uint8_t RESERVED{count_reserved}[{r.address_offset - list_tracking_length_offset}];\n\n"
+                    list_tracking_length_offset = r.address_offset
+                    count_reserved += 1
+
                 if self.modify_reg is not None:
                     if self.modify_reg[1] == self.peripheral_name and r.register_name in self.modify_reg[0].collect_register:
                         register_modify_arr = self.modify_reg[0].type["array"]
@@ -254,13 +260,12 @@ class StructPeripheral:
                             if data:
                                 gen_content += f"    {data}"
 
-                        continue
-                if list_tracking_length_offset < r.address_offset:
-                    gen_content += f"    __IO uint8_t RESERVED{count_reserved}[{r.address_offset - list_tracking_length_offset}];\n\n"
-                    list_tracking_length_offset = r.address_offset
-                    count_reserved += 1
-                gen_content += offset_indent * " " + f"    // {r.register_name} @ offset=0x{r.address_offset:08X}\n"
-                gen_content += r.generate_struct(indent= 4 + offset_indent, only_fields=False) + "\n"
+                        is_modify_reg = True
+                        # list_tracking_length_offset = r.address_offset
+                        # continue
+                if is_modify_reg == False:
+                    gen_content += offset_indent * " " + f"    // {r.register_name} @ offset=0x{r.address_offset:08X}\n"
+                    gen_content += r.generate_struct(indent= 4 + offset_indent, only_fields=False) + "\n"
                 list_tracking_length_offset = r.address_offset + r.device_bit_width // 8
 
             if len(self.registers_dict[key]) > 1:

@@ -1,0 +1,1 @@
+py svd_generate.py --device=STM32H743 --core=cortex-M

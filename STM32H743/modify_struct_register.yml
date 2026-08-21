@@ -19,3 +19,10 @@ DMAMUX$:
         DMAMUX_CxCR_Reg
       data: [DMAMUX_C#CR, ]
       length: 16
+    struct2:
+      struct_name:
+        dmamux_rgxcr_reg_t
+      varname:
+        DMAMUX_RGxCR_reg
+      data: [DMAMUX_RG#CR, ]
+      length: 8
