@@ -397,7 +397,7 @@ typedef struct adc1_t {
 
         // bit fields
         struct {
-            __IO uint32_t RESERVED0: 3;
+            __IO uint32_t SMP0_bit : 3; // bit offset=0  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP1_bit : 3; // bit offset=3  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP2_bit : 3; // bit offset=6  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP3_bit : 3; // bit offset=9  bit width=3  access=SVDAccessType.READ_WRITE
@@ -407,7 +407,7 @@ typedef struct adc1_t {
             __IO uint32_t SMP7_bit : 3; // bit offset=21  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP8_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP9_bit : 3; // bit offset=27  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1 : 2;
+            __IO uint32_t RESERVED0 : 2;
         } SMPR1_bits;
     };
 
@@ -850,7 +850,7 @@ typedef struct adc2_t {
 
         // bit fields
         struct {
-            __IO uint32_t RESERVED0: 3;
+            __IO uint32_t SMP0_bit : 3; // bit offset=0  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP1_bit : 3; // bit offset=3  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP2_bit : 3; // bit offset=6  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP3_bit : 3; // bit offset=9  bit width=3  access=SVDAccessType.READ_WRITE
@@ -860,7 +860,7 @@ typedef struct adc2_t {
             __IO uint32_t SMP7_bit : 3; // bit offset=21  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP8_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP9_bit : 3; // bit offset=27  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1 : 2;
+            __IO uint32_t RESERVED0 : 2;
         } SMPR1_bits;
     };
 
@@ -1229,7 +1229,7 @@ typedef struct adc3_t {
 
         // bit fields
         struct {
-            __IO uint32_t RESERVED0: 3;
+            __IO uint32_t SMP0_bit : 3; // bit offset=0  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP1_bit : 3; // bit offset=3  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP2_bit : 3; // bit offset=6  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP3_bit : 3; // bit offset=9  bit width=3  access=SVDAccessType.READ_WRITE
@@ -1239,7 +1239,7 @@ typedef struct adc3_t {
             __IO uint32_t SMP7_bit : 3; // bit offset=21  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP8_bit : 3; // bit offset=24  bit width=3  access=SVDAccessType.READ_WRITE
             __IO uint32_t SMP9_bit : 3; // bit offset=27  bit width=3  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1 : 2;
+            __IO uint32_t RESERVED0 : 2;
         } SMPR1_bits;
     };
 
@@ -42326,6 +42326,8 @@ typedef struct wwdg_t {
 #define PERI_ADC1_CFGR2_BIT_LSHIFT_MASK                             (((1U<<4)-1) << PERI_ADC1_CFGR2_BIT_LSHIFT_SHIFT)
 
 /*--- register SMPR1 -------------------------------------------------*/
+#define PERI_ADC1_SMPR1_BIT_SMP0_SHIFT                              (0U)
+#define PERI_ADC1_SMPR1_BIT_SMP0_MASK                               (((1U<<3)-1) << PERI_ADC1_SMPR1_BIT_SMP0_SHIFT)
 #define PERI_ADC1_SMPR1_BIT_SMP1_SHIFT                              (3U)
 #define PERI_ADC1_SMPR1_BIT_SMP1_MASK                               (((1U<<3)-1) << PERI_ADC1_SMPR1_BIT_SMP1_SHIFT)
 #define PERI_ADC1_SMPR1_BIT_SMP2_SHIFT                              (6U)
@@ -42750,6 +42752,8 @@ typedef struct wwdg_t {
 #define PERI_ADC2_CFGR2_BIT_LSHIFT_MASK                             (((1U<<4)-1) << PERI_ADC2_CFGR2_BIT_LSHIFT_SHIFT)
 
 /*--- register SMPR1 -------------------------------------------------*/
+#define PERI_ADC2_SMPR1_BIT_SMP0_SHIFT                              (0U)
+#define PERI_ADC2_SMPR1_BIT_SMP0_MASK                               (((1U<<3)-1) << PERI_ADC2_SMPR1_BIT_SMP0_SHIFT)
 #define PERI_ADC2_SMPR1_BIT_SMP1_SHIFT                              (3U)
 #define PERI_ADC2_SMPR1_BIT_SMP1_MASK                               (((1U<<3)-1) << PERI_ADC2_SMPR1_BIT_SMP1_SHIFT)
 #define PERI_ADC2_SMPR1_BIT_SMP2_SHIFT                              (6U)
@@ -43100,6 +43104,8 @@ typedef struct wwdg_t {
 #define PERI_ADC3_CFGR2_BIT_LSHIFT_MASK                             (((1U<<4)-1) << PERI_ADC3_CFGR2_BIT_LSHIFT_SHIFT)
 
 /*--- register SMPR1 -------------------------------------------------*/
+#define PERI_ADC3_SMPR1_BIT_SMP0_SHIFT                              (0U)
+#define PERI_ADC3_SMPR1_BIT_SMP0_MASK                               (((1U<<3)-1) << PERI_ADC3_SMPR1_BIT_SMP0_SHIFT)
 #define PERI_ADC3_SMPR1_BIT_SMP1_SHIFT                              (3U)
 #define PERI_ADC3_SMPR1_BIT_SMP1_MASK                               (((1U<<3)-1) << PERI_ADC3_SMPR1_BIT_SMP1_SHIFT)
 #define PERI_ADC3_SMPR1_BIT_SMP2_SHIFT                              (6U)

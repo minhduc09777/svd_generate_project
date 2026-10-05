@@ -41277,6 +41277,13 @@ Writing 1 in each bit clears the corresponding overrun flag SOFx in the DMAMUX_C
               <bitOffset>3</bitOffset>
               <bitWidth>3</bitWidth>
             </field>
+            <field>
+              <name>SMP0</name>
+              <description>ADC channel 0 sampling time
+              selection</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>3</bitWidth>
+            </field>
           </fields>
         </register>
         <register>
