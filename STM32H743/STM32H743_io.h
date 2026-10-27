@@ -324,8 +324,8 @@ typedef struct adc1_t {
             __IO uint32_t ADSTP_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t JADSTP_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t RESERVED0: 2;
-            __IO uint32_t BOOST_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 7;
+            __IO uint32_t BOOST_bit : 2; // bit offset=8  bit width=2  access=SVDAccessType.READ_WRITE
+            __IO uint32_t RESERVED1: 6;
             __IO uint32_t ADCALLIN_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t RESERVED2: 5;
             __IO uint32_t LINCALRDYW1_bit : 1; // bit offset=22  bit width=1  access=SVDAccessType.READ_WRITE
@@ -777,8 +777,8 @@ typedef struct adc2_t {
             __IO uint32_t ADSTP_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t JADSTP_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t RESERVED0: 2;
-            __IO uint32_t BOOST_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 7;
+            __IO uint32_t BOOST_bit : 2; // bit offset=8  bit width=2  access=SVDAccessType.READ_WRITE
+            __IO uint32_t RESERVED1: 6;
             __IO uint32_t ADCALLIN_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t RESERVED2: 5;
             __IO uint32_t LINCALRDYW1_bit : 1; // bit offset=22  bit width=1  access=SVDAccessType.READ_WRITE
@@ -1156,8 +1156,8 @@ typedef struct adc3_t {
             __IO uint32_t ADSTP_bit : 1; // bit offset=4  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t JADSTP_bit : 1; // bit offset=5  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t RESERVED0: 2;
-            __IO uint32_t BOOST_bit : 1; // bit offset=8  bit width=1  access=SVDAccessType.READ_WRITE
-            __IO uint32_t RESERVED1: 7;
+            __IO uint32_t BOOST_bit : 2; // bit offset=8  bit width=2  access=SVDAccessType.READ_WRITE
+            __IO uint32_t RESERVED1: 6;
             __IO uint32_t ADCALLIN_bit : 1; // bit offset=16  bit width=1  access=SVDAccessType.READ_WRITE
             __IO uint32_t RESERVED2: 5;
             __IO uint32_t LINCALRDYW1_bit : 1; // bit offset=22  bit width=1  access=SVDAccessType.READ_WRITE
@@ -42241,7 +42241,7 @@ typedef struct wwdg_t {
 #define PERI_ADC1_CR_BIT_JADSTP_SHIFT                               (5U)
 #define PERI_ADC1_CR_BIT_JADSTP_MASK                                (((1U<<1)-1) << PERI_ADC1_CR_BIT_JADSTP_SHIFT)
 #define PERI_ADC1_CR_BIT_BOOST_SHIFT                                (8U)
-#define PERI_ADC1_CR_BIT_BOOST_MASK                                 (((1U<<1)-1) << PERI_ADC1_CR_BIT_BOOST_SHIFT)
+#define PERI_ADC1_CR_BIT_BOOST_MASK                                 (((1U<<2)-1) << PERI_ADC1_CR_BIT_BOOST_SHIFT)
 #define PERI_ADC1_CR_BIT_ADCALLIN_SHIFT                             (16U)
 #define PERI_ADC1_CR_BIT_ADCALLIN_MASK                              (((1U<<1)-1) << PERI_ADC1_CR_BIT_ADCALLIN_SHIFT)
 #define PERI_ADC1_CR_BIT_LINCALRDYW1_SHIFT                          (22U)
@@ -42667,7 +42667,7 @@ typedef struct wwdg_t {
 #define PERI_ADC2_CR_BIT_JADSTP_SHIFT                               (5U)
 #define PERI_ADC2_CR_BIT_JADSTP_MASK                                (((1U<<1)-1) << PERI_ADC2_CR_BIT_JADSTP_SHIFT)
 #define PERI_ADC2_CR_BIT_BOOST_SHIFT                                (8U)
-#define PERI_ADC2_CR_BIT_BOOST_MASK                                 (((1U<<1)-1) << PERI_ADC2_CR_BIT_BOOST_SHIFT)
+#define PERI_ADC2_CR_BIT_BOOST_MASK                                 (((1U<<2)-1) << PERI_ADC2_CR_BIT_BOOST_SHIFT)
 #define PERI_ADC2_CR_BIT_ADCALLIN_SHIFT                             (16U)
 #define PERI_ADC2_CR_BIT_ADCALLIN_MASK                              (((1U<<1)-1) << PERI_ADC2_CR_BIT_ADCALLIN_SHIFT)
 #define PERI_ADC2_CR_BIT_LINCALRDYW1_SHIFT                          (22U)
@@ -43019,7 +43019,7 @@ typedef struct wwdg_t {
 #define PERI_ADC3_CR_BIT_JADSTP_SHIFT                               (5U)
 #define PERI_ADC3_CR_BIT_JADSTP_MASK                                (((1U<<1)-1) << PERI_ADC3_CR_BIT_JADSTP_SHIFT)
 #define PERI_ADC3_CR_BIT_BOOST_SHIFT                                (8U)
-#define PERI_ADC3_CR_BIT_BOOST_MASK                                 (((1U<<1)-1) << PERI_ADC3_CR_BIT_BOOST_SHIFT)
+#define PERI_ADC3_CR_BIT_BOOST_MASK                                 (((1U<<2)-1) << PERI_ADC3_CR_BIT_BOOST_SHIFT)
 #define PERI_ADC3_CR_BIT_ADCALLIN_SHIFT                             (16U)
 #define PERI_ADC3_CR_BIT_ADCALLIN_MASK                              (((1U<<1)-1) << PERI_ADC3_CR_BIT_ADCALLIN_SHIFT)
 #define PERI_ADC3_CR_BIT_LINCALRDYW1_SHIFT                          (22U)

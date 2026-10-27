@@ -40950,7 +40950,7 @@ Writing 1 in each bit clears the corresponding overrun flag SOFx in the DMAMUX_C
               <name>BOOST</name>
               <description>Boost mode control</description>
               <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
+              <bitWidth>2</bitWidth>
             </field>
             <field>
               <name>JADSTP</name>
