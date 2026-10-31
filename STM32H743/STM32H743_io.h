@@ -42496,7 +42496,7 @@ typedef struct wwdg_t {
 #define PERI_ADC1_AWD2CR_BIT_AWD2CH_MASK                            (((1U<<20)-1) << PERI_ADC1_AWD2CR_BIT_AWD2CH_SHIFT)
 
 /*--- register AWD3CR -------------------------------------------------*/
-#define PERI_ADC1_AWD3CR_BIT_AWD3CH_SHIFT                           (1U)
+#define PERI_ADC1_AWD3CR_BIT_AWD3CH_SHIFT                           (0U)
 #define PERI_ADC1_AWD3CR_BIT_AWD3CH_MASK                            (((1U<<20)-1) << PERI_ADC1_AWD3CR_BIT_AWD3CH_SHIFT)
 
 /*--- register LTR2 -------------------------------------------------*/
@@ -42922,7 +42922,7 @@ typedef struct wwdg_t {
 #define PERI_ADC2_AWD2CR_BIT_AWD2CH_MASK                            (((1U<<20)-1) << PERI_ADC2_AWD2CR_BIT_AWD2CH_SHIFT)
 
 /*--- register AWD3CR -------------------------------------------------*/
-#define PERI_ADC2_AWD3CR_BIT_AWD3CH_SHIFT                           (1U)
+#define PERI_ADC2_AWD3CR_BIT_AWD3CH_SHIFT                           (0U)
 #define PERI_ADC2_AWD3CR_BIT_AWD3CH_MASK                            (((1U<<20)-1) << PERI_ADC2_AWD3CR_BIT_AWD3CH_SHIFT)
 
 /*--- register LTR2 -------------------------------------------------*/
@@ -43274,7 +43274,7 @@ typedef struct wwdg_t {
 #define PERI_ADC3_AWD2CR_BIT_AWD2CH_MASK                            (((1U<<20)-1) << PERI_ADC3_AWD2CR_BIT_AWD2CH_SHIFT)
 
 /*--- register AWD3CR -------------------------------------------------*/
-#define PERI_ADC3_AWD3CR_BIT_AWD3CH_SHIFT                           (1U)
+#define PERI_ADC3_AWD3CR_BIT_AWD3CH_SHIFT                           (0U)
 #define PERI_ADC3_AWD3CR_BIT_AWD3CH_MASK                            (((1U<<20)-1) << PERI_ADC3_AWD3CR_BIT_AWD3CH_SHIFT)
 
 /*--- register LTR2 -------------------------------------------------*/

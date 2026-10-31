@@ -41884,7 +41884,7 @@ Writing 1 in each bit clears the corresponding overrun flag SOFx in the DMAMUX_C
               <name>AWD3CH</name>
               <description>ADC analog watchdog 3 monitored channel
               selection</description>
-              <bitOffset>1</bitOffset>
+              <bitOffset>0</bitOffset>
               <bitWidth>20</bitWidth>
             </field>
           </fields>
